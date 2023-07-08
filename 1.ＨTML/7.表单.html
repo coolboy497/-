@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 在HTML中，一个完整的表单通常由表单域、表单控件（也称为表单元素）和提示信息3个部分构成 -->
+    <!-- 表单域：<form></form> 用于用户资料的收集，会把它范围内的表单元素信息提交给服务器
+    action属性：url地址，用于指定接收并处理表单数据的服务器程序的url地址。
+    method属性：get/post 用于设置表单数据的提交方式，其取值为get或post
+    name属性：表单域名称，用于指定表单的名称，以区分同一个页面中的多个表单域 
+
+        表单元素：input输入表单元素/select下拉表单元素/textarea文本域元素
+    (1)input:是单标签
+    type属性：决定输入表单的形状
+    name属性：决定输入表单的名字，单选按钮和复选框都要有相同的name值
+    value属性：定义表单的值
+    checked属性：规定input表单元素是否被选中（checked='checked'）（单选按钮和复选框设置，当页面一打开默认选中）
+    maxlength:规定输入字段的最大长度
+    submit: 提交按钮，点击后提交表单域中的内容到后台服务器
+    reset: 清除表单域中的数据
+    button：普通按钮，不会提交数据，后期配合js使用
+    file：文件域，上传文件使用
+
+    (2)label标签：为input元素定义标注，用于绑定一个表单元素当点击label标签
+    内的文本时，浏览器就会自动将焦点（光标）转到或者选择对应的表单元素上，用来增加用户体验
+    核心:label标签的for属性应当与相关元素的id属性相同
+
+    (3)select:在页面，如果有多个选项让用户选择，并且想要节约页面空间时，用select定义下拉列表
+    里面用option定义每个选项，selected='selected'使某个option处于默认选择
+
+    (4)textarea:用户输入内容较多，定义多行文本输入的控件，留言板等
+    cols属性:一行可以显示的字数
+    rows属性：可以显示的行数-->
+    <form>
+        <!-- text 文本框 用户可以里面输入任何文字 -->
+        用户名:<input type="text" value="请输入用户名"><br>
+        <!-- password 密码框 用户看不见输入的密码 -->
+        密码:<input type="password"><br>
+        <!-- radio 单选按钮 可以实现多选一 -->
+        <!-- name是表单元素名字 这里性别单选按钮必须有相同的名字name，才可以实现多选一 -->
+        单选按钮:男<input type="radio" name="sex">女<input type="radio" name="sex"><br>
+        <!-- checkbox 复选框 可以实现多选 -->
+        多选按钮（复选框）:吃饭<input type="checkbox" name="hobby">睡觉<input type="checkbox" name="hobby">打豆豆<input type="checkbox" name="hobby">
+        <!-- 里面的value值默认是提交和重置，可以自己更改 -->
+        <input type="submit" value="免费注册">
+        <input type="reset" value="重新填写">
+
+        <input type="button" value="获取短信验证码">
+        上传文件:<input type="file">
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <!-- 这样点击用户名,文本框就会自动获取焦点 -->
+        <label for="text">用户名:</label><input type="text" id="text">
+        <br>
+        籍贯：
+        <select name="" id="">
+            <option value="">北京</option>
+            <option value="" selected="selected">重庆</option>
+            <option value="">山东</option>
+            <option value="">上海</option>
+        </select>
+        <br>
+        <br>
+        今日反馈:
+        <textarea name="" id="" cols="30" rows="10"></textarea>
+    </form>
+</body>
+</html>

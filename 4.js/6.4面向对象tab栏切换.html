@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 图标自带的类名前要添加个iconfont -->
+    <link rel="stylesheet" href="//at.alicdn.com/t/c/font_3918322_zk095uz8ln.css">
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        /* box-sizing: border-box; */
+    }
+    h3{
+        width: 250px;
+        margin: 0 auto;
+        margin-top: 100px;
+        margin-bottom: 20px;
+    }
+    .box {
+        position: relative;
+        width: 1000px;
+        height: 300px;
+        /* background-color: pink; */
+        margin: 0 auto;
+        /* margin-top:150px ; */
+        border: 1px solid #ccc;
+    }
+    nav {
+        position: relative;
+        width: 1000px;
+        height: 60px;
+        margin: 0 auto;
+        /* background-color: skyblue; */
+        /* border-bottom: 1px solid #ccc; */
+    }
+    nav ul {
+        overflow: hidden;
+    }
+    li {
+        list-style: none;
+    }
+    nav ul li {
+        position: relative;
+        float: left;
+        width: 100px;
+        height: 60px;
+        text-align: center;
+        line-height: 60px;
+        border-right:1px solid #ccc ;
+    }
+    .icon-ai54 {
+        position: absolute;
+        top:-23px;
+        right: 0;
+    }
+    .add {
+        float: right;
+        position: absolute;
+        /* border: 1px solid #ccc; */
+        top:15px;
+        right: 0;
+        width: 20px;
+        height: 20px;
+        /* border-radius: 50%; */
+        line-height: 18px;
+        margin:10px 20px;
+        color: black;
+    }
+    .icon-icon_tianjia::before{
+        font-size: 20px;
+    }
+    nav ul li.liactive {
+        border-bottom:2px solid #fff;
+        z-index:1;
+    }
+    .tabscon {
+        width: 100%;
+        height: 240px;
+        /* padding-top: 10px; */
+        border-top: 1px solid #ccc;
+    }
+    .tabscon section {
+        width: 100%;
+        height: 100%;
+        margin-top: 10px;
+        display: none;
+    }
+    .tabscon .conative {
+        display: block;
+    }
+</style>
+<body>
+    <h3>js面向对象 动态添加标签页</h3>
+    <div class="box">
+        <!-- tab栏 -->
+        <nav>
+            <ul class="ul">
+                <li class="liactive" ><span class="text">测试1</span><span class="iconfont icon-ai54"></span></li>
+                <li class="" ><span class="text">测试2</span><span class="iconfont icon-ai54"></span></li>
+                <li class="" ><span class="text">测试3</span><span class="iconfont icon-ai54"></span></li>
+            </ul>
+            <div class="add iconfont icon-icon_tianjia"></div>
+        </nav>
+        <!-- tab内容 -->
+        <div class="tabscon">
+            <section class="conative">测试1</section>
+            <section>测试2</section>
+            <section>测试3</section>
+        </div>
+    </div>
+
+    <script>
+        // 创建tab栏对象，具有增删改查功能
+        // var that;
+        class Tab {
+            constructor(Class){
+                // 保存下来constructor里面的this
+                // that = this;
+                this.main = document.querySelector(Class);
+                this.ul = this.main.querySelector('.ul');
+                this.add = this.main.querySelector('.add');
+                this.tabscon = this.main.querySelector('.tabscon');
+                this.init();
+            }
+            // 初始化操作让相关的元素绑定事件
+            init(){
+                this.updatenode();
+                this.add.onclick = this.addTab.bind(this.add,this);
+                for (var i=0;i<this.lis.length;i++){
+                    this.lis[i].index = i;
+                    // 点击完才切换，toggletab后不需要加小括号
+                    this.lis[i].onclick = this.toggleTab.bind(this.lis[i],this);
+                    // 点击x，执行删除功能
+                    this.del[i].onclick = this.removeTab.bind(this.del[i],this);
+                    // 双击文本（ondblclick），执行更改功能
+                    // dbclick默认会选中文字，所以我们要禁止默认的选中文字
+                    this.texts[i].ondblclick = this.editTab;
+                    this.secs[i].ondblclick = this.editTab;
+                }
+            }
+            // 获取所有的li和section
+            updatenode(){
+                this.del = this.main.querySelectorAll(".icon-ai54");
+                this.lis = this.main.querySelectorAll("li");
+                this.secs = this.main.querySelectorAll("section");
+                this.texts = this.main.querySelectorAll('.text');
+            }
+            // 1.切换功能
+            toggleTab(that){
+                // console.log(this.index);
+                // that是全局的this，通过bind方法的当作参数传过来****
+                that.clear();
+                // this指的是当前的对象，bind方法没有改变当前指向 bind（this.lis[i]）
+                this.className = 'liactive';
+                that.secs[this.index].className = 'conative';
+            }
+            clear(){
+                for (var i=0;i<this.lis.length;i++){
+                    this.lis[i].className = "";
+                    this.secs[i].className = '';
+                }
+            }
+            // 2.添加功能
+            addTab(that){
+                // 高级做法：利用insertAdjacentHTML()可以直接把字符串格式元素添加到父元素中
+                // 原来的做法：先用createElement创建元素，再用appendChild添加,appendChild不能直接添加字符串
+                //(1) 创建li元素和section元素
+                //(2) 把创建的元素添加到父元素去
+
+                // 原始做法
+                // let li = document.createElement("li");
+                // li.className = "iconfont icon-ai54";
+                // li.innerHTML = "新测试";
+                // that.ul.appendChild(li);
+
+                // 高级做法,insertAdjacentHTML('','')接收两个参数，第一个是插入位置，第二个是插入字符串
+                // beforebegin：父元素前面 afterend:父元素后面
+                // afterbegin：父元素内部第一个子元素的前面 beforeend:父元素内部最后一个子元素后面
+                that.clear();
+                let li = '<li class=" liactive" ><span class="text">新测试</span><span class="iconfont icon-ai54"></span></li>';
+                that.ul.insertAdjacentHTML('beforeend',li);
+                let sec ='<section class = "conative">新测试</section>'
+                that.tabscon.insertAdjacentHTML('beforeend',sec);
+                // 重新获取所有li和section
+                that.init();
+            }
+            // 3.删除功能
+            removeTab(that,e){
+                // 阻止冒泡，防止点击x时导致tab栏的切换
+                e.stopPropagation();
+                let index =  this.parentNode.index;
+                // let index_copy = index;
+                // console.log(index);
+                // 删除
+                that.lis[index].remove();
+                that.secs[index].remove();
+                that.init();
+                // 如果当前状态是选定的，则删除后return，不进行下面状态的更新
+                if(document.querySelector('.liactive'))return
+                // 当我们删除后，让其前一个处于选定状态
+                index--;
+                // 手动调用我们的点击事件，不需要鼠标触发
+                // that.lis[index]为真才执行后面的操作（解除了删除第一个报错的问题）
+                that.lis[index]&&that.lis[index].click();
+
+                // 当我们删除的不是选定状态的li,原来选定的状态li保持不变
+                // that.lis[index_copy+1].click();
+            }
+            // 4.修改功能
+            editTab(){
+                let str = this.innerHTML;
+                // 双击禁止选定文字
+                window.getSelection ? window.getSelection().removeAllRanges() : document.selection.empty();
+                this.innerHTML = '<input type ="text" style="width:80%;height:80%"/>';
+                let input = this.children[0];
+                input.value = str;
+                //让文本框中的文本处于选定状态
+                input.select();
+                // 当我们离开文本框就把文本框里面的值赋给span，并删除文本框
+                input.onblur = function(){
+                    this.parentNode.innerHTML = this.value;
+                }
+                //按下回车也吧值赋给span
+                input.onkeyup = function(e){
+                    if(e.keyCode===13){
+                        // 手动调用表单失去焦点事件，不需要鼠标离开操作
+                        this.blur();
+                    }
+                }
+            }
+        }
+        let tab=new Tab(".box");
+        
+    </script>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // const arr = ["red","blue","black","green"]
+        // let num =0 ;
+        // arr.forEach(function(value){
+        //     if(value=="blue"){
+        //         return true;
+        //     }
+        //     num++;
+        // })
+        // console.log(num);//3,找到blue后并不会终止迭代过程
+
+        const arr = ["red","blue","black","green"]
+        let num =0 ;
+        arr.some(function(value){
+            if(value=="blue"){
+                return true;//必须是return true才能终止
+            }
+            num++;
+        })
+        console.log(num);//1,找到后就终止迭代过程了，效率高
+
+        // const arr = ["red","blue","black","green"]
+        // let num =0 ;
+        // arr.filter(function(value){
+        //     if(value=="blue"){
+        //         return true;
+        //     }
+        //     num++;
+        // })
+        // console.log(num);//3,找到blue后并不会终止迭代过程
+    </script>
+</body>
+</html>

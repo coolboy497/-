@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS边框属性</title>
+</head>
+<style>
+    /* border-collapse:collapse 合并相邻的边框，防止边框间重叠导致双倍像素显示*/
+    p.one {
+       border-style: solid;
+       border-width: 5px;
+       border-color: lightblue;
+    }
+    /*左右为实线，上下为虚线，border-width 和 border-color 也同样适用
+    以下设置方式*/
+    p.two {
+        border-top-style: dotted;
+        border-right-style: solid;
+        border-bottom-style: dotted;
+        border-left-style: solid;
+    }
+    /*简写边框属性，指定左边框也可以不指定*/
+    p.three {
+        border-left: 5px solid red;
+    }
+    /*外边距属性，也可以像border一样简写属性*/
+    div.div1{
+        border: 1px solid blue;
+        margin-top: 100px;
+        margin-right: 100px;
+        margin-bottom: 100px;
+        margin-left: 100px;
+    }
+    /*margin的auto属性自动将元素居中，如要指定宽度，要在margin属性前面指定*/
+    div.div2{
+        width: 300px;
+        border:1px solid red;
+        margin:auto;
+    }
+    /*内边距属性，也可以进行属性的简写,如下div设置的宽度为200px，
+    但实际是200+50x2=300px,这时可以用box-sizing属性保持元素的宽度不变*/
+    div.div3{
+        background-color: yellow;
+        width: 200px;
+        padding-top: 50px;
+        padding-right: 50px;
+        padding-bottom: 50px;
+        padding-left: 50px;
+        box-sizing: border-box;
+    }
+</style>
+<body>
+    <p class="one">nice catch1</p>
+    <p class="two">nice catch2</p>
+    <p class="three">nice catch3</p>
+    <div class="div1">nice catch</div>
+    <div class="div2">nice catch2</div>
+    <div class="div3">nice catch3</div>
+</body>
+</html>

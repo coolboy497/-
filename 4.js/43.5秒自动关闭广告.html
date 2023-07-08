@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <img src="..\jsapis_material\第四天\images\ad.jpg" alt="">
+    <script>
+        //setTimeout()这个调用函数我们也称为回调函数callback
+        //普通函数是按照代码顺序直接调用，而这个函数，需要等待时间
+        //时间到了采取调用函数，因此称为回调函数
+        var ad = document.querySelector('img')
+        setTimeout(function(){
+            ad.style.display = 'none'
+        },5000)
+    </script>
+</body>
+</html>

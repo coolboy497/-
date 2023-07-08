@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS flexbox</title>
+</head>
+<!--在 Flexbox 布局模块（问世）之前，可用的布局模式有以下四种：
+    (1)块（Block），用于网页中的部分（节）
+    (2)行内（Inline），用于文本
+    (3)表，用于二维表数据
+    (4)定位，用于元素的明确位置
+    Flexbox布局模块，可以更轻松地设计灵活的响应式布局结构，而无需使用浮动或定位
+    flex容器的直接子元素会自动成为弹性（flex）项目
+
+    (0)flex-flow属性:flex-direction和flex-wrap的简写属性
+    (1)flex-direction属性:规定弹性容器内的弹性项目的方向
+(row:按行,column:按列,row-reverse:按行但排列方向相反,column-reverse:)
+    (2)flex-wrap属性:规定弹性项目是否应该换行
+(nowrap:规定不能换行,wrap:需要时换行,wrap-reverse:需要时换行，但项目会排列成反方向)
+    (3)justify-content属性:用于对齐flex项目
+(center:水平中心对齐；flex-start:开头对齐；flex-end:末端对齐；space-between:在项目之间留有间隔; space-around:在项目之间和之前，之后都有间隔)
+    (4)align-items属性:用于垂直对齐flex项目
+(center:竖直中心对齐；flex-start:顶部对齐；flex-end:底部对齐；
+stretch(默认值,当父容器设置了高度，子容器没有设置高度时，会将子容器拉伸得和父容器一样高 )；baseline(使项目按照文本基线对齐)
+    (5)align-content属性：用于对齐弹性线
+(space-between:弹性线之间有相等的间距;space-around:弹性线在其之前、之间和之后带有空格;stretch:拉伸弹性线以占据剩余空间;
+center:在容器中间显示弹性线;flex-start:在容器开头显示弹性线;flex-end:在容器的末尾显示弹性线)
+
+    flex容器中弹性项目属性:
+    (0)flex属性:flex-grow,flex-shrink,flex-basis属性的简写属性
+    (1)order属性:规定flex弹性项目的顺序
+    (2)flex-grow属性:规定某个flex项目相对于其余flex项目将增长多少
+    (3)flex-shrink属性:规定某个flex项目相对于其余flex项目将收缩多少
+    (4)flex-basis属性:规定flex项目的初始长度
+    (5)align-self属性:规定弹性容器内所选项目的对齐方式（当和align-items一起设置时，会覆盖align-items）-->
+<style>
+    .div1{
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-content: space-between;
+    }
+    .div1 div{
+        background-color: antiquewhite;
+        color: black;
+        width: 50px;
+        padding: 20px;
+        text-align: center;
+        font-size: 20px;
+        margin: 10px;
+    }
+</style>
+<body>
+    <div class="div1">
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+        <div>4</div>
+        <div>5</div>
+        <div>6</div>
+        <div>7</div>
+        <div>8</div>
+        <div>9</div>
+        <div>10</div>
+        <div>11</div>
+        <div>12</div>
+        <div>13</div>
+        <div>14</div>
+    </div>
+</body>
+</html>

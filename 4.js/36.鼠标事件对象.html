@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body{
+        height: 3000px;
+    }
+    img{
+        position: absolute;
+    }
+</style>
+<body>
+    <img src="../jsapis_material/第三天/images/angel.gif" alt="">
+    <script>
+        //鼠标事件对象 mouseEvent
+        // document.addEventListener('click',function(e){
+        //     //1.client 鼠标在可视区的x和y坐标
+        //     console.log(e.clientX);
+        //     console.log(e.clientY);
+        //     //2.client 鼠标在文档页面的x和y坐标
+        //     console.log(e.pageX);
+        //     console.log(e.pageY);
+        //     //3.screen 鼠标在电脑屏幕的x和y坐标
+        //     console.log(e.screenX);
+        //     console.log(e.screenY);
+        // })
+        var img = document.querySelector('img')
+        document.addEventListener('mousemove',function(event){
+            var x = event.pageX
+            var y = event.pageY
+            console.log('x坐标是'+x,'y坐标是'+y);
+            //记住要加单位px
+            img.style.top = y-40+'px'
+            img.style.left = x-50+'px'
+        })
+    </script>
+</body>
+</html>

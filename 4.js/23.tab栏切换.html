@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    *{
+        box-sizing: border-box;
+    }
+    .alldiv{
+        position: relative;
+        height: 500px;
+        /* background-color:aqua; */
+    }
+    .header{
+        background-color: blueviolet;
+    }
+    .header ul li{
+        margin: 0 auto;
+        list-style-type: none;
+        float: left;
+        border: 1px solid gray;
+        width: 200px;
+        height: 50px;
+        text-align:center;
+        line-height: 50px;
+        font-size:18px;
+    }
+    .header ul li:first-child{
+        background-color: red;
+    }
+    .content{
+        position:absolute;
+        top:50px;
+        left: 40px;
+        width: 1000px;
+        height: 450px;
+        border: 1px dashed gainsboro;
+        /* background-color: pink; */
+        
+    }
+    .content1 p {
+        margin-top: 40px;
+        margin-left: 55px;
+    }
+    .content1 ul{
+        margin: 50px 0px;
+        padding: 0;
+    }
+    .content1 ul li{
+        list-style-type: none;
+        float: left;
+        border: 1px solid red;
+        width: 240px;
+        height: 80px;
+        text-align: center;
+        line-height: 80px;
+        
+    }
+
+    .content2{
+        display: none;
+    }
+    .content2 .content2-1{
+        margin-top: 10px;
+        height: 200px;
+        border-bottom: 1px dashed black;
+    }
+    .content2 .content2-1 p{
+        margin-top: 10px;
+        margin-left:60px;
+        display: inline;
+        padding: 0;
+        background-color: antiquewhite;
+    }
+    .content2 .content2-1 table{
+        /* margin-top: -40px;
+        padding: 0;
+        margin-left:400px; */
+        display: inline;
+        margin: 20px 200px;
+        padding: 0;
+        background-color: aqua;
+    }
+    .content2 .content2-1 table tr td{
+        border: 2px solid red;
+        text-align: center;
+        padding:0 30px;
+    }
+
+    .content2 .content2-2{
+        height: 200px;
+        margin-top:20px;
+        border-bottom: 1px dashed black;
+    }
+    .content2 .content2-2 p{
+        margin-top: 10px;
+        margin-left:60px;
+        display: inline;
+        padding: 0;
+        background-color: antiquewhite;
+    }
+    .content2 .content2-2 table{
+        /* margin-top: -40px;
+        padding: 0;
+        margin-left:400px; */
+        display: inline;
+        margin: 20px 200px;
+        padding: 0;
+        background-color: aqua;
+    }
+    .content2 .content2-2 table tr td{
+        border: 2px solid red;
+        text-align: center;
+        padding:0 30px;
+        width: 200px;
+    }
+    
+   
+    .content3{
+        margin:0;
+        padding: 0;
+        display: none;
+    }
+    .content3 img{
+        width: 1000px;
+        height: 450px;
+    }
+
+</style>
+<body>
+    <div class="alldiv">
+        <div class="header">
+            <ul>
+                <li index="0">商品介绍</li>
+                <li index="1">规格与包装</li>
+                <li index="2">售后保障</li>
+                <li index="3">商品评价(50000)</li>
+                <li index="4">手机社区</li>
+            </ul>
+        </div>
+        <div class="content">
+            <div class="content1">
+                <p>品牌：康佳(KONKA)</p>
+                <ul>
+                    <li>商品名称:康佳B65U</li>
+                    <li>商品编号:8514653</li>
+                    <li>商品毛重:31.35kg</li>
+                    <li>商品产地:中国大陆</li>
+                    <li>观看距离:3m-3.5m(56-65英寸)</li>
+                    <li>分辨率:4k超高清(3840x2160)</li>
+                    <li>电视类型:人工智能,大屏,4k超高清</li>
+                    <li>能效等级:3级</li>
+                    <li>屏幕尺寸:65英寸</li>
+                    <li>选购指数:10.0-8.0</li>
+                </ul>
+            </div>
+            <div class="content2">
+                <div class="content2-1">
+                    <p>主题参数</p>
+                    <table>
+                        <tr>
+                            <td>产品品牌</td>
+                            <td>康佳(KONKA)</td>
+                        </tr>
+                        <tr>
+                            <td>认证型号</td>
+                            <td>B65U</td>
+                        </tr>
+                        <tr>
+                            <td>产品型号</td>
+                            <td>B65U</td>
+                        </tr>
+                        <tr>
+                            <td>产品颜色</td>
+                            <td>银色</td>
+                        </tr>
+                        <tr>
+                            <td>产品类型</td>
+                            <td>4k超高清;人工智能电视;大屏电视</td>
+                        </tr>
+                        <tr>
+                            <td>推荐观看距离</td>
+                            <td>3m-3.5m(56-65英寸)</td>
+                        </tr>
+                        <tr>
+                            <td>上市日期</td>
+                            <td>2018-7-1</td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="content2-2">
+                    <p>显示参数</p>
+                    <table>
+                        <tr>
+                            <td>屏幕尺寸</td>
+                            <td>65英寸</td>
+                        </tr>
+                        <tr>
+                            <td>屏幕分辨率</td>
+                            <td>超高清4k</td>
+                        </tr>
+                        <tr>
+                            <td>HDR显示</td>
+                            <td>支持</td>
+                        </tr>
+                        <tr>
+                            <td>屏幕比例</td>
+                            <td>16:9</td>
+                        </tr>
+                        <tr>
+                            <td>背光方式</td>
+                            <td>直下式</td>
+                        </tr>
+                        <tr>
+                            <td>刷屏率</td>
+                            <td>60hz</td>
+                        </tr>
+                        <tr>
+                            <td>扫描方式</td>
+                            <td>逐行扫描</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            <div class="content3">
+                <img src="./tab栏-售后保障.png" alt="">
+            </div>
+    
+        </div>
+    </div>
+    <script>
+        var lis = document.querySelector('.alldiv').querySelector('.header').querySelectorAll('li')
+        console.log(lis)
+        var content1 = document.querySelector('.content1')
+        console.log(content1)
+        var content2 = document.querySelector('.content2')
+        console.log(content2)
+        var content3 = document.querySelector('.content3')
+        console.log(content3)
+        var list = [content1,content2,content3]
+        console.log(lis[0])
+        for(var i=0;i<lis.length;i++){
+            lis[i].onclick = function(){
+                for(var j=0;j<lis.length;j++){
+                    lis[j].style.backgroundColor='white'
+                }
+                this.style.backgroundColor='red'
+                //给每个li自定义一个index属性
+                var index = this.getAttribute('index')
+                console.log(index)
+                for(var i =0 ;i<list.length;i++){
+                    list[i].style.display='none'
+                }
+                list[index].style.display='block'
+            }
+        }
+    </script>
+</body>
+</html>

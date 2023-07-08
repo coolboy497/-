@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS文本</title>
+</head>
+<style>
+    /* 特殊小技巧：单行文字垂直居中，让line-height等于盒子高度 */
+
+    body {
+        background-color: white;
+    }
+    /*文本颜色*/
+    p {
+        color: red;
+    }
+    /*文本水平对齐属性 默认左边*/
+    p.one{
+        text-align: center;
+    }
+    p.two{
+        text-align: left;
+    }
+    p.three{
+        text-align: right;
+    }
+    /*justify属性，将文本的每一行都等宽显示*/
+    div{
+        border: 1px solid red;
+        width: 200px;
+        text-align: justify;
+    }
+    /*vertical-align属性设置文本中图像的对齐方式*/
+    img {
+        width: 100px;
+        vertical-align: middle;
+    }
+    /*text-decoration属性装饰文本，overline添加上划线
+    line-through添加中划线，underline下划线，none删除划线*/
+    p.four {
+        text-decoration: overline;
+    }
+    /*text-transformer属性转换文本的大小写或首字母大小写
+    uppercase lowercase capitalize*/
+    p.five {
+        text-transform: uppercase;
+    }
+    /*文字间距
+    text-indent 属性用于指定文本第一行的缩进
+    letter-spacing 属性用于指定文本中字符之间的间距
+    line-height 属性用于指定行之间的间距 行高=上间距+文本高度+下间距
+    word-spacing 属性用于指定文本中单词之间的间距*/
+    p.six {
+        /* text-indent:2em 缩进当前元素2个文字大小的间距*/
+        text-indent: 20px;
+        line-height: 50px;
+        word-spacing: 30px;
+    }
+    /*文字的阴影效果
+    text-shadow: h-shadow(必需，水平阴影的位置)
+    v-shadow（必需，垂直阴影的位置）
+    blur(可选，模糊的距离)
+    color（可选，阴影的颜色）*/
+    p.seven {
+        color:lightblue;
+        text-shadow: 1px 1px 4px ;
+    }
+</style>
+<body>
+    <p class="one">nice catch1</p>
+    <p class="two">nice catch2</p>
+    <p class="three">nice catch3</p>
+    <div>
+        In my younger and more vulnerable years my father gave me 
+        some advice that I've been turning over in my mind ever 
+        since. 'Whenever you feel like criticizing anyone,
+        ' he told me, 'just remember that all the people in this
+         world haven't had the advantages that you've had.'
+    </div>
+    <p>nice<img src="https://img.zcool.cn/community/0153e25900203fa8012145504aa07c.jpg@1280w_1l_2o_100sh.jpg">catch4</p>
+    <p class="four">nice catch4</p>
+    <p class="five">nice catch5</p>
+    <p class="six">
+        In my younger and more vulnerable years my father gave me 
+        some advice that I've been turning over in my mind ever 
+        since. 'Whenever you feel like criticizing anyone,
+        ' he told me, 'just remember that all the people in this
+         world haven't had the advantages that you've had.'
+    </p>
+    <p class="seven">nice catch6</p>
+    
+</body>
+</html>

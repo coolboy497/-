@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 常用的键盘事件
+        //1. keyup 按键弹起的时候触发
+        // document.addEventListener('keyup',function(){
+        //     console.log('我弹起了')
+        // })
+        // //2. keydown 按键按下的时候触发
+        // document.addEventListener('keydown',function(){
+        //     console.log('我按下了down')
+        // })
+        // //3. keypress 按键按下的时候触发,但它不识别功能键 ctrl,enter等键
+        // document.addEventListener('keypress',function(){
+        //     console.log('我按下了press')
+        // })
+
+        //4. 三个事件的执行顺序 keydown--keypress--keyup
+
+        //5.键盘事件对象 keyCode属性可以得到相应键的ASCII码
+        //利用得到的ASCII码值判断用户按下了哪个键
+        document.addEventListener('keyup',function(e){
+            //keyup和keydown事件不区分字母大小写 a和A得到的都是65
+            console.log("up:"+e.keyCode)
+        })
+
+        document.addEventListener('keypress',function(e){
+            //keypress事件区分字母大小写 a的到97 A得到65
+            console.log('press:'+e.keyCode)
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS对齐</title>
+</head>
+<body>
+    <style>
+        /*块元素水平居中：margin:auto
+        设置元素的宽度将防止其延伸到容器的边缘。
+        然后，元素将占用指定的宽度，剩余空间将在
+        两个外边距之间平均分配
+        如果未设置 width 属性（或将其设置为 100％），则居中对齐无效*/
+        .div1{
+            margin:auto;
+            width:50%;
+            border:1px solid green;
+            padding: 20px;
+        }
+        /*元素中文本居中:text-align: center*/
+        /*图像居中:(1)将图像设置为块元素(2)左右外边距设置为auto*/
+        img{
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            width: 50px;
+        }
+        /*左右对齐:使用position属性absolute
+          或者使用属性float：right
+          可能会使得元素重叠*/
+        .div2{
+            position:absolute;
+            right:0;
+            width:100px;
+            border:1px solid red;
+            padding: 20px;
+        }
+        /*垂直居中,直接使用padding属性
+          或者是line-height属性*/
+        .div3{
+            border:1px solid red;
+            width:200px;
+            /* padding: 20px 0; */
+            line-height: 200px;
+        }
+    </style>
+</body>
+    <div class="div1">这个元素是居中的</div>
+    <img src="https://img1.baidu.com/it/u=2749586328,608350002&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=704" alt="小狗">
+    <div class="div2">元素右对齐</div>
+    <div class="div3">元素垂直居中</div>
+</html>

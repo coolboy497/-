@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 正则表达式是用于匹配字符串中字符组合的模式，在js中，正则表达式也是对象
+        作用：表单验证、过滤敏感词、提取字符等 
+    (1)test()方法：查看正则表达式与指定的字符串是否匹配 regobj.test(被检测的字符串),规则就是regobj
+        匹配成功返回true
+    (2)exec()方法：regobj.exec(被检测的字符串),返回是一个数组/null
+        
+        元字符(特殊字符)，是一些具有特殊含义的字符，可以极大提高了灵活性和强大的匹配功能
+        [a-z]:abcdef.....z 
+    (1)边界符（表示位置，开头和结尾，必须用什么开头，用什么结尾）
+        ^:字符串以^后的字符开头
+        $:字符串以$前的字符结尾
+        ^和$一起就是精确匹配
+    (2)量词(表示重复次数)：设定某个模式出现的次数
+        *:重复零次或更多次 >=0
+        +:重复一次或更多次 >=1
+        ?:重复零次或一次
+        {n}:重复n次
+        {n,}重复n次或更多次 >=n
+        {n,m}重复n到m次,逗号两侧不能写空格 >=n&&<=m
+    (3)字符类
+        [abc]:(n选1)匹配字符集合,只要后面的字符串中包含abc中任意一个字符，都返回true
+        使用连字符-表示连接范围进行简写 [a-z],[0-9],[a-zA-Z]
+    
+        [^a-z]:^写到中括号里面表示取反，匹配除了小写字母以外的字符
+    
+        [.]:匹配除换行符之外的任何单个字符-->
+
+      <script>
+        // 1.定义正则表达式语法
+        // const 变量名 = /表达式/
+        const str = '学习前端';
+        // (1)定义规则（2）是否匹配
+        const reg = /前端/;
+        console.log(reg.test(str))//true
+
+        // 2.元字符
+        console.log(/哈/.test("二哈"));//true
+        console.log(/^哈/.test("二哈"));//false
+        console.log(/^哈$/.test("哈"));//true，精确匹配只有这种情况为true
+        console.log(/^哈$/.test("哈哈"));//false，注意与上行情况对比
+        
+        console.log(/^哈*$/.test("哈哈哈"));//true，以哈开头结尾，且哈的次数>=0,只允许出现哈
+        console.log(/^哈*$/.test("二哈哈"));//flase
+        console.log(/^哈*$/.test("哈哈二"));//flase
+        console.log(/^哈*$/.test("哈很哈"));//flase
+
+        console.log(/^哈+$/.test("哈哈哈"));//true，以哈开头结尾，且哈的次数>=1,只允许出现哈
+        console.log(/^哈+$/.test(""));//false
+        console.log(/^哈+$/.test("二哈哈"));//flase
+        console.log(/^哈+$/.test("哈哈二"));//flase
+        console.log(/^哈+$/.test("哈很哈"));//flase
+
+        console.log(/^哈?$/.test("哈"));//true，以哈开头结尾，且哈的次数为0为1,只允许出现哈
+        console.log(/^哈?$/.test(""));//true
+        console.log(/^哈?$/.test("二哈哈"));//flase
+        console.log(/^哈?$/.test("哈哈二"));//flase
+        console.log(/^哈?$/.test("哈很哈"));//flase
+
+        console.log(/^哈{4}$/.test("哈哈哈哈"));//哈重复出现4次为true
+        console.log(/^哈{4}$/.test("哈哈"));//flase
+
+        console.log(/^哈{4,}$/.test("哈哈哈哈"));//哈重复出现大于等于4次为true
+        console.log(/^哈{4,}$/.test("哈哈"));//flase
+        console.log(/^哈{4,}$/.test("哈哈哈哈哈"));//true
+
+        console.log(/^哈{4,6}$/.test("哈哈哈哈"));//哈重复出现在4到6次为true
+        console.log(/^哈{4,6}$/.test("哈哈哈哈哈"));//true
+        console.log(/^哈{4,6}$/.test("哈哈哈哈哈哈"));//true
+        console.log(/^哈{4,6}$/.test("哈哈哈哈哈哈哈"));//flase
+
+        // [abc]中只选一个
+        console.log(/[abc]/.test("andy"));//true
+        console.log(/[abc]/.test("die"));//false
+
+        console.log(/^[abc]$/.test('a'))//true
+        console.log(/^[abc]$/.test('b'))//true
+        console.log(/^[abc]$/.test('c'))//true
+        console.log(/^[abc]$/.test('ac'))//false
+        console.log(/^[abc]{2}$/.test('ac'))//true
+
+
+        // 正则表达式的替换,replace只能替换第一个满足条件的词
+        // /表达式/[switch]解决这个问题
+        // switch:g(全局匹配)/i(忽略大小写)/gi(全局匹配+忽略大小写)
+        var str1 = "andy and red andy";
+        var newstr = str1.replace('andy','baby')//"baby and red andy"
+        var newstr = str1.replace(/andy/,'baby')//"baby and red andy"
+        var newstr1 = str1.replace(/andy/g,"baby")//"baby and red baby"
+        var newstr2 = str1.replace(/andy|red/g,"baby")//"baby and baby baby"
+        console.log(newstr);
+        console.log(newstr1);
+        console.log(newstr2);
+      </script>
+</body>
+</html>

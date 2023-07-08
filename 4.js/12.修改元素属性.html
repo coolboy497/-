@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+     <button id="bear">小熊</button>
+     <button id="dog">小狗</button> <br>
+     <img src="https://img2.baidu.com/it/u=2052276147,3267773426&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=551" title="熊熊" style="height: 100px;width: 100px;">
+     <script>
+        var bear = document.getElementById('bear');
+        var img = document.querySelector('img');
+        bear.onclick = function(){
+            img.src='https://img2.baidu.com/it/u=2052276147,3267773426&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=551';
+            img.title='熊熊';
+            img.style='height:100px;width:100px';
+        }
+        var dog = document.getElementById('dog');
+        dog.onclick = function(){
+            img.src='https://img2.baidu.com/it/u=471605427,1896058937&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=750';
+            img.title='狗狗';
+            img.style='height:100px;width:100px';
+        }
+     </script>
+</body>
+</html>

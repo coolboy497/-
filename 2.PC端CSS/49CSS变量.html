@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS变量</title>
+</head>
+<!--var()函数用于插入CSS变量的值
+[var(name, value) name是必需写的变量名字，以两条破折号开头。value是可选写的回退值，在未找到变量时使用]
+    (1)CSS 变量可以有全局或局部作用域
+    (2)创建具有全局作用域的变量，在 :root 选择器中声明它
+    (3)创建具有局部作用域的变量，请在将要使用它的选择器中声明它
+    (4)当你既创建了局部变量，又创建了全局变量，局部变量会覆盖全局变量-->
+<style>
+    :root{
+        --aqua:aqua;
+        --black:black;
+    }
+    div.div1{
+        background-color: var(--aqua);
+        color:var(--black);
+        width: 100px;
+        padding: 10px;
+    }
+</style>
+<body>
+    <div class="div1">nice catch</div>
+</body>
+</html>

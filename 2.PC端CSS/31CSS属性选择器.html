@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS属性选择器</title>
+<!--CSS3新增的 设置带有特定属性或属性值的 HTML 元素的样式-->
+</head>
+<style>
+    /*CSS [attribute] 选择器 选取带有指定属性的元素*/
+    a[target]{
+        background-color: yellow;
+    }
+    /*CSS [attribute="value"] 选择器 选取带有指定属性和值的元素 */
+    a[target="_blank"]{
+        text-decoration: none;
+    }
+    /*[attribute~="value"] 选择器 选取属性值包含指定词的元素。词之间用空格分开*/
+    p[class~="center"]{
+        color:aqua;
+    }
+    /*[attribute|="value"] 选择器 选取指定属性以指定值开头的元素。词之间短接线连接或者是单独的单词*/
+    p[class|="text"]{
+        text-align: center;
+    }
+    /*[attribute^="value"] 选择器 选取指定属性以指定值开头的元素.不用是完整单词*/
+    p[class^="text"]{
+        font-style: italic;
+    }
+    /*[attribute$="value"] 选择器 选取指定属性以指定值结尾的元素*/
+    p[class$="center"]{
+        text-decoration: underline;
+    }
+    /*[attribute*="value"] 选择器选取属性值包含指定词的元素。不用是完整单词*/
+</style>
+<body>
+    <a href="https://www.w3school.com">w3school.com.cn</a>
+    <a href="http://www.disney.com" target="_blank">disney.com</a>
+    <a href="http://www.wikipedia.org" target="_top">wikipedia.org</a>
+    <p class="text center">nice catch</p>
+    <p class="text-center">nice catch1</p>
+    <p class="text">nice catch2</p>
+</body>
+</html>

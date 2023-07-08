@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS过渡效果</title>
+</head>
+<!--transition属性：简写,用于将四个过渡属性设置为单一属性
+(transition: property duration timing-function delay;)
+    (1)transition-property属性:规定过渡效果所针对的 CSS 属性的名称。
+    (2)transition-duration属性:规定过渡效果要持续多少秒或毫秒。
+    (3)transition-timing-function属性:规定过渡效果的速度曲线。
+    ease(先缓慢地开始，然后加速，然后缓慢地结束（默认）)
+    linear(从开始到结束具有相同速度的过渡效果)
+    ease-in(缓慢开始的过渡效果)
+    ease-out(缓慢结束的过渡效果)
+    ease-in-out(开始和结束较慢的过渡效果)
+    (4)transition-delay属性:规定过渡效果的延迟(以秒计)。-->
+<style>
+    div{
+        background-color: lightblue;
+        width: 100px;
+        text-align: center;
+        transition: width 3s linear 1s, background-color 3s ease 1s;
+    }
+    div:hover{
+        width:300px;
+        background-color: yellow;
+    }
+</style>
+<body>
+    <div>nice catch</div>
+</body>
+</html>

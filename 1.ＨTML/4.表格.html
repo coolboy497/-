@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>表格</title>
+</head>
+<body>
+<!--表格由<table>标签进行定义，<tr>标签定义表格行数，<td>标签定义单元格，
+<th>标签定义表格的表头，里面的文字自动加粗居中显示，<caption>定义表格标题 属性border定义边框
+    cellpadding:单元格与单元格中内容之间的空白，默认1像素
+    cellspacing:单元格与单元格之间的空白，默认2像素
+
+    表格结构标签：thead和tbody分为头部区域和主体区域-->
+<!--1.没有边框的表格-->
+<table >
+    <tr>
+        <td>100</td>
+        <td>200</td>
+        <td>300</td>
+    </tr>
+    <tr>
+        <td>400</td>
+        <td>500</td>
+        <td>600</td>
+    </tr>
+</table>
+<!--2.添加表头-->
+<table border="1">
+    <tr>
+        <th>height</th>
+        <th>weight</th>
+    </tr>
+    <tr>
+        <td>100</td>
+        <td>200</td>
+    </tr>
+    <tr>
+        <td>400</td>
+        <td>500</td>
+    </tr>
+</table>
+<!--3.空单元格,用&nbsp;相当于一个占位符，能把边框显示出来-->
+<table border="1">
+    <tr>
+        <td>100</td>
+        <td>200</td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td>
+        <td>400</td>
+    </tr>
+</table>
+<!--4.<caption>定义表格标题-->
+<table border="1">
+    <caption>boy</caption>
+    <tr>
+        <td>100</td>
+        <td>200</td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td>
+        <td>400</td>
+    </tr>
+</table>
+<!--5.定义跨行和跨列的单元格：colspan,rowspan-->
+<h3>横跨两列的单元格</h3>
+<table border="2">
+    <tr>
+        <td>姓名</td>
+        <td colspan="2" align="center">电话</td>
+    </tr>
+    <tr>
+        <td>张三</td>
+        <td>1773233</td>
+        <td>5787</td>
+    </tr>
+</table>
+<h3>横跨两行的单元格</h3>
+<table border="2">
+    <tr>
+        <td>姓名</td>
+        <td>张三</td>
+    </tr>
+    <tr>
+        <td rowspan="2" align="center">电话</td>
+        <td>177323</td>
+    </tr>
+    <tr>
+        <td>35787</td>
+    </tr>
+</table>
+<!--6.单元格的边距：cellpadding单元格内容与其边框之间的空白-->
+<h3>no cellpadding</h3>
+<table border="1">
+    <tr>
+        <td>100</td>
+        <td>200</td>
+    </tr>
+    <tr>
+        <td>300</td>
+        <td>400</td>
+    </tr>
+</table>
+<h3>cellpadding</h3>
+<table border="1" cellpadding="10">
+    <tr>
+        <td>100</td>
+        <td>200</td>
+    </tr>
+    <tr>
+        <td>300</td>
+        <td>400</td>
+    </tr>
+</table>
+<!--7单元格间距：cellspacing增加单元格之间的距离-->
+<h3>cellspacing</h3>
+<table border="1" cellspacing="10">
+    <tr>
+        <td>100</td>
+        <td>200</td>
+    </tr>
+    <tr>
+        <td>300</td>
+        <td>400</td>
+    </tr>
+</table>
+<!--8.向表格中添加背景图片及颜色bgcolor;background-->
+<h3>添加背景颜色</h3>
+<table border="1" cellspacing="10" background="https://ts3.cn.mm.bing.net/th?id=OIP-C.LLOF0QjnAw0IwFAyw4kNIQHaNK&w=187&h=333&c=8&rs=1&qlt=90&o=6&pid=3.1&rm=2">
+    <tr>
+        <td>100</td>
+        <td>200</td>
+    </tr>
+    <tr>
+        <td>300</td>
+        <td>400</td>
+    </tr>
+</table>
+<!--9.用align属性排列单元格内容-->
+<h3>用align属性排列单元格内容</h3>
+<table border="1" cellpadding="10">
+    <tr>
+        <th align="left">姓名</th>
+        <th align="center">身高</th>
+        <th align="right">体重</th>
+    </tr>
+    <tr>
+        <td align="left">张三</td>
+        <td align="right">178</td>
+        <td align="right">150</td>
+    </tr>
+</table>
+</body>
+</html>

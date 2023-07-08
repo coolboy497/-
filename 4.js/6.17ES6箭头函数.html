@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // ES6中新增的定义函数的方式 ()=>{}(箭头函数简化函数定义语法的)
+        // const fn=()=>{
+        //     console.log(1);
+        // }
+        // fn();//1
+
+        // function sum(a,b){
+        //     return a+b;
+        // }
+        // const sum2=sum(1,2);
+        // console.log(sum2);//3
+        // // 在箭头函数中，如果函数体中只有一句代码，并且代码的执行结果就是函数的返回值
+        // // 函数体大括号可以省略
+        // const sum1 =(a,b)=>a+b;
+        // const result = sum1(1,2);
+        // console.log(result);//3
+        // 如果形参只有一个，形参外侧的小括号可以省略
+        // const fn = v =>alert(v);
+        // fn(2);
+
+        // 箭头函数不绑定this关键字，箭头函数中的this，指向的是函数定义位置的上下文this
+        // 1.案例1
+        // const obj = {name:"john"};
+        // function fn(){
+        //     console.log(this);
+        //     return ()=>{
+        //         console.log(this);//箭头函数没有自己的this，因为箭头函数在函数fn内，
+        //         // 函数fn()产生作用域，所以这里的this指向的是obj这个对象
+        //     }
+        // }
+        // const res = fn.call(obj)//将fn中的this指向obj这个对象
+        // res();//调用箭头函数，返回的obj这个对象
+
+        // 作用域只有函数才有
+        // 2.案例2
+        // var obj = {
+        //     age:20,
+        //     say:()=>{
+        //         alert(this.age);//虽然箭头函数定义在obj对象内
+        //         // 但obj对象不产生作用域，所以this指向的是window,
+        //         // window里没有age，所以下面返回的是undefined
+        //     }
+        // }
+        // obj.say();//undefined
+
+        // ES6新增语法剩余参数，剩余参数语法允许我们将一个不定数量的参数表示为一个数组
+        // 1.ES6之前是使用arguments，但是箭头函数使用不了arguments，所以有了args
+        // function sum(first,...args){
+        //     console.log(first);//10
+        //     console.log(args);//[20,30]
+        // }
+        // sum(10,20,30)
+        
+        // const sum1 =(...args)=>{
+        //     let total = 0;
+        //     // args.forEach((value)=>{
+        //     //     total+=value;
+        //     // })
+        //     args.forEach(value=>total+=value)
+        //     return total;
+        // }
+        // const result=sum1(10,20);
+        // console.log(result);
+
+        // 2.剩余参数与解构配合使用
+        // let students = ['wangwu','zhangsan','lisi'];
+        // let[s1, ...s2]=students
+        // console.log(s1);//'wangwu'
+        // console.log(s2);//['zhangsan','lisi']
+
+        //ES6的内置对象扩展（扩展运算符，可以将数组或对象转为用逗号分隔的参数序列）
+        // const arr = ["a","b","c"];
+        // ...arr "a","b","c"
+        // console.log(...arr);//a b c
+        // 1.扩展运算符应用于合并数组
+        // let arr1 = [1,2,3];
+        // let arr2 = [4,5,6];
+        // // console.log(...arr1);//1 2 3
+        // // let arr3 = [...arr1,...arr2];
+        // // console.log(arr3);//[1,2,3,4,5,6]
+        // arr1.push(...arr2);//push不能够直接添加数组
+        // console.log(arr1);//[1,2,3,4,5,6]
+
+        //2.扩展运算符将类数组或可遍历对象转换为真正的数组
+        //let lis = document.queryselctorAll("li")
+        //const arr = [...lis]
+
+        // Array.from将类数组或可遍历对象转换为真正的数组
+        // Array.from接收一个伪数组，返回真正的数组
+        // Array.from(伪数组，函数（可选）)
+        // 伪数组对象(拥有一个length属性和若干索引属性的任意对象)
+        let arraylike = {
+            "0":"1",
+            "1":"2",
+            "length":"2"
+        }
+        const arr1 = Array.from(arraylike);
+        console.log(arr1);//['1','2']
+        const arr = Array.from(arraylike,value => value*2);
+        console.log(arr);//[2,4]
+    </script>
+</body>
+</html>

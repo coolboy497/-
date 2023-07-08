@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<!-- 分时显示不同图片,显示不同问候语
+如果上午时间打开页面，显示上午好，显示上午的图片
+https://img95.699pic.com/element/40140/3162.png_860.png
+如果下午时间打开页面，显示下午好，显示下午的图片
+https://qq.yh31.com/tp/zjbq/201709171641184127.gif
+如果晚上时间打开页面，显示晚上好，显示晚上的图片
+https://ts1.cn.mm.bing.net/th/id/R-C.1da85cd9ee78b50812ab9208d3bd31f2?rik=zrrIN38MYAJy9Q&riu=http%3a%2f%2fwww.askququ.com%2fuploads%2fallimg%2f190627%2f1_190627004743_1.jpg&ehk=lVnCL2cAwIry%2buzjpPYp2qjgccWvLVl%2bN1spUiIWpFY%3d&risl=&pid=ImgRaw&r=0-->
+
+<body>
+    <img src="https://img95.699pic.com/element/40140/3162.png_860.png" alt="" style="height:100px;width:100px">
+    <div>上午好</div>
+    <button>按钮</button>
+    <input type="text" value="输入内容">
+    <script>
+         var img = document.querySelector('img');
+         var div = document.querySelector('div');
+         var date = new Date();
+         var h = date.getHours();
+         if (h<12){
+            img.src='https://img95.699pic.com/element/40140/3162.png_860.png';
+            div.innerHTML='上午好,好好吃早饭'
+         }
+         else if(h<18){
+            img.src='https://qq.yh31.com/tp/zjbq/201709171641184127.gif';
+            div.innerHTML='下午好,好好写代码'
+         }
+         else{
+            img.src='https://ts1.cn.mm.bing.net/th/id/R-C.1da85cd9ee78b50812ab9208d3bd31f2?rik=zrrIN38MYAJy9Q&riu=http%3a%2f%2fwww.askququ.com%2fuploads%2fallimg%2f190627%2f1_190627004743_1.jpg&ehk=lVnCL2cAwIry%2buzjpPYp2qjgccWvLVl%2bN1spUiIWpFY%3d&risl=&pid=ImgRaw&r=0';
+            div.innerHTML='晚上好,好好睡觉'
+         }
+
+         var input = document.querySelector('input');
+         var btn = document.querySelector('button');
+         btn.onclick = function(){
+            input.value="点击我了";//表单是通过其value值修改内容的
+            //如果想要某个表单被禁用 不能再点击 disabled 想要按钮禁用
+            //btn.disabled = true;
+            this.disabled = true;
+         }
+    </script>
+</body>
+</html>

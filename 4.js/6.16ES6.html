@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // ES6新增的用于声明变量的关键字let
+        // 在大括号{}中let申明的变量具有块级作用域，var关键字是不具备这个特点的
+        // let没有变量提升，只能先申明再赋值
+
+        // if(true){
+        //     let a =3;
+        //     var b =2;
+        // }
+        // console.log(a);// a is not defined
+        // console.log(b);//2
+
+        // 1.防止循环变量变成全局变量
+        // for(var i=0;i<2;i++){
+        // }
+        // console.log(i);//2
+
+        // for(let i =0;i<2;i++){
+        // }
+        // console.log(i);//i is not defined
+
+        // 2.使用let申明的变量具有暂时性死区特性
+        // var num =10;
+        // if(true){
+        //     console.log(num);//Cannot access 'num' before initialization
+        //     let num = 20;//因为这里用let申明了变量num，所以{}内会绑定在一起产生暂时性死区
+        // }
+
+        // ES6新增的const声明常量值不能更改，指的是值对应的内存地址不能更改
+        // 1.具有块级作用域
+        // if(true){
+        //     const a =1;
+        // }
+        // console.log(a);// a is not defined
+
+        // 2.申明常量时必须赋值
+        // 3.常量赋值后，值不能修改
+        // const PI = 3.14;
+        // PI = 100;//报错 Assignment to constant variable.
+
+        // 复杂数据类型结构里面的值可以修改，但其本身不能
+        // const ary = [100,200];
+        // ary[0]=123;
+        // ary[1]=124;
+        // // ary= [123,124]//报错
+        // console.log(ary);//[123,124]
+
+        // ES6允许从数组中提取值，按照对应位置，对变量赋值。对象也可以实现解构
+        // 1.数组解构
+        // let[a,b,c]=[1,2,3]
+        // let arr =[1,2,3];
+        // let [a,b,c,d]=arr;
+        // console.log(a);//1
+        // console.log(b);//2
+        // console.log(c);//3
+        // console.log(d);//undefined
+
+        // 2.对象解构
+        // let person = {name:"zhangsan",age:20};
+        // let {name,age} = person;
+        // console.log(name);//"zhangsan"
+        // console.log(age);//20
+
+        // let{name:myName,age:myAge} = person//这时myName,myAge相当于别名
+        // console.log(name);//"zhangsan"
+        // console.log(myName);//"zhangsan"
+        // console.log(myAge);//20
+    </script>
+</body>
+</html>

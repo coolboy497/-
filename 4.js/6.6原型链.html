@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // js中的成员查找机制（也就是原型链的线路）
+        // 1.当访问一个对象的属性(包括方法)时，首先查找这个对象自身有没有该属性
+        // 2.如果没有就查找它的原型(也就是__proto__指向的prototype原型对象)
+        // 3.如果还没有就查找prototype原型对象的原型（也就是Object的原型对象）
+        // 4.如果还没有，就会查找Object原型对象指向的NULL，也就会返回undefined
+        // 当原型链上的多个对象都有查找的该属性，就是就近原则
+    // 原型对象中的this指向问题
+    // function Star(uname,age){
+    //     this.uanme = uname;
+    //     this.age = age;
+    // }
+    // var that
+    // Star.prototype.sing = function(){
+    //     console.log("我会唱歌");
+    //     that = this;
+    // }
+    // let ldh = new Star('刘德华',18);
+    // 1.在构造函数中，里面的this指向的是对象实例 ldh
+    // ldh.sing();
+    // console.log(that==ldh);//true
+    // 2.在原型对象中的this也指向的是对象实例ldh，谁调用指向谁
+
+    // 通过原型对象扩展内置对象，比如给数组增加自定义求偶数和的功能
+    // console.log(Array.prototype);
+    // Array.prototype.sum = function () {
+    //     let sum =0 ;
+    //     for(let i=0;i<this.length;i++)
+    //     {
+    //         sum+=this[i];
+    //     }
+    //     return sum;
+    // }
+    // 数组和字符串内置对象不能给原型对象覆盖操作Array.prototype = {}，如下所示会报错
+    // Array.prototype = {
+    //     sum: function(){
+    //         let sum =0 ;
+    //         for(let i=0;i<this.length;i++)
+    //         {
+    //             sum+=this[i];
+    //         }
+    //         return sum;
+    //     }
+    // }
+    // let arr = [1,2,3];
+    // console.log(arr.sum());
+    // console.log(Array.prototype);
+    // let arr1 = new Array(2,3)
+    // console.log(arr1.sum());
+    </script>
+</body>
+</html>

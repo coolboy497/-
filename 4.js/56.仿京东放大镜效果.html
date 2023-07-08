@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    *{
+        margin:0;
+        padding: 0;
+    }
+    .box{
+        margin-top:10px;
+        position: relative;
+        width: 400px;
+        height: 400px;
+        /* background-color: pink; */
+        border: 1px solid gainsboro;
+    }
+    #small_img{
+        width: 400px;
+        height: 400px;
+    }
+    #big_img{
+        position:absolute;
+        top:0;
+        left: 0;
+    }
+    .mask{
+        display: none;
+        position: absolute;
+        top:0;
+        left:0;
+        width: 200px;
+        height: 200px;
+        background-color: yellow;
+        opacity: 0.5;
+        cursor: move;
+        z-index: 1;
+    }
+    .box1{
+        display: none;
+        width: 500px;
+        height: 500px;
+        border:1px solid gainsboro;
+        position: absolute;
+        top:0;
+        left:410px;
+        overflow: hidden;
+    }
+</style>
+<body>
+    <div class="box">
+        <img src="..\jsapis_material\第五天\05-京东放大镜效果\upload\b3.png" id="small_img">
+        <div class="mask"></div>
+        <div class="box1">
+            <img src="..\jsapis_material\第五天\05-京东放大镜效果\upload\big.jpg" id="big_img">
+        </div>
+    </div>
+    <script>
+        var box = document.querySelector('.box')
+        var mask = document.querySelector('.mask')
+        var box1 = document.querySelector('.box1')
+        var big_img = document.querySelector('#big_img')
+        box.addEventListener('mouseover',function(){
+            mask.style.display = 'block'
+            box1.style.display = 'block'
+        })
+        box.addEventListener('mouseout',function(){
+            mask.style.display = 'none'
+            box1.style.display = 'none'
+        })
+        box.addEventListener('mousemove',function(event){
+            //1.获取鼠标在盒子里的坐标
+            // console.log(event.pageX-this.offsetLeft);
+            // console.log(event.pageY-this.offsetTop);
+            var movex = event.pageX-this.offsetLeft
+            var movey = event.pageY-this.offsetTop
+            //2.让鼠标位于mask的中间
+            movex = movex - mask.offsetWidth/2
+            movey = movey-mask.offsetHeight/2
+            //3.判断是否超过盒子的边界
+            if(movex<=0){
+                movex = 0
+            }else if(movex>=this.offsetWidth-mask.offsetWidth){
+                movex = this.offsetWidth-mask.offsetWidth
+            }
+            if(movey<=0){
+                movey = 0
+            }else if(movey>=this.offsetHeight-mask.offsetHeight){
+                movey = this.offsetHeight-mask.offsetHeight
+            }
+            mask.style.left = movex+'px'
+            mask.style.top = movey+'px'
+            //4.根据mask移动大图片
+            var ratio = box1.offsetWidth/mask.offsetWidth
+            var big_img_movex = -movex*ratio+'px'
+            var big_img_movey = -movey*ratio+'px'
+            big_img.style.left = big_img_movex
+            big_img.style.top = big_img_movey
+        })
+    </script>
+</body>
+</html>

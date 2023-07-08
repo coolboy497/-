@@ -1,0 +1,33 @@
+// less变量： @变量名：值
+// 变量名不能以数字开头、变量名区分大小写
+@color: pink;
+
+body {
+    background-color: @color;
+}
+
+// less嵌套,子元素的样式直接写到父元素里面
+// 内置选择器没有&符号，自动解析为其后代
+// 如果有&符号，它就被解析为父元素自身或父元素的伪类
+// 所以伪类、伪元素、交集选择器书写时前面需要加&符号
+.header {
+    width: 200px;
+    height: 200px;
+
+    a {
+        width: 150px;
+
+        &:hover {
+            color: blue;
+        }
+    }
+}
+
+// less运算：任何数字、颜色或者变量都可以参与运算
+@border: 5px+5;
+
+div {
+    width: 200px-50;
+    height: 200px*2;
+    border: @border solid red;
+}

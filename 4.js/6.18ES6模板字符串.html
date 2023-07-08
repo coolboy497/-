@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //1.ES6 新增的创建字符串的方式``
+        let name=`这是一个模板字符串`;
+        console.log(name);
+
+        //2.模板字符串中可以解析变量 ${变量名/函数}
+        let name1 = '张三';
+        let sayhello = `hello,my name is ${name1}`;
+        console.log(sayhello);
+
+        // 3.模板字符串可以换行,书写美观
+        let result = {
+            name:'张三',
+            age:20,
+        }
+        let html =`
+        <div>
+            <span>${result.name}</span>
+            <span>${result.age}</span>
+        </div>`
+        console.log(html);
+
+        //4.模板字符串中可以调用函数，调用函数的位置显示函数的返回结果
+        const fn =()=>{
+            return '我是fn函数';
+        }
+        let html1 = `我是模板字符串${fn()}`;
+        console.log(html1);//我是模板字符串我是fn函数
+
+        // 5.startsWith()/endsWith():判断字符串是否以某字符串开头/结尾，返回的是布尔值
+        const str = 'hello world';
+        console.log(str.startsWith('hello'));//true
+        console.log(str.endsWith('ld'));//true
+
+        // 6.repeat()方法表示将原字符串重复n次，返回一个新字符串
+        console.log('hello'.repeat(2));//hellohello
+    </script>
+</body>
+</html>

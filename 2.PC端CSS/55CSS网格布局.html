@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS网格布局</title>
+</head>
+<!--CSS 网格布局模块（CSS Grid Layout Module）提供了带有行和列的基于网格的布局系统，
+    它使网页设计变得更加容易，而无需使用浮动和定位
+    (1)当HTML元素的display属性设置为grid或inline-grid时,它就会成为网格容器。
+    (2)网格容器的所有直接子元素将自动成为网格项目。
+    (3)justify-content:用于在容器内对齐整个网格
+    
+    (1)grid-gap属性是 grid-row-gap 和 grid-column-gap 属性的简写属性
+    (2)grid-row-gap属性：设置行之间的间隙
+    (3)grid-column-gap属性：设置列之间的间隙
+    (4)grid-template-columns:定义网格布局中的列数，并可定义每列的宽度
+    (如果所有列都应当有相同的宽度，则设置为 "auto")
+    (5)grid-template-rows:定义每列的高度
+    (6)grid-row/column-start/column:定义网格项目所占的行线，列线（就是占多行或者多列）
+    (7)grid-column/row:是上述的简写属性
+    grid-column:1/5 == grid-column-start:1;grid-column-end:5; 从第一列开始到第五列都占
+    (8)grid-area:选择一个区域
+    grid-area:(grid-row-start、grid-column-start、grid-row-end 和 grid-column-end )
+    -->
+<style>
+    .grid{
+        display: grid;
+        grid-template-columns:auto auto auto auto;
+        grid-gap:5px;
+        background-color: aqua;
+        padding: 10px;
+    }
+    .grid div{
+        border: 1px solid black;
+        text-align: center;
+        padding: 10px;
+        background-color:aliceblue;
+    }
+    .item1{
+        grid-row:1/4;
+    }
+    .item2{
+        grid-column:2 / 4;
+    }
+    .item3{
+        grid-area:1/4/4/5;
+    }
+    .item4{
+        grid-area:2/2/3/4;
+    }
+    .item5{
+        grid-area:3/2/4/4;
+    }
+    .item6{
+        grid-column: 1/5;
+    }
+</style>
+<body>
+    <div class="grid">
+        <div class="item1">1</div>
+        <div class="item2">2</div>
+        <div class="item3">3</div>
+        <div class="item4">4</div>
+        <div class="item5">5</div>
+        <div class="item6">6</div>
+        <div>7</div>
+        <div>8</div>
+        <div>9</div>
+        <div>10</div>
+        <div>11</div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!--为什么要学习节点操作？
+    因为之前获取元素时通常是根据标签，类名逐个获取。逻辑性不强、很繁琐
+    节点操作就利用节点层级关系获取元素：
+    利用父子兄节点关系获取元素，逻辑性强，但是兼容性稍差-->
+    <div>我是div</div>
+    <span>我是span</span>
+    <ul>
+        <li>我是li</li>
+        <li>我是li</li>
+        <li>我是li</li>
+        <li>我是li</li>
+    </ul>
+    <ol>
+        <li>我是li</li>
+        <li>我是li</li>
+        <li>我是li</li>
+        <li>我是li</li>
+    </ol>
+    <div class="box">
+        <span class="erweima">x</span>
+    </div>
+    <p>
+        <p2>123</p2>
+    </p>
+    <script>
+        //网页中的所有内容都是节点（标签/属性/文本/注释等）
+        //nodeType:文本节点(3)属性节点(2)元素节点(1)
+        //1.父节点 parentNode 是离元素最近的父节点
+        var erweima = document.querySelector('.erweima')
+        console.log(erweima.parentNode)
+
+        //2.子节点 childNodes 包含元素节点、文本节点等等
+        var ul = document.querySelector('ul')
+        console.log(ul.childNodes)//9个：4个li 5个回车
+        for (var i =0 ;i < ul.childNodes.length;i++){
+            if(ul.childNodes[i].nodeType==1){
+                console.log(ul.childNodes[i])
+            }
+        }
+        // childern获取所有的元素节点，不用上述的循环(实际开发用这个)
+        console.log(ul.children)
+
+        //3.操作第一个子元素和最后一个子元素 
+        //firstChild获取第一个子节点 不管是文本节点还是元素节点 lastChild
+        var ol = document.querySelector('ol')
+        console.log(ol.firstChild)
+        //firstElementChild获取第一个子元素节点
+        //（IE9以上才支持，有兼容性问题,）
+        console.log(ol.firstElementChild)
+        // 实际开发的写发 既没有兼容性问题又返回第一个子元素
+        console.log(ol.children[0])
+        console.log(ol.children[ol.children.length-1])
+
+        //4.兄弟节点 nextSibling得到下一个节点（包含文本节点或者元素节点）
+        var div = document.querySelector('div')
+        console.log(div.nextSibling)
+        console.log(div.previousSibling)
+        //nextElementSibling得到下一个兄弟元素节点(兼容性问题，IE9以上才支持)
+        console.log(div.nextElementSibling)
+        console.log(div.previousElementSibling)
+
+        //5.创建节点并添加节点
+        // 创建节点 createElement
+        var li = document.createElement('li')
+        // 添加节点 node.appendChild(child) node 父级 child是子级 后面追加元素 类似于数组中的push
+        var p = document.querySelector('p')
+        p.appendChild(li)
+        // 添加节点 node.insertBefore(child,指定元素)
+        var lili = document.createElement('li')
+        p.insertBefore(lili,p.children[0])
+
+        //6.删除节点 node.removeChild(child)
+        // 删除一个子节点并返回该节点
+        p.removeChild(p.children[0])
+
+        //7.复制(克隆)节点 node.cloneNode()
+        //如果括号里参数为空或者是false，则是浅拷贝，即只克隆复制节点本身，不克隆里面的子节点
+        //如果括号里面为true，则是深拷贝，既克隆复制节点本身，又克隆里面的子节点
+        var p2 = p.children[0].cloneNode()
+        p.insertBefore(p2,p.children[0])
+    </script>
+</body>
+</html>

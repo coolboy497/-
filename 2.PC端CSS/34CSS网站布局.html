@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS网站布局</title>
+</head>
+<style>
+    *{
+        box-sizing: border-box;
+    }
+    .div1{
+        text-align: center;
+        background-color:antiquewhite;
+        padding: 10px;
+    }
+    .div2{
+        margin-top: 5px;
+        overflow: hidden;
+        background-color:rgb(121, 114, 114);
+    }
+    .div2 a{
+        float:left;
+        padding: 8px;
+        color:white;
+        text-decoration: none;
+        text-align: center;
+    }
+    .div2 a:hover{
+        background-color: greenyellow;
+    }
+    .div3{
+        overflow: hidden;
+    }
+    .div4{
+        background-color: grey;
+        margin-top: 5px;
+        float:left;
+        width: 33.3%;
+        text-align: center;
+        padding: 50px;
+        height: 140px;
+        border-right: 1px solid white;
+    }
+    .div5{
+        text-align: center;
+        background-color:black;
+        padding: 10px;
+        color: white;
+        margin-top: 150px;
+    }
+</style>
+<body>
+    <div class="div1">页眉</div>
+    <div class="div2">
+            <a href="#">Link</a>
+            <a href="#">Link</a>
+            <a href="#">Link</a>
+    </div>
+    <div class="div3">
+        <div class="div4">内容</div>
+        <div class="div4">主内容</div>
+        <div class="div4">内容</div>
+    </div>
+    <div class="div5">页脚</div>
+</body>
+</html>

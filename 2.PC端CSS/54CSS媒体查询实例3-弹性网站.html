@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!--meta标签：控制视口，为浏览器提供了关于如何控制页面尺寸和缩放比例的指令
+        width=device-width 部分将页面的宽度设置为跟随设备的屏幕宽度（视设备而定）-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS媒体查询实例3-弹性网站</title>
+</head>
+<style>
+    *{
+        box-sizing: border-box;
+    }
+    body {
+        margin: 0;
+        padding: 5px;
+    }
+    .header{
+        background-color: yellow;
+        text-align: center;
+        padding: 15px;
+    }
+    .middle{
+        background-color: rgb(72, 216, 168);
+        text-align: center;
+        padding: 30px;
+        color: white;
+    }
+    .link{
+        background-color: rgba(0, 0, 0, 0.874);
+        overflow: hidden;
+    }
+    .link ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+    .link ul li{
+        float: left;
+        padding: 10px;
+    }
+    .link ul li a{
+        text-decoration: none;
+        color: white;
+    }
+    .link ul li:hover{
+        background-color: grey;
+    }
+    .center{
+        display: flex;
+    }
+    .center .left{
+        background-color:rgb(198, 192, 192);
+        flex:30%;
+        padding: 10px;
+    }
+    .center .right{
+        background-color:whitesmoke;
+        flex:70%;
+        padding: 10px;
+    }
+    .center .left .img{
+        background-color: grey;
+        padding: 40px;
+    }
+    .center .left .img1{
+        margin-top:15px;
+        background-color: grey;
+        padding: 10px;
+    }
+    .center .right .img{
+        background-color: grey;
+        padding: 40px;
+    }
+    .footer{
+        background-color: rgb(213, 212, 212);
+        text-align: center;
+        padding: 20px;
+    }
+    @media screen and (max-width:500px) {
+        body{
+            background-color: aqua;
+        }
+        .center{
+            flex-direction: column;
+        }
+    }
+</style>
+<body>
+    <div class="header">请调整浏览器窗口的大小以查看响应效果</div>
+    <div class="middle">
+        <h1>my website</h1>
+        <p>with a flexible layout</p>
+    </div>
+    <div class="link">
+        <ul>
+            <li><a href="#">link</a></li>
+            <li><a href="#">link</a></li>
+            <li><a href="#">link</a></li>
+            <li><a href="#">link</a></li>
+        </ul>
+    </div>
+    <div class="center">
+        <div class="left">
+            <h2>About Me</h2>
+            <p>photo of me:</p>
+            <div class="img">image</div>
+            <p>some text about me in culpaqui
+                officia deserut mollitanim
+            </p>
+            <h3>More Text</h3>
+            <p>Lorem ipsum dolor sit ame.</p>
+            <div class="img1">image</div>
+            <div class="img1">image</div>
+            <div class="img1">image</div>
+        </div>
+        <div class="right">
+            <h2>TITLE HEADING</h2>
+            <p>title description,Dec 17,2022</p>
+            <div class="img">image</div>
+            <p>Some text.</p>
+            <p>Sunt in culpa qui officia deserunt 
+                mollit anim id est laborum consectetur adipiscing elit,
+                 sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+                 Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
+            <h2>TITLE HEADING</h2>
+            <p>title description,Dec 17,2022</p>
+            <div class="img">image</div>
+            <p>Some text.</p>
+            <p>Sunt in culpa qui officia deserunt 
+            mollit anim id est laborum consectetur adipiscing elit,
+            sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+            Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
+        </div>
+    </div>
+    <div class="footer">Footer</div>
+</body>
+</html>

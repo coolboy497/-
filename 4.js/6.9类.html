@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // ES6之前通过构造函数+原型实现面向对象编程
+        // （1）构造函数有原型对象prototype
+        // （2）构造函数原型对象prototype里面有constructor指向构造函数本身
+        // （3）构造函数可以通过原型对象添加方法
+        // （4）构造函数创建的实例对象有__proto__原型指向 构造函数的原型对象
+
+        // 语法糖:就是一种便捷写法，简单理解，有两种方法可以实现相同的功能，但是一种写法更加
+        // 清晰、方便，那么这个方法就是语法糖
+        // ES6通过类实现面向对象编程,ES6的类就是语法糖
+        // 类的本质其实还是一个函数，我们也可以简单的认为类就是构造函数的另一种写法
+        // 上诉构造函数的特点类都有
+        class Star {
+
+        }
+        console.log(typeof Star);//function
+        // 面向过程:就是按照我们分析好了的步骤，按照步骤解决问题
+        // 面向对象:以对象功能来划分问题，而不是步骤（先找出对象，再写出这些对象的功能）
+        // 面向对象的思维特点：抽取对象共用的属性和方法组织(封装)成一个类(模板)
+        // 对类进行实例化，获取类的对象
+        // 类抽象了对象的公共部分，泛指某一大类；对象特指某一个，通过类实例化来产生
+
+        // constructor()方法是类的构造函数(默认方法)，用于传递参数，同时返回实例对象，通过
+        // new 命令生成对象实例时，会自动调用该方法，如果没有显示定义，类内部会自动给我们
+        // 创建一个constructor()
+
+        // 1.创建类class 创建一个明星类,类名习惯性首字母大写
+        // class Star{
+        //     constructor(uname){//里面的this就是指向的创建的实例对象
+        //         this.uname = uname
+        //     }
+        //     // 创建方法,不需要function，多个函数、方法之间不需添加逗号分隔
+        //     // 方法里面可以传递参数
+        //     sing(song){
+        //         console.log(this.uname+'在唱'+song);
+        //     }
+        // }
+        // // 2.利用类创建对象 new不能省略
+        // var ldh = new Star('刘德华');
+        // console.log(ldh.uname);//刘德华
+        // console.log(ldh.sing("冰雨"));
+
+        // 3.类的继承，子类继承父类的属性和方法
+        // super关键字用于访问和调用对象父类上的函数，可以调用父类的构造函数
+        // 也可以调用父类的普通函数。
+
+        // 继承中，如果实例化子类输出一个方法，先看子类有没有这个方法，如果有就先执行子类的方法
+        // 如果没有，就去查找父类汇总有没有这个方法，如果有，就执行父类的方法（就近原则）
+        // class Father{
+        //     constructor(x,y){
+        //         this.x = x;
+        //         this.y = y;
+        //     }
+        //     money(){
+        //         console.log(100);
+        //     }
+        //     sum(){
+        //         console.log(this.x+this.y);
+        //     }
+        //     dec(x,y){
+        //         console.log(x-y);
+        //     }
+        // }
+        // class Son extends Father{
+        //     constructor(x,y){
+        //         super(x,y);//调用了父类中的构造函数
+        //         this.x = x;
+        //         this.y = y;//同时继承父类的方法，又能扩展自己的乘法操作
+        //         // super(x,y)必须要先写
+        //     }
+        //     son_dec(){
+        //         super.dec(this.x,this.y);//调用父类的普通函数
+        //     }
+        //     multiple(){//子类中自己扩展的独有乘法操作
+        //         console.log(this.x*this.y);
+        //     }
+        // }
+        // const son = new Son();
+        // son.money();
+
+        // const son2 = new Son(1,2);
+        // son2.sum();
+        // son2.son_dec();
+        // son2.multiple()
+
+        // 4.（1）ES6类没有变量提升，所以必须要先定义类，才能通过类进行实例化
+        //   （2）类里面的共有属性和方法一定要加this使用。
+        //   （3）constructor构造函数里面的this指向的创建的实例对象
+        //   （4）方法里面的this指向的调用这个方法的对象
+
+    </script>
+</body>
+</html>

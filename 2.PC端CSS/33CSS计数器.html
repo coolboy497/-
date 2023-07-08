@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS计数器</title>
+</head>
+<style>
+    /*counter-reset - 创建或重置计数器
+    counter-increment - 递增计数器值
+    content - 插入生成的内容
+    counter() 或 counters() 函数 - 将计数器的值添加到元素*/
+    body{
+        counter-reset: bignumber;
+    }
+    h1{
+        counter-reset: number;
+    }
+    h1::before{
+        counter-increment: bignumber;
+        content: counter(bignumber)".";
+    }
+    h2::before{
+        counter-increment: number;
+        content:counter(bignumber) "." counter(number) ;
+    }
+</style>
+<body>
+    <h1>HTML教程</h1>
+    <h2>HTML教程</h2>
+    <h2>CSS教程</h2>
+    <h1>scripting教程</h1>
+    <h2>Javascript</h2>
+    <h2>VBscript</h2>
+    <h1>XML教程</h1>
+    <h2>XML</h2>
+    <h2>XSL</h2>
+</body>
+</html>

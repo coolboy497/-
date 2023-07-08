@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS表格</title>
+</head>
+<style>
+    /*border-collapse属性将表格框变为单一框*/
+    table.one,td.one,th.one{
+        border:1px solid black;
+        border-collapse: collapse;
+        text-align: center;
+        width: 200px;
+    }
+    /*设为水平分隔线的表格*/
+    table.two{
+        border-collapse: collapse;
+        width: 200px;
+        text-align: center;
+    }
+    th.two,td.two{
+        border-bottom: 1px solid bisque;
+        padding:10px;
+    }
+    /*当鼠标悬停到表格上改变效果*/
+    tr.two:hover{
+        background-color: aqua;
+    }
+    /*nth-child()条状表格的选择器：选择奇数行还是偶数行（even or odd）*/
+    table.three{
+        border-collapse: collapse;
+        width: 200px;
+        text-align: center;
+    }
+    tr.three{
+        border-bottom: 1px dotted black;
+    }
+    tr.three:nth-child(even){
+        background-color: aquamarine;
+    }
+    /*响应式表格，如果因无法显示全部内容，会出现水平滚动条
+     就要用带有overflow-x:auto 的容器元素（如div）包围表格*/
+     table.four{
+        border-collapse: collapse;
+     }
+     tr.four:nth-child(even){
+        background-color: bisque;
+     }
+</style>
+<body>
+    <table class="one">
+        <tr class="one">
+            <th class="one">姓名</th>
+            <th class="one">身高</th>
+        </tr>
+        <tr class="one">
+            <td class="one">张三</td>
+            <td class="one">170</td>
+        </tr>
+    </table>
+    <br/>
+    <table class="two">
+        <tr class="two">
+            <th class="two">姓名</th>
+            <th class="two">身高</th>
+        </tr>
+        <tr class="two">
+            <td class="two">张三</td>
+            <td class="two">170</td>
+        </tr>
+    </table>
+    <br/>
+    <table class="three">
+        <tr class="there">
+            <th class="three">姓名</th>
+            <th class="three">身高</th>
+        </tr>
+        <tr class="three">
+            <td class="three">张三</td>
+            <td class="three">170</td>
+        </tr>
+        <tr class="three">
+            <td class="three">李四</td>
+            <td class="three">180</td>
+        </tr>
+        <tr class="three">
+            <td class="three">王五</td>
+            <td class="three">175</td>
+        </tr>
+    </table>
+    <br/>
+    <div style="overflow-x:auto;">
+        <table class="four">
+          <tr class="four">
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Points</th>
+            <th>Points</th>
+            <th>Points</th>
+            <th>Points</th>
+            <th>Points</th>
+            <th>Points</th>
+            <th>Points</th>
+            <th>Points</th>
+            <th>Points</th>
+            <th>Points</th>
+          </tr>
+          <tr class="four">
+            <td>Bill</td>
+            <td>Gates</td>
+            <td>50</td>
+            <td>50</td>
+            <td>50</td>
+            <td>50</td>
+            <td>50</td>
+            <td>50</td>
+            <td>50</td>
+            <td>50</td>
+            <td>50</td>
+            <td>50</td>
+          </tr>
+          <tr class="four">
+            <td>Steve</td>
+            <td>Jobs</td>
+            <td>94</td>
+            <td>94</td>
+            <td>94</td>
+            <td>94</td>
+            <td>94</td>
+            <td>94</td>
+            <td>94</td>
+            <td>94</td>
+            <td>94</td>
+            <td>94</td>
+          </tr>
+          <tr class="four">
+            <td>Elon</td>
+            <td>Musk</td>
+            <td>67</td>
+            <td>67</td>
+            <td>67</td>
+            <td>67</td>
+            <td>67</td>
+            <td>67</td>
+            <td>67</td>
+            <td>67</td>
+            <td>67</td>
+            <td>67</td>
+          </tr>
+        </table>
+      </div>
+</body>
+</html>

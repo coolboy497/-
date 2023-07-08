@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>简易网站</title>
+</head>
+<!--dispaly属性：inline-block
+    与inline属性相比允许元素设置高度和宽度
+    与block属性相比，元素不会添加换行符，因此该元素可以位于其它元素旁边-->
+<style>
+    * {
+        box-sizing: border-box;
+    }
+    /*对li元素设置浮动会使得父元素ul高度塌陷,导致其背景不能显示
+      父元素ul使用overflow：hidden/auto清除浮动*/
+    .header {
+        list-style-type: none;
+        padding: 0;
+        border: 0;
+        overflow: auto;
+        background-color: dimgray;
+    }
+    .header li {
+        float: left;
+    }
+    .header li a {
+        display: inline-block;
+        text-align: center;
+        color: black;
+        padding: 15px;
+        text-decoration: none;
+    }
+    .home {
+        background-color: green;
+    }
+    .header li a:hover {
+        background-color: white;
+    }
+    /* div{
+        background-color: brown;
+    } */
+    .middle{
+        float: left;
+    }
+    .list{
+        width: 25%;
+    }
+    .right{
+        width: 75%;
+        background-color: lightblue;
+        margin-bottom: 25px;
+    }
+    .list ul{
+        list-style-type: none;
+        padding: 0;
+        margin:0;
+    }
+    .list li a{
+        margin-bottom: 8px;
+        display:inline-block;
+        background-color: lightgray;
+        color:black;
+        text-align: center;
+        text-decoration: none;
+        width:75%;
+        padding: 5px;
+    }
+    .list li .TheCity{
+        background-color: blue;
+    }
+    .list li a:hover{
+        background-color: aqua;
+    }
+    .bottom{
+        background-color: black;
+        margin: 0;
+        padding: 0;
+    }
+    .bottom p{
+        padding: 15px;
+        color: white;
+    }
+</style>
+<body>
+    <ul class="header">
+        <li><a href="#Home" class="home">Home</a></li>
+        <li><a href="#News">News</a></li>
+        <li><a href="#Contact">Contact</a></li>
+        <li><a href="About">About</a></li>
+    </ul>
+    <div class="middle list">
+        <ul>
+            <li><a href="#The Flight">The Flight</a></li>
+            <li><a href="#The City" class="TheCity">The City</a></li>
+            <li><a href="#The Island">The Island</a></li>
+            <li><a href="#The Food">The Food</a></li>
+            <li><a href="#The People">The People</a></li>
+            <li><a href="#The History">The History</a></li>
+            <li><a href="#The Oceans">The Oceans</a></li>
+        </ul>
+    </div>
+    <div class="middle right">
+        <h1>The city</h1>
+    </div>
+    <h1>Shanghai</h1>
+    <p>Shanghai is one of the four direct-administered municipalities
+        of the People's Republic of China. Welcome to Shanghai!</p>
+    <p>You will learn more about responsive web pages in a later chapter.</p>
+    <div class="bottom">
+        <p>bottom</p>
+    </div>
+</body>
+</html>

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 构造函数方法很好用，但是存在浪费内存的问题 -->
+    <!-- 构造函数与new一起使用，new在执行时会做四件事情
+    （1）在内存中创建一个新的空对象
+    （2）让this指向这个新的对象
+    （3）执行构造函数里面的代码，给这个新对象添加属性和方法
+    （4）返回这个新对象（所以构造函数里面不需要return）-->
+    <script>
+    //     function Star(uname,age){
+    //     this.uanme = uname;
+    //     this.age = age;
+    //     this.sing = function(){
+    //         console.log("我会唱歌");
+    //     }
+    // }
+    // var ldh = new Star('刘德华',29);
+    // var zxy = new Star('张学友',38);
+    // console.log(ldh.sing()===zxy.sing());//false
+    // // 两个不同对象，为同一个方法申请了不同内存空间，导致浪费了内存
+    // // 引出构造函数原型prototype，通过原型分配的函数对不同对象是共享的
+
+    // // 构造函数中的属性和方法我们称之为成员，成员可以添加
+    // // 1.实例成员就是构造函数内部通过this添加的成员 uname age sing就是实例成员
+    // // 实例成员只能通过实例化的对象来进行访问
+    // console.log(ldh.uname);//刘德华
+    // console.log(Star.uname);//undefined
+    // // 2.静态成员 在构造函数本身上添加的成员
+    // // 静态成员只能通过构造函数来访问
+    // Star.sex = '男';
+    // console.log(star.sex);//男
+    // console.log(ldh.sex);//undefined
+
+    // javascript规定，每一个构造函数都有一个prototype属性，指向另一个对象，注意
+    // 这个prototype就是一个对象，这个对象的所有属性和方法都会被构造函数所拥有
+    // 所以我们可以把那些不变的方法，直接定义在prototype对象（原型对象）上，
+    // 这样所有对象的实例就可以共享这些方法
+    
+    // 这样公共属性定义到构造函数，公共方法定义到原型对象上
+    function Star(uname,age){
+        this.uanme = uname;
+        this.age = age;
+        // this.sing = function(){
+        //     console.log("我会唱歌");
+        // }
+    }
+    // Star.prototype.sing = function(){
+    //     console.log("我会唱歌");
+    // }
+    // Star.prototype.movie = function(){
+    //     console.log("我会演电影");
+    // }
+    // 如果我们修改了原来的原型对象,给原型对象赋值的是一个对象
+    // 我们就必须手动的利用constructor指回原来的构造函数
+    Star.prototype = {
+        constructor:Star,
+        sing:function(){
+            console.log("我会唱歌");
+        },
+        movie:function(){
+            console.log("我会演电影");
+        }
+    }
+    var ldh = new Star('刘德华',29);
+    var zxy = new Star('张学友',38);
+    console.log(ldh.sing()===zxy.sing());//true
+
+    // 对象都会有一个属性__proto__指向构造函数的prototype原型对象，之所以
+    // 我们对象可以使用构造函数prototype原型对象的属性和方法，就是因为对象有__proto__原型的存在
+    // __proto__(对象原型)和prototype(原型对象)是等价的
+    // __proto__(对象原型)的意义就在于为对象的查找机制提供一个方向或者说是一条线路，但它
+    // 是一个非标准属性。因此在实际开发中，不可以使用这个属性，它只是内部指向原型对象prototype
+    console.log(ldh);
+    console.log(ldh.__proto__===Star.prototype);
+    //方法的查找规则：首先先看ldh对象上是否有sing方法，如果有就执行这个对象上的sing
+    //如果没有sing这个方法，因为有__proto__的存在，就去构造函数原型对象prototype身上去查找sing这个方法
+
+
+    // __proto__(对象原型)和prototype(原型对象)里面都有一个constructor属性
+    // constructor我们称为构造函数，因为它指回构造函数本身
+    // constructor主要用于记录该对象引用哪个构造函数，它可以让原型对象重新指向原来的构造函数
+    console.log(ldh.__proto__);
+    console.log(Star.prototype);
+
+    console.log(ldh.__proto__.constructor);
+    console.log(Star.prototype.constructor);
+    </script>
+</body>
+</html>

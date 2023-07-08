@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS媒体查询实例2-响应式图像库</title>
+</head>
+<style>
+    *{
+        box-sizing: border-box;
+    }
+    .row{
+        display: flex;
+        flex-wrap: wrap;
+    }
+    /**/
+    .column{
+        flex:25%;
+        max-width: 25%;
+    }
+    /* 响应式布局 - 制作两列而不是四列的布局 */
+    @media screen and (max-width: 800px) {
+        .column {
+            flex: 50%;
+            max-width: 50%;
+        }
+    }
+    /* 响应式布局 - 使两列相互堆叠而不是彼此并排 */
+    @media screen and (max-width: 600px) {
+        .column {
+            flex: 100%;
+            max-width: 100%;
+        }
+    }
+</style>
+<body>
+    <div class="row"> 
+        <div class="column">
+          <img src="https://www.w3school.com.cn/i/photo/tulip-red.jpg" style="width:100%">
+          <img src="https://www.w3school.com.cn/i/photo/tulip-yellow-2.jpg" style="width:100%">
+          <img src="https://www.w3school.com.cn/i/photo/flower-2.jpg" style="width:100%">
+          <img src="https://www.w3school.com.cn/i/photo/tulip-yellow.jpg" style="width:100%">
+          <img src="https://www.w3school.com.cn/i/photo/flower-3.jpg" style="width:100%">
+          <img src="https://www.w3school.com.cn/i/photo/tulip.jpg" style="width:100%">
+          <img src="https://www.w3school.com.cn/i/photo/flower-1.jpg" style="width:100%">
+          <img src="https://www.w3school.com.cn/i/photo/flower-4.jpg" style="width:100%">
+        </div>
+        
+        <div class="column">
+          <img src="https://www.w3school.com.cn/i/photo/tulip-yellow-2.jpg" style="width:100%">
+          <img src="https://www.w3school.com.cn/i/photo/tulip.jpg" style="width:100%">
+          <img src="https://www.w3school.com.cn/i/photo/flower-3.jpg" style="width:100%">
+          <img src="https://www.w3school.com.cn/i/photo/flower-1.jpg" style="width:100%">
+          <img src="https://www.w3school.com.cn/i/photo/flower-4.jpg" style="width:100%">
+          <img src="https://www.w3school.com.cn/i/photo/tulip-red.jpg" style="width:100%">
+          <img src="https://www.w3school.com.cn/i/photo/tulip-yellow.jpg" style="width:100%">
+          <img src="https://www.w3school.com.cn/i/photo/flower-2.jpg" style="width:100%">
+        </div>
+         
+        <div class="column">
+          <img src="https://www.w3school.com.cn/i/photo/tulip-red.jpg" style="width:100%">
+          <img src="https://www.w3school.com.cn/i/photo/tulip-yellow-2.jpg" style="width:100%">
+          <img src="https://www.w3school.com.cn/i/photo/flower-2.jpg" style="width:100%">
+          <img src="https://www.w3school.com.cn/i/photo/tulip-yellow.jpg" style="width:100%">
+          <img src="https://www.w3school.com.cn/i/photo/flower-3.jpg" style="width:100%">
+          <img src="https://www.w3school.com.cn/i/photo/tulip.jpg" style="width:100%">
+          <img src="https://www.w3school.com.cn/i/photo/flower-1.jpg" style="width:100%">
+          <img src="https://www.w3school.com.cn/i/photo/flower-4.jpg" style="width:100%">
+        </div>
+        
+        <div class="column">
+          <img src="https://www.w3school.com.cn/i/photo/tulip-yellow-2.jpg" style="width:100%">
+          <img src="https://www.w3school.com.cn/i/photo/tulip.jpg" style="width:100%">
+          <img src="https://www.w3school.com.cn/i/photo/flower-3.jpg" style="width:100%">
+          <img src="https://www.w3school.com.cn/i/photo/flower-1.jpg" style="width:100%">
+          <img src="https://www.w3school.com.cn/i/photo/flower-4.jpg" style="width:100%">
+          <img src="https://www.w3school.com.cn/i/photo/tulip-red.jpg" style="width:100%">
+          <img src="https://www.w3school.com.cn/i/photo/tulip-yellow.jpg" style="width:100%">
+          <img src="https://www.w3school.com.cn/i/photo/flower-2.jpg" style="width:100%">
+        </div>
+      </div>
+</body>
+</html>

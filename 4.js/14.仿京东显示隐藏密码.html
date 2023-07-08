@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box{
+            position: relative;
+            width: 400px;
+            border-bottom: 1px solid #ccc;
+            margin:100px auto;
+        }
+        .box input{
+            width: 370px;
+            height: 30px;
+            border: 0; 
+            outline: none;
+        }
+        .box img{
+            width: 24px;
+            position: absolute;
+            right:6px;
+            top:6px;
+        }
+        .box input::-ms-reveal{
+            display: none;
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="box">
+        <label for="">
+            <img src="https://img2.baidu.com/it/u=1220446905,1185946036&fm=253&fmt=auto&app=138&f=JPEG?w=44&h=36" alt="">
+        </label>
+        <input type="password" name="" id="">
+    </div>
+    <script>
+        var img = document.querySelector('img');
+        var input = document.querySelector('input');
+        var flag=0;
+        img.onclick = function(){
+            if(flag==0){
+                input.type='password';
+                this.src='https://img2.baidu.com/it/u=1220446905,1185946036&fm=253&fmt=auto&app=138&f=JPEG?w=44&h=36';
+                flag=1;
+            }
+            else{
+                input.type='text';
+                this.src='https://img1.baidu.com/it/u=1705924360,256737079&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=500'
+                flag=0;
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    input {
+        width: 40px;
+        margin-left: 5px;
+    }
+    .header {
+        width: 500px;
+        height: 10px;
+        margin: 30px auto;
+    }
+    input[type="button"] {
+        width: 30px;
+    }
+    table {
+        margin: 0 auto;
+        border-collapse: collapse;
+    }
+    table thead th {
+        border: 1px solid black;
+        padding: 0 40px;
+    }
+    table tbody td {
+        border: 1px solid black;
+        text-align: center;
+    }
+</style>
+<body>
+    <header class="header">
+        按照价格查询:<input type="text"/>-<input type="text"/><input type="button" value="搜索">
+        按照商品名称查询:<input type="text"/><input type="button" value="查询">
+    </header>
+    <table>
+        <thead>
+            <th>id</th>
+            <th>产品名称</th>
+            <th>价格</th>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+    <script>
+        const date = [
+            {id:1,
+             pname:"小米",
+             price:3999
+            },
+            {id:2,
+             pname:"oppo",
+             price:999
+            },
+            {id:3,
+             pname:"荣耀",
+             price:1299
+            },
+            {id:4,
+             pname:"华为",
+             price:1999
+            },
+        ]
+        // 1.录入数据功能,把数据渲染到页面中
+        const tbody = document.querySelector('tbody');
+        setDate(date);
+        function setDate(mydate){
+            // 先清空原来tbody里面的数据
+            tbody.innerHTML = '';
+            mydate.forEach(function (value) {
+            const tr = document.createElement('tr');
+            tr.innerHTML = "<td>"+value["id"]+"</td><td>"+value["pname"]+"</td><td>"+value["price"]+"</td>";
+            tbody.appendChild(tr);
+        })
+        }
+        //2.查询价格范围功能
+        const inputs = document.querySelectorAll('input');
+        console.log(inputs);
+        const btns = document.querySelectorAll('input[type="button"]');
+        btns[0].addEventListener('click',function(){
+            var newarr=date.filter(function(value){
+                return inputs[0].value<=value["price"] && inputs[1].value>=value["price"];
+            })
+            // console.log(newarr);
+            setDate(newarr);
+        })
+        //3.按照商品名称查询
+        // 如果查询数组中唯一元素，用some方法更合适,
+        // 代码复杂点，但效率更高，查到所查元素就终止循环了
+        // 在forEach里面return不会终止迭代
+        // console.log(inputs[3].value);
+        btns[1].addEventListener('click',function(){
+            const arr =[]
+            date.some(function(value,index){
+                if(value["pname"]===inputs[3].value)
+                {
+                    arr.push(value);
+                    // console.log(arr);
+                    return true;//return 后面必须写true
+                }
+            })
+            // 把拿到的数据渲染到页面中
+            setDate(arr);
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    *{
+        box-sizing: border-box;
+    }
+    div{
+        position: relative;
+        width: 130px;
+        height: 200px;
+        background-color: rgb(251, 85, 85);
+        color:white;
+        font-size: 22px;
+        text-align: center;
+        line-height: 100px;
+    }
+    #text1{
+        font-size: 14px;
+        position: absolute;
+        top:10px;
+        left: 18px;
+        color:white;
+        opacity: 0.5;
+    }
+    #text2{
+        font-size: 10px;
+        position: absolute;
+        top:80px;
+        left: 18px;
+    }
+    ul{
+        margin: 0;
+        padding: 0;
+        position: absolute;
+        top:160px;
+        /* background-color: pink; */
+        left:14px;
+    }
+    ul li{
+        list-style-type: none;
+        float: left;
+        width: 30px;
+        height: 30px;
+        border: 1px solid red;
+        background-color:black;
+        margin-left: 2px;
+        text-align: center;
+        line-height: 30px;
+        color: white;
+        font-size: 14px;
+    }
+</style>
+<body>
+    <div>京东秒杀
+        <p id="text1">FLASH DEALS</p>
+        <p id="text2">本场距离结束还剩</p>
+        <ul>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+    </div>
+    <script>
+        function countDown(time){
+            datas = []
+            var nowTime = +new Date();//当前时间的总毫秒数
+            var inputTime = +new Date(time);//用户输入时间的总毫秒数
+            var times = (inputTime-nowTime) / 1000;//times是剩余时间总的秒数
+            var day = parseInt(times / 60 / 60 / 24);
+            day = day < 10 ? "0" + day: day;
+            var hours = parseInt(times / 60 / 60 % 24);
+            hours = hours < 10 ? "0" + hours : hours;
+            var minutes = parseInt(times / 60 % 60);
+            minutes = minutes < 10 ? "0" + minutes : minutes;
+            var seconds = parseInt(times % 60);
+            seconds = seconds < 10 ? "0" + seconds : seconds;
+            // return day+'天'+hours+'时'+minutes+"分"+seconds+"秒";
+            datas.push(hours,minutes,seconds)
+            return datas
+        }
+        function timedecrease(){
+            var data = new Date()
+            var year = data.getFullYear()
+            var month = data.getMonth()+1
+            var day = data.getDate()
+            // console.log(year,month,day)
+            inputtime = year+'-'+month+'-'+day+' 24:00:00'
+            datas = countDown(inputtime)
+            var lis = document.querySelectorAll('li')
+            for (var i = 0 ;i < lis.length;i++){
+                // console.log(lis[i])
+                lis[i].innerHTML = datas[i]
+            }
+            // clearInterval(time1)暂停倒计时
+        }
+        timedecrease()//先调用一次，防止框里出现空白
+        //开启定时器
+        var time1 = setInterval(timedecrease,1000)
+    </script>
+</body>
+</html>

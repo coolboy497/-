@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    span {
+        display: inline-block;
+        width: 250px;
+        height: 30px;
+        vertical-align: middle;
+        line-height: 30px;
+        padding-left: 15px;
+    }
+    .error {
+        color: red;
+        background: url(error.jpg) no-repeat left center;
+        background-size:20px auto;
+    }
+    .right {
+        color: green;
+        background: url(right.png) no-repeat left center;
+        background-size:16px auto;
+    }
+</style>
+<body>
+    <input type="text" name="" id="">
+    <span></span>
+    <script>
+        const reg = /^[a-zA-Z0-9-_]{6,16}$/
+        let input = document.querySelector('input')
+        let span = document.querySelector('span')
+        input.addEventListener('blur',function(){
+            console.log(reg.test(this.value));
+            if(reg.test(this.value)){
+                span.innerHTML = '输入正确'
+                span.className = "right"
+            }
+            else {
+                span.innerHTML = '请输入6~16的英文数字下划线'
+                span.className = "error"
+            }
+        })
+    </script>
+</body>
+</html>

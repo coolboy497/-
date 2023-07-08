@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS 2D转换</title>
+</head>
+<!--transform属性来进行对元素的2D转换
+    (1)translate(x,y):2D转换，沿着x和y轴移动元素 translateX(n) translateY(n) 
+    (2)scale(x,y):缩放转换，改变元素的宽度和高度 scaleX(n) scaleY(n)
+    (3)rotate(angle):2D旋转,在参数中规定角度
+    (4)skew(x-angle,y-angle):定义 2D 倾斜转换，沿着 X 和 Y 轴 skewX(angle) skewY(angle)
+    (5)matrix(scaleX(),skewY(),skewX(),scaleY(),translateX(),translateY())
+        把所有 2D 变换方法组合为一个-->
+<style>
+    div{
+        box-sizing: border-box;
+        background-color: rgb(227, 112, 112);
+        width: 100px;
+        height: 100px;
+        margin-left: 50px;
+        margin-top: 50px;
+        padding: 10px;
+        text-align: center;
+        /* transform: translate(50px,100px); */
+        /* transform: scale(0.5,1);*//*为其原始宽度的0.5倍和其原始高度的1倍 */
+        /* transform: rotate(45deg); */
+        /* transform: skew(20deg,10deg); */
+        /* transform: matrix(0.5,0,0,0.5,0,0); */
+    }
+    div:hover{
+        transform: rotate(45deg);
+    }
+</style>
+<body>
+    <div>transform</div>
+</body>
+</html>

@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    input{
+        width: 100px;
+        height: 15px;
+        display: block;
+        margin: 0 auto;
+        outline: none;
+        border-color: black;
+    }
+    div{
+        position: relative;
+        margin-top:5px;
+        height: 50px;
+        background-color: blueviolet;
+    }
+    #nhj{
+        text-align: center;
+        line-height: 50px;
+        font-size: 20px;
+        height: 50px;
+        width: 100px;
+        margin-left: 100px;
+        background-color: rgb(253, 50, 50);
+    }
+    div img{
+        display: inline;
+        position: absolute;
+        width: 20px;
+        right:30px;
+        top:10px;
+    }
+    li:first-child{
+        background-color: pink;
+        border:1px solid gainsboro;
+    }
+    li{
+        box-sizing: border-box;
+        text-align: center;
+        background-color: gainsboro;
+        padding: 5px ;
+        border: 1px solid yellow;
+        width: 100px;
+        height: 30px;
+        list-style: none;
+    }
+</style>
+<body>
+    <input type="text" value="邮箱/ID/手机号">
+    <div>
+        <div id="nhj">年货节</div>
+        <img src="../jsapis_material/第一天/images/wrong.png" alt="">
+    </div>
+    <ul>
+        <li>微博</li>
+        <li>私信</li>
+        <li>评论</li>
+        <li>@我</li>
+    </ul>
+    <button>开关灯</button>
+    <script>
+        //1.世纪佳缘 用户名显示隐藏内容
+        var input = document.querySelector('input')
+        input.onclick = function(){
+            if(this.value=='邮箱/ID/手机号'){
+                this.value = ''
+                this.style.borderColor='pink'
+            }
+        }
+        input.onblur = function(){
+            this.value='邮箱/ID/手机号'
+            this.style.borderColor='black'
+        }
+        //2.京东关闭广告
+        var img = document.querySelector('img')
+        var divs = document.getElementsByTagName('div')
+        console.log(divs[0])
+        img.onclick = function(){
+            divs[0].style.display = 'none'
+        }
+        //3.新浪下拉菜单
+        var lis = document.querySelectorAll('li')
+        console.log(lis)
+        for(var i = 0;i < lis.length;i++){
+            if(i!=0){
+                lis[i].style.display='none'
+            }
+        }
+        lis[0].onmouseover = function(){
+            for(var i = 1;i < lis.length;i++){
+                lis[i].style.display='block'
+            }
+        }
+        lis[0].onmouseout = function(){
+            for(var i = 1;i < lis.length;i++){
+                lis[i].style.display='none'
+            }
+        }
+        //4.开关灯案例
+        var body = document.body
+        var btn = document.querySelector('button')
+        var flag = 0 
+        btn.onclick = function(){
+            if(flag == 0){
+                body.style.backgroundColor='black'
+                flag = 1
+                input.style.display='none'
+                divs[0].style.display='none'
+                lis[0].style.display='none'
+            }
+            else{
+                body.style.backgroundColor='white'
+                flag = 0
+                input.style.display='block'
+                divs[0].style.display='block'
+                lis[0].style.display='block'
+            }
+        }
+
+    </script>
+</body>
+</html>

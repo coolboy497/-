@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>图像</title>
+</head>
+<!--图像背景：如果图像小于页面，图像会进行重复-->
+<body background="https://ts3.cn.mm.bing.net/th?id=OIP-C.vvNXm9KOxznRGaXrJDwtPwHaHa&w=249&h=250&c=8&rs=1&qlt=90&o=6&pid=3.1&rm=2">
+<!--设置对齐方式的图像，默认是bottom-->
+<p>图像<img src="https://ts3.cn.mm.bing.net/th?id=OIP-C.LLOF0QjnAw0IwFAyw4kNIQHaNK&w=187&h=333&c=8&rs=1&qlt=90&o=6&pid=3.1&rm=2" width="50px" height="50px" align="bottom">在文本中</p>
+<p>图像<img src="https://ts3.cn.mm.bing.net/th?id=OIP-C.LLOF0QjnAw0IwFAyw4kNIQHaNK&w=187&h=333&c=8&rs=1&qlt=90&o=6&pid=3.1&rm=2" width="50px" height="50px" align="center">在文本中</p>
+<p>图像<img src="https://ts3.cn.mm.bing.net/th?id=OIP-C.LLOF0QjnAw0IwFAyw4kNIQHaNK&w=187&h=333&c=8&rs=1&qlt=90&o=6&pid=3.1&rm=2" width="50px" height="50px" align="top">在文本中</p>
+<!--浮动图像的位置-->
+<p><img src="https://ts3.cn.mm.bing.net/th?id=OIP-C.LLOF0QjnAw0IwFAyw4kNIQHaNK&w=187&h=333&c=8&rs=1&qlt=90&o=6&pid=3.1&rm=2" width="50px" height="50px" align="left">带有图像的一个段落。图像的 align 属性设置为 "left"。图像将浮动到文本的左侧</p>
+<p><img src="https://ts3.cn.mm.bing.net/th?id=OIP-C.LLOF0QjnAw0IwFAyw4kNIQHaNK&w=187&h=333&c=8&rs=1&qlt=90&o=6&pid=3.1&rm=2" width="50px" height="50px" align="right">带有图像的一个段落。图像的 align 属性设置为 "right"。图像将浮动到文本的右侧</p>
+<!--alt属性，当无法显示图像时，显示文本-->
+<img src="1.jpg" alt="不存在">
+<br/>
+<br/>
+<br/>
+<!--将图像作为一个超链接-->
+图像超链接
+<a href="https://www.w3school.com.cn/html/html_images.asp">
+    <img src="https://ts3.cn.mm.bing.net/th?id=OIP-C.LLOF0QjnAw0IwFAyw4kNIQHaNK&w=187&h=333&c=8&rs=1&qlt=90&o=6&pid=3.1&rm=2" width="50px" height="50px" alt="小熊">
+</a>
+<br/>
+<br/>
+<br/>
+<!--创建图像映射，每个区域都是一个超级链接-->
+<img src="https://www.w3school.com.cn/i/eg_planets.jpg" alt="星球图" border="0" usemap="#planetmap">
+<map name="planetmap">
+    <area shape="circle" coords="180,139,14" href="https://www.w3school.com.cn/i/eg_venus.gif" target ="_blank" alt="金星">
+    <area shape="circle" coords="129,161,10" href="https://www.w3school.com.cn/i/eg_merglobe.gif" target ="_blank" alt="水星">
+    <area shape="rect" coords="0,0,110,260" href="https://www.w3school.com.cn/i/eg_sun.gif" target ="_blank" alt="太阳">
+</map>
+<br/>
+<br/>
+<br/>
+<!--上述图的坐标怎么得到，可以看浏览器的状态栏-->
+<a href="https://www.w3school.com.cn/">
+    <img src="https://www.w3school.com.cn/i/eg_planets.jpg" ismap />
+</a>
+</body>
+</html>

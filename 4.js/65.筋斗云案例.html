@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body{
+        background-color: black;
+    }
+    *{
+        margin: 0;
+        padding: 0;
+    }
+    div{
+        position: relative;
+        margin-top: 20px;
+        margin-left: 20px;
+        width: 700px;
+        height: 50px;
+        background-color: white;
+        border-radius: 5px;
+    }
+    ul{
+        position: absolute;
+        top:0;
+        left: 0;
+    }
+    li{
+        list-style-type: none;
+        float: left;
+        height: 42px;
+        margin-left: 18px;
+        text-align: center;
+        line-height: 42px;
+        cursor: pointer;
+        /* border: 1px solid red; */
+    }
+    li a{
+        text-decoration: none;
+        color: black;
+        display: inline-block;
+        height: 42px;
+    }
+    span{
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 83px;
+        height: 42px;
+        background: url(../jsapis_material/第六天/07-筋斗云导航栏/images/cloud.gif) no-repeat;
+    }
+</style>
+<body>
+    <div>
+        <span class="cloud"></span>
+        <ul>
+            <li>首页新闻</li>
+            <li>师资力量</li>
+            <li>活动策划</li>
+            <li>企业文化</li>
+            <li>招聘信息</li>
+            <li>公司简介</li>
+            <li>上海校区</li>
+            <li>广州校区</li>
+        </ul>
+    </div>
+    <script>
+        //ul要使用绝对定位，要不然筋斗云会把文字遮挡
+     //鼠标经过某个小li，筋斗云跟着到当前小li位置
+     //鼠标离开了这个小li, 筋斗云就复原为原来的位置
+     //鼠标点击了某个小li, 筋斗云就会留在点击这个小li的位置
+     var div = document.querySelector('div')
+     var lis = document.querySelectorAll('li')
+     var cloud = document.querySelector('.cloud')
+     //console.log(lis[0].offsetWidth);
+     var width = lis[0].offsetWidth+20
+     //记录筋斗云的初始位置
+     var cloud_location = 0
+     lis[0].style.color = 'green'
+     for(var i =0 ;i < lis.length;i++){
+        lis[i].setAttribute('index',i)
+        lis[i].addEventListener('click',function(){
+            cloud.style.left = this.getAttribute('index')*width+'px'
+            cloud_location = this.getAttribute('index')*width
+            for(var i =0 ;i < lis.length;i++){
+                lis[i].style.color = ''
+            }
+            this.style.color = 'green'
+        })
+        lis[i].addEventListener('mouseover',function(){
+            cloud.style.left = this.getAttribute('index')*width+'px'
+        })
+        lis[i].addEventListener('mouseout',function(){
+            cloud.style.left = cloud_location+'px'
+        })
+     }
+    </script>
+</body>
+</html>

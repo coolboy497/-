@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    *{
+        box-sizing: border-box;
+    }
+    ul{
+        position: relative;
+    }
+    a{
+        border: 1px solid gainsboro;
+        text-decoration: none;
+        color: black;
+        padding: 5px 10px;
+        background-color: antiquewhite;
+    }
+    ul ul{
+        position: absolute;
+        margin-top: 6px;
+        left: 0;
+    }
+    li{
+        list-style-type: none;
+        border: 0.5px solid gainsboro;
+        width: 54px;
+        text-align: center;
+        padding: 5px 0px;
+        background-color: rgb(197, 193, 193);
+    }
+</style>
+<body>
+    <ul>
+        <a href="#">微博</a>
+        <ul>
+            <li>私信</li>
+            <li>评论</li>
+            <li>@我</li> 
+        </ul>
+    </ul>
+    <script>
+        var ul = document.querySelector('ul')
+        console.log(ul)
+        console.log(ul.children)
+        var a = ul.children[0]
+        var lis = ul.children[1].children
+        console.log(a)
+        a.onmouseover = function(){
+            for(var i = 0;i < lis.length;i++){
+                lis[i].style.display = 'none'
+            }
+        }
+        a.onmouseout = function(){
+            for(var i = 0;i < lis.length;i++){
+                lis[i].style.display = 'block'
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+    }
+    .box{
+        position: relative;
+        margin: 10px auto;
+        width: 400px;
+        height: 300px;
+        border: 1px solid gainsboro;
+        overflow: hidden;
+    }
+    .box ul {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 600%;
+    }
+    .box ul li{
+        list-style-type: none;
+        float: left;
+    }
+    .box ul li img{
+        width: 400px;
+        height: 300px;
+    }
+    .arrow-right{
+        display: none;
+        position: absolute;
+        right: 5px;
+        top: 130px;
+        width: 20px;
+        height: 20px;
+        z-index: 1;
+        border-top: 2px solid grey;
+        border-right: 2px solid grey;
+        transform: matrix(0.71,0.71,-0.71,0.71 ,0, 0);
+        cursor: pointer;
+    }
+    .arrow-left{
+        display: none;
+        position: absolute;
+        left: 5px;
+        top: 130px;
+        z-index: 1;
+        width: 20px;
+        height: 20px;
+        border-top: 2px solid grey;
+        border-right: 2px solid grey;
+        transform: matrix(-0.71,0.71,0.71,0.71 ,0, 0);
+        cursor: pointer;
+    }
+    .bottom-dots{
+        width: 400px;
+        height: 20px;
+        /* border: 1px solid red; */
+        position: absolute;
+        bottom: 0;
+    }
+    .box-dots{
+        margin: 0 auto;
+        /* background-color: yellow; */
+        width: 160px;
+    }
+    a{
+        display: inline-block;
+        width: 15px;
+        height: 15px;
+        border-radius: 50%;
+        border: 1px solid gainsboro;
+        /* background-color: red; */
+        margin-left: 10px;
+        cursor: pointer;
+    }
+</style>
+<body>
+    <div class="box">
+        <div class="arrow-right"></div>
+        <div class="arrow-left"></div>
+        <ul class = "ul-imgs">
+            <li><img src="..\jsapis_material\第七天\01-移动端轮播图\upload\pic1.jpg" alt=""></li>
+            <li><img src="..\jsapis_material\第七天\01-移动端轮播图\upload\pic2.jpg" alt=""></li>
+            <li><img src="..\jsapis_material\第七天\01-移动端轮播图\upload\pic3.jpg" alt=""></li>
+            <li><img src="..\jsapis_material\第七天\01-移动端轮播图\upload\pic4.jpg" alt=""></li>
+        </ul>
+        <div class="bottom-dots">
+            <div class="box-dots">
+            </div>
+        </div>
+    </div>
+    <script>
+        var arrow_left = document.querySelector('.arrow-left')
+        var arrow_right = document.querySelector('.arrow-right')
+        var ul_imgs = document.querySelector('.ul-imgs')
+        var imgs = document.querySelectorAll('img')
+        var box = document.querySelector('.box')
+        var box_dots = document.querySelector('.box-dots')
+        //图片宽度
+        var img_width = box.clientWidth
+        // (1)功能1：鼠标经过轮播图模块，左右按钮显示，离开隐藏左右按钮
+        box.addEventListener('mouseover',function(){
+            arrow_left.style.display = 'block'
+            arrow_right.style.display = 'block'
+            //鼠标经过停止计时器
+            clearInterval(timer)
+            timer = null
+        })
+        box.addEventListener('mouseout',function(){
+            arrow_left.style.display = 'none'
+            arrow_right.style.display = 'none'
+            timer = setInterval(function(){
+            //手动调用点击事件
+            arrow_right.click()
+        },2000)
+        })
+        // //(2)功能2：动态生成小圆圈,点击小圆圈其底色就变为白色
+        for(var i = 0 ;i < imgs.length;i++){
+            var a = document.createElement('a')
+            //记录当前小圆圈的索引号，通过自定义属性来做
+            a.setAttribute('index',i)
+            box_dots.appendChild(a)
+        }
+        box_dots.children[0].style.backgroundColor = 'cyan'
+        for(var i = 0;i<imgs.length;i++){
+            box_dots.children[i].addEventListener('click',function(){
+                for(var i = 0;i<imgs.length;i++){
+                    box_dots.children[i].style.backgroundColor = ''
+                }
+                this.style.backgroundColor = 'cyan'
+                //(3)功能3：点击小圆圈，动态滑动图片
+                var current_index = this.getAttribute('index')
+                ul_imgs.style.left = -current_index*img_width+'px'
+
+                //让点击圆圈与点击箭头联系起来
+                click_num = current_index
+                // console.log(click_num);
+            })
+        }
+        //(4)功能4：点击右侧按钮一次，图片往左播放一张，依次类推，左侧按钮也一样
+        //排他思想函数,图片显示与小圆圈对应
+        function color(number){
+            for(var i = 0 ;i < box_dots.children.length;i++){
+                    box_dots.children[i].style.backgroundColor=''
+                }
+            box_dots.children[number].style.backgroundColor = 'cyan'
+        }
+       
+        var click_num = 0
+        //flag节流阀
+        var flag = true
+        arrow_right.addEventListener('click',function(){
+            if(flag){
+                flag = false //关闭节流阀
+                click_num++
+                console.log(click_num);
+                if(click_num<imgs.length)
+                {
+                    ul_imgs.style.left = -click_num*img_width+'px'
+                    color(click_num)
+                    flag = true
+                }
+                else{
+                    ul_imgs.style.left = 0
+                    click_num = 0
+                    color(click_num)
+                    flag = true
+                }
+            }
+        })
+
+        arrow_left.addEventListener('click',function(){
+            click_num--
+            console.log(click_num);
+            if(click_num==0)
+            {
+                color(click_num)
+                ul_imgs.style.left = 0
+            }
+            //第一张就按左箭头
+            else if(click_num<0){
+                click_num = imgs.length-1//3 
+                color(click_num)
+                ul_imgs.style.left = -click_num*img_width+'px'
+            }
+            else
+            {
+                color(click_num)
+                ul_imgs.style.left = -click_num*img_width+'px'
+            }
+        })
+        //（5）功能5：自动播放
+        var timer = setInterval(function(){
+            //手动调用点击事件
+            arrow_right.click()
+        },2000)
+
+
+        //节流阀：防止轮播图按钮连续点击造成播放过快
+        //节流阀目的：当上一个函数动画内容执行完毕，再去执行下一个函数动画，让事件无法连续触发
+        //核心实现思路：利用回调函数，添加一个变量来控制，锁住函数和解锁函数
+    </script>
+</body>
+</html>

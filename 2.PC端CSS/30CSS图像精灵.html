@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS图像精灵</title>
+</head>
+<!--图像精灵是单个图像中包含的图像集合。
+    包含许多图像的网页可能需要很长时间才能加载，同时会生成多个服务器请求。
+    使用图像精灵将减少服务器请求的数量并节约带宽。
+
+    它基本上是一幅图像, 是将不同图像组合在一起形成一个图像的集合
+    通俗讲就是在这一张图像仅显示我们需要的部分-->
+<style>
+    #img1{
+        width: 44px;
+        height: 44px;
+        background: url(https://www.w3school.com.cn/i/css/navsprites_hover.gif) 0 0;
+    }
+    #img2{
+        width: 43px;
+        height: 44px;
+        background: url(https://www.w3school.com.cn/i/css/navsprites_hover.gif) -91px 0;
+    }
+    #img3{
+        width: 42px;
+        height: 44px;
+        background: url(https://www.w3school.com.cn/i/css/navsprites_hover.gif) -47px 0;
+    }
+    #img1:hover{
+        width: 44px;
+        height: 44px;
+        background: url(https://www.w3school.com.cn/i/css/navsprites_hover.gif) 0 -45px;
+    }
+    #img2:hover{
+        width: 43px;
+        height: 44px;
+        background: url(https://www.w3school.com.cn/i/css/navsprites_hover.gif) -91px -45px;
+    }
+    #img3:hover{
+        width: 42px;
+        height: 44px;
+        background: url(https://www.w3school.com.cn/i/css/navsprites_hover.gif) -47px -45px;
+    }
+</style>
+<body>
+    <img id="img1" src="https://www.w3school.com.cn/i/css/trans.gif" alt="透明图像">
+    <img id="img2" src="https://www.w3school.com.cn/i/css/trans.gif" alt="透明图像">
+    <img id="img3" src="https://www.w3school.com.cn/i/css/trans.gif" alt="透明图像">
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS多重背景</title>
+</head>
+<style>
+    /*  background-image 属性为一个元素添加多幅背景图像,用逗号隔开
+        background-size 属性允许您指定背景图像的大小。
+        background-origin 规定背景图像的放置位置。
+       (border-box - 背景图片从边框的左上角开始
+        padding-box -背景图像从内边距边缘的左上角开始（默认）
+        content-box - 背景图片从内容的左上角开始)
+        下面这个也是上面三个属性
+        background-clip 规定背景的绘制区域。*/
+    #div1{
+        background-image: url(https://www.w3school.com.cn/i/photo/flower.gif),url(https://www.w3school.com.cn/i/paper.jpg);
+        padding: 15px;
+        background-repeat: no-repeat;
+        background-position: right bottom,left top;
+        height: 200px;
+    }
+    #div2{
+        margin-top: 30px;
+        height: 200px;
+        background: url(https://www.w3school.com.cn/i/photo/flower.gif);
+        background-repeat: no-repeat;
+        background-size: 50px;
+        background-position: right bottom;
+    }
+</style>
+<body>
+    <div id="div1">多重背景</div>
+    <div id="div2">多重背景</div>
+</body>
+</html>

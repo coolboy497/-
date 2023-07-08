@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS浮动实例</title>
+</head>
+<style>
+    /*在为元素设置高、宽时，实际情况是width/height + padding + border
+      而box-sizing属性允许元素的宽度和高度中包括内边距和边框，及设置为多少
+      实际就是多少*/
+    .div1{
+        border:1px solid black;
+        width: 200px;
+        height: 50px;
+    }
+    .div2{
+        border:1px solid red;
+        width: 200px;
+        height: 50px;
+        padding: 20px;
+    }
+    .div3{
+        border:1px solid black;
+        width: 200px;
+        height: 50px;
+        box-sizing: border-box;
+    }
+    .div4{
+        border:1px solid red;
+        width: 200px;
+        height: 50px;
+        padding: 20px;
+        box-sizing: border-box;
+    }
+    /*并排浮动的内容框*/
+    .div5,.div6,.div7,.div8{
+        border: 1px solid black;
+        float: left;
+        width: 25%; /* 三个框（四框使用 25%，两框使用 50%，以此类推） */
+        padding: 20px;
+        box-sizing: border-box;
+    }
+    /*并排浮动的图像*/
+    .div9,.div10,.div11{
+        float: left;
+        width: 33.33%;
+        padding: 5px;
+        box-sizing: border-box;
+    }
+    /*用浮动创建一个网站首栏*/
+    ul{
+        list-style-type: none;
+        margin:0;
+        padding:0;
+    }
+    li{
+        float: left;
+    }
+    li a{
+        display: inline-block;
+        color:white;
+        text-align: center;
+        padding: 15px 15px;
+        text-decoration: none;
+        background-color: black;
+    }
+    li a:hover{
+        background-color: gainsboro;
+    }
+    .home{
+        background-color: red;
+    }
+</style>
+<body>
+    <div class="div1"></div>
+    <div class="div2"></div>
+    <div class="div3"></div>
+    <div class="div4"></div>
+    <div class="div5">nice catch</div>
+    <div class="div6">nice catch</div>
+    <div class="div7">nice catch</div>
+    <div class="div8">nice catch</div>
+    <div class="div9"><img src="https://www.w3school.com.cn/i/photo/tulip.jpg" alt="图1" style="width: 100%;"></div>
+    <div class="div10"><img src="https://www.w3school.com.cn/i/photo/tulip-2.jpg" alt="图2" style="width: 100%;"></div>
+    <div class="div11"><img src="https://www.w3school.com.cn/i/photo/flower-4.jpg" alt="图3" style="width: 100%;"></div>
+    <ul>
+        <li><a href="#home" class="home">Home</a></li>
+        <li><a href="#News">News</a></li>
+        <li><a href="#Contact">Contact</a> </li>
+        <li><a href="#About">About</a></li>
+    </ul>
+   
+</body>
+</html>

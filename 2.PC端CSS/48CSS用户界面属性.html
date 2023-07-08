@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>用户界面属性</title>
+</head>
+<!--(1)resize:规定元素是否可由用户调整大小
+(none:用户无法调整元素的尺寸,
+horizontal:用户可调整元素的宽度,
+vertical:用户可调整元素的高度
+both:用户可调整元素的高度和宽度。)
+    (2)outline-offset:在轮廓和元素的边框边缘之间添加空间。-->
+<style>
+  .div1 {
+  border: 2px solid;
+  padding: 20px; 
+  width: 300px;
+  resize: horizontal;
+  overflow: auto;
+}
+div.ex1 {
+  margin: 20px;
+  border: 1px solid black;
+  outline: 4px solid red;
+  outline-offset: 15px;
+} 
+</style>
+<body>
+    <div class="div1">
+        <p>只允许用户调整 div 元素的宽度。</p>
+        <p>如需调整：请点击并拖动 div 元素的右下角。</p>
+    </div>
+    <div class="ex1">这个 div 有 4 像素的红色实线轮廓，
+    位于边框边缘外 15 像素处。</div>
+</body>
+</html>

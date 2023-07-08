@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>对象</title>
+<script>
+    // 1.利用对象字面量创建对象 {}
+    // 里面的属性和方法采用键值对的形式
+    // 多个属性和方法中间用逗号隔开
+    // 方法冒号后面跟的是一个函数
+    // 使用对象属性:(1)对象名.属性名(2)对象名["属性名"]
+    // 使用对象方法:对象名.方法名()，调用方法要加括号
+    // var obj ={
+    //     uname:"张三丰",
+    //     age:"18",
+    //     sex:"男",
+    //     sayHi:function(){
+    //         console.log("hi~");
+    //     }
+    // }
+    // console.log(obj.uname)
+    // console.log(obj["age"])
+    // obj.sayHi()
+    // // 2.利用new object 创建对象
+    // var obj1 = new Object();
+    // obj1.uname="李四";
+    // obj1.age=17;
+    // 3.利用构造函数创建对象(因为之前的方法只能一次创建一个对象，而里面属性和方法大量相同
+    // 因此我们可以利用函数的方法，重复这些相同的代码，函数封装的是对象)
+    // function 构造函数名(){
+    //     this.属性=值;
+    //     this.方法=function(){}
+    // }
+    // new 构造函数名();
+    // 构造函数名首字母大写/构造函数不需要return就可以返回结果/调用构造函数必须使用new
+    // 属性和方法面前必须添加this/利用构造函数创建对象也叫做对象的实例化
+
+    // a. new 构造函数可以在内存中创建一个空的对象
+    // b. this 就会指向刚才创建的空对象
+    // c. 执行构造函数里面的代码 给这个空对象添加属性和方法
+    // d. 返回这个对象（所以构造函数不需要return）
+    //(1) 构造函数 泛指某一大类
+    // function Star(uname,age,sex){
+    //     this.name = uname;
+    //     this.age = age;
+    //     this.sex = sex;
+    //     this.sing = function(sang){
+    //         console.log(sang);
+    //     }
+    // }
+    // //(2) 对象, 特指是一个具体的事物
+    // var ldh = new Star("刘德华","56","男");
+    // console.log(ldh.name)
+    // ldh.sing("冰雨")
+
+    // // for in 遍历对象
+    // // for (变量 in 对象){}
+    // for (var k in obj){
+    //     console.log(k);// k变量输出得到的是属性名
+    //     console.log(obj[k]);//obj[k]得到的是属性值,不能用obj.k
+    // }
+
+    // 3.对象中未赋值的属性的值为undefined,并不是NULL
+    // 方括号中的所有键都将转换为字符串类型，
+    // 因为 JavaScript 中的对象只能使用 String 类型作为键类型
+    // Object.keys/values(obj)：返回相应的键/值数组
+    // 当对象中的属性名称为JavaScript无效标识符
+    // （例如由空格或连字符，或者以数字开头的属性名）时，只能使用[]访问
+
+    // const obj = {name:"tpj",age:"2",sex:"男"};
+    // console.log(obj.us);//undefined
+    // console.log(Object.keys(obj)) //array["name","age","sex"]
+    // console.log(Object.values(obj)) //array["tpj","2","男"]
+    // for(let i of Object.keys(obj)){
+    //     console.log(i);
+    // }
+
+    // 4.Object.create()方法创建多个对象，不用构造函数
+    // const people = {
+    //     name:"zz",
+    //     age:'18',
+    //     myway : function(){
+    //         console.log(this.name);
+    //     }}
+    // const p1 = Object.create(people)
+    // p1.name='tpj';
+    // p1.age = '22';
+    // console.log(p1);
+    // p1.myway();
+
+    // const p2 = Object.create(people);
+    // p2.name ='john';
+    // p2.age = '23';
+    // console.log(p2);
+    // p2.myway();
+
+    // 5.在 JavaScript 中 objects 是一种引用类型。
+    // 两个独立声明的对象永远也不会相等，即使他们有相同的属性
+    // 只有在比较一个对象和这个对象的引用时，才会返回 true.
+    // var fruit = {name: "apple"};
+    // var fruitbear = {name: "apple"};
+    // console.log(fruit == fruitbear); // return false
+    // console.log(fruit === fruitbear); // return false
+
+    // var fruit = {name: "apple"};
+    // var fruitbear = fruit;
+    // console.log(fruit == fruitbear); // return true
+    // console.log(fruit === fruitbear); // return true
+
+    // 6.Object.defineProperty（obj,prop,descriptor）方法添加属性
+    // obj:必需，目标对象
+    // Prop:必需，需定义或修改的属性的名字
+    // descriptor:必需，目标属性所拥有的特性(value,设置属性的值，默认是undefined
+    // writable:值是否可以重写 true/false enumerable:是否可以被枚举 
+    // configurable:是否可以被删除或者可以再次修改特性 true/false ,默认都是false)
+    // const obj ={name:"john",age:11}
+    // obj.sex = "男"//原始添加属性的方法
+    // Object.defineProperty(obj,"num",{
+    //     value:1000,
+    //     writable:true
+    //     enumerable:false//在用下面Object.keys()等方法遍历时，这个属性就不会被遍历出来
+    // })
+    // obj.num = 50;
+    // console.log(obj);
+
+    // 7.Object.keys()获取对象自身所有属性，返回一个由属性名组成的数组
+    // Object.values() Object.entries()
+    const obj = {
+        name:"john",
+        age:18,
+        sex:"男"
+    }
+    const arr = Object.keys(obj)//["name","age","sex"]
+    console.log(arr);
+    const arr1 = Object.values(obj)//["john","18","男"]
+    console.log(arr1);
+    const arr2 = Object.entries(obj);//[["name","john"],["age",18],["sex","男"]]
+    console.log(arr2);
+</script>
+</head>
+<body>
+    
+</body>
+</html>

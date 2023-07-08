@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    *{
+        margin:0;
+        padding: 0;
+    }
+    .header{
+        width: 700px;
+        height: 100px;
+        background-color: pink;
+    }
+    .banner{
+        width: 700px;
+        height: 300px;
+        margin-top: 5px;
+        background-color: rgb(156, 156, 221);
+    }
+    .main{
+        width: 700px;
+        height: 500px;
+        margin-top: 5px;
+        background-color: rgb(156, 221, 178);
+    }
+    .slider-bar{
+        width: 40px;
+        height: 80px;
+        background-color: purple;
+        position: absolute;
+        left: 700px;
+        top:200px;
+    }
+    .goBack{
+        display: none;
+        position: absolute;
+        bottom:0;
+        font-size: 14px;
+    }
+</style>
+<body>
+    <div class="slider-bar">
+        <span class="goBack">返回顶部</span>
+    </div>
+    <div class="header">头部区域</div>
+    <div class="banner">banner 区域</div>
+    <div class="main">主体部分</div>
+    <script>
+        var sliderbar = document.querySelector('.slider-bar')
+        var sliderbartop = sliderbar.offsetTop
+        //console.log(sliderbar.offsetTop);
+        var banner = document.querySelector('.banner')
+        var bannertop = banner.offsetTop
+        //window.pageYoffset页面被卷去的头部(页面垂直方向上滚动的距离) 如果是左侧则是window.pageXoffset
+        //元素被卷去的头部是scrollTop/Left，页面是window.pageX/Yoffset
+        document.addEventListener('scroll',function(){
+            // console.log(window.pageYOffset);
+            //console.log(banner.offsetTop);
+            if(parseInt(window.pageYOffset)>=bannertop){
+                sliderbar.style.position = 'fixed'
+                // console.log(sliderbar.children);
+                sliderbar.children[0].style.display = 'block'
+                sliderbar.style.top = sliderbartop-bannertop+'px'
+            }
+            else{
+                sliderbar.style.position = 'absolute'
+                sliderbar.children[0].style.display = 'none'
+                sliderbar.style.top = sliderbartop+'px'
+            }
+        })
+
+        //滚动文档到窗口的指定位置 window.scroll(x,y) x,y无单位
+        sliderbar.children[0].addEventListener('click',function(){
+            window.scroll(0,0)
+        })
+    </script>
+</body>
+</html>

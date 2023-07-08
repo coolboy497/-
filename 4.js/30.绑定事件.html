@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!--绑定事件两种方式:传统方式和方法监听注册方式
+    1.传统方式：注册事件唯一性，同一个元素同一个事件只能
+    设置一个处理函数，后写的处理函数会覆盖前面的。
+    2.方法监听注册方式：w3c提供的标准，addEventListenner()是一个方法
+    IE9之前的IE不支持此方法，可用attachEvent()代替
+    同一个元素同一个事件可以注册多个监听器-->
+    <button>传统注册事件</button>
+    <button>方法监听注册方式</button>
+    <script>
+        var btns = document.querySelectorAll('button')
+        //1.传统方式注册事件
+        btns[0].onclick = function(){
+            alert('hi')
+        }
+        btns[0].onclick = function(){
+            alert('hao are you')
+        }
+        //2事件监听注册事件 addEventListener里面的事件类型是字符串，必须加引号，注意没有on
+        btns[1].addEventListener('click',function(){
+            alert(22)
+        })
+        btns[1].addEventListener('click',function(){
+            alert(33)
+        })
+    </script>
+</body>
+</html>

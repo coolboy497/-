@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS表单</title>
+</head>
+<style>
+    /*如果希望在输入框中包含图标，使用 background-image 属性，
+    并将其与 background-position 属性一起设置。还要注意，
+    我们添加了一个较大的左内边距（padding-left）来留出图标的空间*/
+    input{
+        margin-top:5px;
+        padding-top: 8px;
+        padding-bottom: 8px;
+        padding-left: 40px;
+        width: 100%;
+        box-sizing: border-box;
+        border:1px solid gray;
+        border-radius: 4px;
+        background-image: url(https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fpicnew11.photophoto.cn%2F20170413%2Fhuangsexiaoxiongtupianshiliangsucai-24696297_1.jpg&refer=http%3A%2F%2Fpicnew11.photophoto.cn&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=auto?sec=1670632860&t=8fa5b5cb0424e75ac75735eadfa4c3d5);
+        background-size: 30px;
+        background-repeat: no-repeat;/*保证图片不会被一直重复出现*/
+        background-position: 5px 0px;
+    }
+    /*默认情况下，某些浏览器在获得焦点（单击）时
+    会在输入框周围添加蓝色轮廓。您可以通过向输入添加 outline: none; 
+    来消除此行为。
+    :focus 选择器可以在输入字段获得焦点时为其设置样式*/
+    input:focus{
+        background-color: azure;
+        outline:none;
+    }
+    /*<textarea> 标签定义多行的文本输入控件。
+    文本区中可容纳无限数量的文本，其中的文本的
+    默认字体是等宽字体（通常是 Courier）。
+    可以通过 cols 和 rows 属性来规定 textarea 的尺寸，
+    不过更好的办法是使用 CSS 的 height 和 width 属性。
+    
+    使用 resize 属性可防止对 textareas 调整大小*/
+    textarea{
+        width:100%;
+        border-radius: 4px;
+        margin-top:8px;
+        resize: none;
+        box-sizing: border-box;
+    }
+    /*select标签创建单选或多选菜单
+      option标签定义下拉列表中的一个选项（一个条目）
+      <option> 标签中的内容作为 <select> 标签的菜单或是滚动列表中的一个元素显示。
+       option 元素位于 select 元素内部。要与select一起用否则没有意义*/
+    select{
+        box-sizing: border-box;
+        width: 100%;
+        padding: 5px;
+        background-color: wheat;
+        border-radius: 4px;
+    }
+</style>
+<body>
+    <label for="" >First name</label>
+    <input type="text" placeholder="First name..">
+    <label for="" >Last name</label>
+    <input type="text" placeholder="Last name..">
+    <label for="" >Country</label>
+    <input type="text" placeholder="Country..">
+    <textarea name="textarea">some text...</textarea>
+    <p>有样式的选择菜单</p>
+    <!--<form> 标签用于为用户输入创建 HTML 表单。
+    表单能够包含 input 元素，比如文本字段、复选框、单选框、提交按钮等等。
+    表单还可以包含 menus、textarea、fieldset、legend 和 label 元素。
+    表单用于向服务器传输数据。-->
+    <form>
+        <select name="Country">
+            <option value="au">Australia</option>
+            <option value="ca" >Canada</option>
+            <option value="usa">USA</option>
+        </select>
+    </form>
+</body>
+</html>

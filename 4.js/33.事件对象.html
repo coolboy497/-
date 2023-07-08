@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    div{
+        width: 100px;
+        height: 100px;
+        background-color: pink;
+    }
+</style>
+<body>
+    <div>123</div>
+    <ul>
+        <li>abc</li>
+        <li>abc</li>
+        <li>abc</li>
+    </ul>
+    <a href="www.baidu.com">百度</a>
+    <script>
+        //事件对象
+        var div = document.querySelector('div')
+        // div.onclick = function(event){
+        //     console.log(event)
+        // }
+        // div.addEventListener('click',function(event){
+        //     console.log(event)
+        //     event = event || window.event
+        //     console.log(event)
+        // })
+        //1. event就是一个事件对象，写到侦听函数小括号里当形参来看
+        //2. 事件对象只有有了事件才会存在，它是系统给我们自动创建的，不需要我们传递参数
+        //3. 事件对象是 我们事件的一系列相关数据的集合 跟事件相关的
+        //比如鼠标点击里面就包含了鼠标的相关信息，鼠标坐标等
+        //4. 这个事件对象我们可以自己命名 比如event、evt、e
+        //5. 事件对象也有兼容性问题 ie678通过window.event
+
+
+        //事件对象的常见属性和方法
+        //(1)e.target 返回触发事件的对象（标准 ie6-8不支持） this返回的是绑定事件的对象
+        //e.target 与 this的区别
+        div.addEventListener('click',function(e){
+            console.log(e.target);
+            cosole.log(this)//this返回的是绑定事件的对象
+        })
+        var ul = document.querySelector('ul')
+        ul.addEventListener('click',function(){
+            //我们给ul绑定了事件，this指向ul
+            console.log(this)
+            console.log(event.target)
+        })
+        //**了解兼容性
+        // div.onclick = function(e){
+        //     e = e || window.event
+        //     var target = e.target || e.srcElement
+        //     console.log(target)
+        // }
+
+        //(2)e.srcElement 返回触发事件的对象(非标准) ie6-8使用
+        //(3)e.type 返回事件的类型 例如click mouseover
+        //(4)e.preventDefault()阻止默认行为（事件）让链接不跳转或者提交按钮不提交
+        var a = document.querySelector('a')
+        a.addEventListener('click',function(){
+            event.preventDefault()//有兼容性,dom标准写法
+        })
+        a.onclick = function(e){
+            //低版本浏览器 ie678 returnvalue属性
+            //e.returnValue
+            //兼容性写法 但return 下面的代码不会执行
+            return false
+            alert('11')
+        }
+
+        //(5)阻止事件冒泡（开始由最具体的元素接收，然后逐级
+        //向上传播到DOM最顶层节点）的两种方式
+    </script>
+</body>
+</html>

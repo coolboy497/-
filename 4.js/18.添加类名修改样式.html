@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    div{
+        width: 100px;
+        height: 100px;
+        background-color: pink;
+    }
+    .change{
+        background-color: purple;
+        color: aqua;
+        font-size: 25px;
+        margin-top: 100px;
+    }
+</style>
+<body>
+    <div>文本</div>
+    <script>
+        //1.使用element.style修改元素样式,样式较少/功能简单的情况下使用
+        //2.使用element.className 类名样式操作
+        var div = document.querySelector('div');
+        div.onclick = function(){
+            //让我们当前元素的类名改为了change（是直接对原始类名进行了覆盖）
+            this.className = 'change';
+            //如果想要保留原来的类名 可以使用多类名选择器
+            //先写原先的类名再加空格再加新的类名
+            this.className = 'first change';
+        }
+    </script>
+</body>
+</html>

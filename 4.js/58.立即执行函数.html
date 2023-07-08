@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //1.立即执行函数：不需要调用，立马就能够自己执行的函数
+        //主要作用：创建一个独立的作用域，避免了命名冲突问题
+        function fn(){
+            console.log(1);
+        }
+        fn();
+        //2.写法，也可以传递参数进来
+        //(1)(function(){})()   (2)(function(){}())
+        (function(){
+            console.log(2);
+        })();
+
+        (function(a,b){
+            console.log(a+b);
+        }(2,3))
+    </script>
+</body>
+</html>

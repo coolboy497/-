@@ -1,0 +1,159 @@
+1.HTML5新增的语义化标签
+（这种语义化标准主要是针对搜索引擎的
+  这些新标签页面中可以使用多次
+  在IE9中，需要把这些元素转换为块级元素
+  其实，移动端更喜欢使用这些标签）
+（1）header 头部标签
+（2）nav 导航栏标签
+（3）aside 侧边栏标签
+（4）section 定义文档的某个区域
+（5）article 内容标签
+（6）footer 尾部标签
+
+2.HTML5新增的多媒体标签
+谷歌浏览器把音频和视频的自动播放时禁止的
+（1）audio：音频标签 支持MP3、wav、Ogg格式的音频
+    (1)autoplay='autoplay':音频就绪自动播放（谷歌浏览器需要添加muted来解决自动播放问题）
+    (2)loop='loop':播放完是否继续播放该音频，循环播放
+    (3)src='':音频的url地址
+    (4)muted='muted':静音播放
+    (5)width/height:设置播放器宽高
+    (6)contorls='controls':显示播放器控件
+（2）video：视频标签 仅仅支持MP4、WebM、Ogg格式的视频，但MP4更好兼容浏览器
+    (1)autoplay='autoplay':视频就绪自动播放（谷歌浏览器需要添加muted来解决自动播放问题）
+    (2)loop='loop':播放完是否继续播放该视频，循环播放
+    (3)src='':视频的url地址
+    (4)muted='muted':静音播放
+    (5)width/height:设置播放器宽高
+    (6)contorls='controls':显示播放器控件
+
+3.HTML5新增的input类型
+    (1)type = 'email':限制用户输入必须为email类型
+    (2)type = 'url':限制用户输入必须为网址类型
+    (3)type = 'date':限制用户输入必须为日期类型
+    (4)type = 'time':限制用户输入必须为时间类型
+    (5)type = 'tel':限制用户输入必须为手机号
+    (6)type = 'number':限制用户输入必须为数字类型
+    (6)type = 'search':搜索框
+
+4.HTML5新增的表单属性
+    (1)required='required':内容不能为空
+    (2)placeholder='':显示的默认提示信息
+    (3)multiple='multiple':可以多选文件提交
+    (4)autofocus='autofocus':自动获得焦点
+
+5.CSS3新增属性选择器（有兼容性问题，ie9+才支持）
+    (1)e[att]:选择具有att属性的e元素
+    (2)e[att='val']:选择具有att属性且属性值等于val的e元素(***)
+    (3)e[att^='val']:选择具有att属性且属性值以val开头的e元素
+    (4)e[att$='val']:选择具有att属性且属性值以val结尾的e元素
+    (5)e[att*='val']:选择具有att属性且属性值含有val的e元素
+    类选择器、属性选择器、伪类选择器的权重都是10
+
+6.CSS3新增结构伪类选择器
+    (1)e:first-child: 匹配父元素中的第一个子元素e
+    (2)e:last-child: 匹配父元素中最后一个e元素
+    (3)e:nth-child（n）: 匹配父元素中的第n个子元素(n可以是数字/关键字/公式(数学通项)) 
+    选择第2个 e:nth-child(2)  选择偶数/奇数个 e:nth-child(even/odd)
+    选择所有孩子 e:nth-child(n) 只能写n ，不能写其它字母，从0开始，每次加1，往后面计算
+    选择偶数/奇数 e-nth-child(2n/2n+1)
+    
+    (4)e:first-of-type: 匹配父元素中的第一个子元素e
+    (5)e:last-of-type: 匹配父元素中最后一个e元素
+    (6)e:nth-of-type（n）: 匹配父元素中的第n个子元素
+
+    两者区别： 
+    (section div:nth-child(1))
+    (nth-child(1)先看是第几个孩子，再去判断是否是div)
+    nth-child会把所有的孩子都排列序号
+
+    (section div:nth-of-type(1))
+    (先看div指定的元素，再去看nth-of-type(1)是第几个孩子)
+    nth-of-type
+
+7.CSS3新增伪元素选择器
+利用CSS创建新标签元素，而不需要HTML标签，从而简化HTML结构
+所创建的元素属于行内元素，但在文档树中是找不到的，所以称为伪元素
+before和after必须有content属性，伪元素选择器和标签选择器一样，权重为1
+    (1)::before 在元素内部的前面插入内容
+    (2)::after  在元素内部的后面插入内容
+
+8.CSS3盒子模型
+    box-sizing:content-box(默认)/border-box
+    (1)content-box: 盒子大小为width+padding+border
+    (2)border-box: 盒子大小为width
+
+9.CSS3滤镜filter（图片变模糊的方式）
+将模糊或颜色偏移等图形效果应用于元素
+filter:blur(5px) blur模糊处理，数值越大越模糊
+
+10.计算盒子宽度calc函数
+width：calc(100% - 80px) 括号里面可以+/-/*/÷,符号左右要有空格
+
+11.CSS3新增属性过渡（重点）transition,经常与hover一起搭配
+（口诀：谁做过渡给谁加）
+transition：要过渡的属性 花费时间 运动曲线 何时开始;
+    (1)属性：想要变化的Css属性，宽度高度 背景颜色 内外边距都可以
+    如果想要所有的属性都变化过渡，写一个all就可以
+    (2)花费时间: 单位是秒(必须写单位) 比如0.5s
+    (3)运动曲线: ease(默认，速度慢下来)/linear(匀速)
+    (4)何时开始: 单位是秒(必须写单位) 可以设置延迟触发时间 默认是0s(可以省略)
+
+transition：width 0.5s ease 0s,height 0.5s ease 0s;
+transition: all 0.5s(推荐做法，方便)
+多个属性想要做过渡(下列做法不起效果)
+transition：width 0.5s ease 0s;
+transition: height 0.5s ease 0s;
+
+12.CSS3 2D转换 transform(实现元素的位移、旋转、缩放等效果)
+    translate的优点，不会影响其他元素的位置，对行内标签没有效果
+    translate复合写法： translate() rotate() scale()
+    (1)translate(移动)：translate(x,y) translateX() translateY()
+    translate里面的参数是%时，其移动距离是相对于盒子本身宽/高来看的
+    盒子往上和往左走自己高度的一半 translate(-50%,-50%)和定位配合让盒子水平垂直居中
+
+    (2)rotate(度数)：rotate(45deg) 顺时针旋转45度 （默认是按元素中心点旋转）
+    transform-origin:(x,y) 默认是（50%，50%），可以是像素/百分比/方位名词 可以自己指点旋转的元素中心点
+
+    (3)scale(缩放)：scale(x,y) x,y都是数字 scale(0.5,0.5)宽高都缩放到原来的一半，也可以写成scale(0.5)
+    也可以设置缩放的中心点 transform-origin:(x,y)
+
+13.CSS3 动画（animation）
+两步走：1.先定义动画 2.再调用动画
+    (1)用keyframes定义动画（类似定义类选择器）
+    动画序列：0%动画的开始，100%动画的结尾
+    @keyframes 动画名称{
+        0%（from）{
+
+        }
+        100% (to){
+
+        }
+    }
+    (2)元素使用动画，必须添加如下两个属性
+    animation-name:动画名称
+    animation-duration:持续时间
+    (3)元素使用多个动画,用逗号隔开
+    animaiton:move 1s ease infinate, bear 3s linear forwards
+
+14.CSS3 3D转换 translate3d
+    (1)translateX/Y/Z(),translate3d(x,y,z)里面的x,y,z不能省略，没有就写0
+    translateZ()里面的单位一般是px，值越大我们观察的就越大
+
+    (2)perspective(透视),透视是写到被观察元素的父盒子上，近大远小
+    perspective：?px，值越小越立体
+
+    (3)rotate3d(3D旋转) rotateX/Y/Z() rotate3d(x,y,z,deg)
+    x,y,z表示旋转轴的矢量
+    rotate3d(1,0,0,45deg)绕x轴旋转45deg rotate3d(1,1,0,45deg)沿对角线旋转45deg
+    元素旋转方向的判断，左手准则，左手大拇指指向x/y/z轴的正方向
+
+    (4)transform-style(3D呈现) 控制子元素是否开启三维立体环境(默认是关闭的)
+    transform-style:preserve-3d/flat 子元素开启立体空间/关闭
+    代码写给父级，但是影响的是子盒子
+
+15.浏览器私有前缀（为了兼容老版本的写法）
+    (1)-moz-:代表firefox浏览器私有属性
+    (2)-ms-:代表ie浏览器私有属性
+    (3)-webkit-:代表safari、Chrome私有属性
+    (4)-o-:代表Opera私有属性

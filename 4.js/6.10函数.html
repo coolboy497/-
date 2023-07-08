@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button>点击</button>
+    <script>
+        // 1.函数的定义
+        // （1）自定义函数（命名函数）function fn(){}
+        // （2）函数表达式（匿名函数）let fun = function(){}
+        // （3）利用new Function('参数1'，'参数2'，'函数体'),都必须用引号
+        //  效率低麻烦，了解即可（所有函数都是Function的实例对象）
+        // let f = new Function('a','b','console.log(a+b)');
+        // f(1,2);
+
+        // 2.函数的调用
+        // （1）普通函数
+            // function fn(){}
+            // fn() fn.call()
+        // （2）对象的方法
+            // var o = {
+            //     sayHi: function(){}
+            // }
+            // o.sayHi()
+        // （3）构造函数
+            // function Star(){}
+            // let ldh = new Star();
+        // （4）绑定事件函数
+            // btn.onclick = function(){}点击了按钮就可以调用这个函数
+        // （5）定时器函数
+            // setTimeout(function(){},1000)这个函数是定时器自动1秒钟调用一次
+        // （6）立即执行函数
+            // (function(){})();自动调用
+
+        // 3.this的指向问题
+        // （1）普通函数：指向window
+        // （2）对象的方法：指向的对象o
+        // （3）构造函数：指向的实例对象ldh,原型对象里面的this指向的也是ldh
+        // （4）绑定事件函数：指向的绑定事件对象
+        // （5）定时器函数：指向的是window
+        // （6）立即执行函数：指向的是Window
+
+        // 4.改变函数内部的this指向
+        // （1）call方法 call('新对象'，'参数'，'参数')
+        // let o = {name:"andy"};
+        // function fn(){console.log(this);}
+        // fn.call();// 没有参数就是正常的函数调用
+        // fn.call(o,x,y);//这个就是把this指向o这个对象,也可以向里面传参数
+        // call的另一个重要作用就是可以实现 继承  
+
+        // （2）apply方法 apply(thisArg,[argsArray])
+        // thisArg:  在fun函数运行时指定的this值
+        // argsArray:传递的值，必须包含在数组里面  
+        // 返回值就是函数的返回值，因为它就是调用函数  
+        // let o = {name:"andy"};
+        // function fn(arr,color){console.log(this);console.log(arr);console.log(color);}//red blue
+        // fn.apply();// 没有参数就是正常的函数调用
+        // fn.apply(o,["red","blue"]);//这个就是把this指向o这个对象,也可以向里面传参数(但参数必须是数组)     
+        
+        // apply的主要应用就是借助于数学内置对象求数组最大值
+        // let arr = [1,66,3,99,4];
+        // // const max = Math.max.apply(null,arr);这样用在严格模式下可能出错
+        // const max = Math.max.apply(Math,arr);
+        // console.log(Math.max(1,2,3));
+        // console.log(max);
+
+        // （3）bind方法不会调用原来的函数，但是能改变函数内部指向
+        //  bind(thisArg,arg1,arg2,...)
+        //  返回由指定的this值和初始化参数改造的原函数拷贝（也就是产生新函数）
+        // let o = {name:"andy"};
+        // function fn(){console.log(this);}
+        // let f=fn.bind(o);
+        // f();
+        // 如果有的函数我们不需要立即调用，但是又想改变这个函数内部的this指向此时用bind
+        // 实际应用：我们有一个按钮，当我们点击了之后，就禁用这个按钮，3秒钟开启这个按钮
+        const btn = document.querySelector("button");
+        btn.addEventListener('click',function(){
+            this.disabled = true;
+            setTimeout(function(){
+                // this.disabled = true无法实现效果，因为这里指向的是window
+                this.disabled = false;
+            }.bind(this),3000)//这个 this指向的btn对象，将函数里面的this绑定到btn上
+        })
+    </script>
+</body>
+</html>

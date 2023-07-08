@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS</title>
+</head>
+<!--text-shadow:在文本中添加一个或多个阴影
+（text-shadow: h-shadow v-shadow blur color;）
+ 前两项为必须，分别定义了水平阴影和垂直阴影的位置。blur模糊的距离，color颜色
+
+    box-shadow:向元素中添加一个或多个阴影
+（box-shadow: h-shadow v-shadow blur spread color inset;）
+h-shadow:水平阴影的位置，设置值可以在水平方向上移动
+v-shadow:垂直阴影的位置，设置值可以在垂直方向上移动
+blur:模糊距离，相当于阴影的模糊程度
+spread：定义阴影的尺寸(大小)，
+color：阴影颜色
+inset将外部阴影（outset）改为内部阴影-->
+<style>
+    h2{
+        text-shadow: 2px 2px  yellow;
+    }
+    #div1{
+        box-sizing: border-box;
+        background-color:lightblue;
+        width: 200px;
+        padding: 50px;
+        text-align: center;
+        box-shadow: 2px 2px 5px yellow;
+    }
+    /*类似纸质卡片的效果*/
+    .out{
+        text-align: center;
+        width: 200px;
+        box-shadow:2px 2px 4px gainsboro, 2px 2px 8px gainsboro;
+    }
+    .out .up{
+        box-sizing: border-box;
+        background-color: rgb(109, 213, 109);
+        margin-top: 20px;
+        padding: 40px;
+        color: white;
+        font-size: 20px;
+        /* box-shadow: 2px 2px gainsboro; */
+    }
+    .out .down{
+        padding: 5px;
+        /* box-shadow: 2px 2px 8px gainsboro; */
+    }
+</style>
+<body>
+    <h2>文本阴影效果</h2>
+    <div id="div1">box阴影效果</div>
+    <div class="out">
+        <div class="up">
+            <h1>1</h1>
+        </div>
+        <div class="down">
+            <p>January 1,2021</p>
+        </div>
+    </div>
+</body>
+</html>

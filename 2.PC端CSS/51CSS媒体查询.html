@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS媒体查询</title>
+</head>
+<!--CSS引入@media规则，让不同媒体类型定义为不同样式规则成为可能
+    @media not|only mediatype and (expressions) {
+    CSS-Code;
+    }
+    mediatype:all(用于所有媒体类型设备)，print(用于打印机)
+    screen(用于计算机屏幕、平板电脑、智能手机等)，speech(用于大声“读出”页面的屏幕阅读器)-->
+<style>
+    body {
+        background-color: pink;
+    }
+
+    @media screen and (min-width: 480px) {
+        body {
+            background-color: lightgreen;
+        }
+    }
+    /*下例显示了一个菜单，如果视口的宽度为 480 像素或更宽，
+    则该菜单会浮动到页面的左侧（如果视口小于 480 像素，则该菜单将位于内容的顶部）*/
+    .div1{
+        overflow: auto;
+    }
+    .div1 .div2 ul{
+        margin:0;
+        padding: 0;
+        
+    }
+    .div1 ul li{
+        margin-top:5px;
+        border:1px solid green;
+        border-radius: 5px;
+        list-style: none ;
+        background-color: aqua;
+    }
+    .div1 .div3{
+        margin-top: 10px;
+        padding: 0;
+        border: 1px solid black;
+        border-radius: 5px;
+    }
+    @media screen and (min-width: 480px) {
+        .div1 .div2{
+            float:left;
+            width: 200px;
+        }
+        .div1 .div3{
+            margin-left: 220px;
+            background-color: yellow;
+        }
+    }
+</style>
+<body>
+    <h1>请调整浏览器窗口大小来查看效果！</h1>
+    <p>此媒体查询值应用于：媒体类型为 screen,当视口为480px 或更宽时背景变为绿色。</p>
+    <div class="div1">
+        <div class="div2">
+            <ul>
+                <li>menu-item 1</li>
+                <li>menu-item 2</li>
+                <li>menu-item 3</li>
+                <li>menu-item 4</li>
+                <li>menu-item 5</li>
+            </ul>
+        </div>
+        <div class="div3">本例显示了一个菜单，如果视口为 480 像素或更宽，
+        它将向页面左侧浮动。如果视口小于 480 像素，则菜单将位于内容的顶部</div>
+    </div>
+</body>
+</html>

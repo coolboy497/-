@@ -1,0 +1,18 @@
+body {
+  background-color: pink;
+}
+.header {
+  width: 200px;
+  height: 200px;
+}
+.header a {
+  width: 150px;
+}
+.header a:hover {
+  color: blue;
+}
+div {
+  width: 150px;
+  height: 400px;
+  border: 10px solid red;
+}

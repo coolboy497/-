@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    /* div {
+        width: 200px;
+        height: 200px;
+        background-color: pink;
+    }
+    div::before{
+        /* 必须有的属性 */
+        /* 默认是行内元素 */
+        /* display: inline-block;
+        content: '我';
+        background-color: purple;
+        width: 30px;
+        height: 30px; */
+
+    /* }
+    div::after{
+        content: '猪';
+    } */ 
+
+    div{
+        position: relative;
+        width: 200px;
+        height: 30px;
+        border:1px solid grey;
+    }
+    div::after{
+        content: '';
+        position: absolute;
+        width: 30px;
+        height: 30px;
+        right: 0;
+        background-color: blue;
+    }
+</style>
+<body>
+    <!-- <div>是</div> -->
+    <div></div>
+</body>
+</html>

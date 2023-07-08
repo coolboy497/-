@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS背景重复</title>
+</head>
+<!--
+背景图片是在背景颜色上的
+
+background符合写法：没有特定的顺序，一般为背景颜色、图片地址、背景平铺、背景图片滚动、背景图片位置
+
+background-image默认在水平和竖直方向上都重复图像
+background-repeat设置在水平（repeat-x）或者竖直方向上（repeat-y）重复
+或者仅显示一次（no-repeat）
+background-position：x y;指定背景图像的位置,
+可以是方位名称也可以是精确位置，只写一个方位/一个精确位置，另一个默认是center
+background-attachment（fixed or scroll):指定背景图像应该是滚动还是固定的
+
+背景色半透明 background: rgba(0,0,0,0.3) 前三个决定是什么颜色，后面一个参数决定透明程度-->
+<style>
+    body {
+        background-image: url(https://img.zcool.cn/community/0153e25900203fa8012145504aa07c.jpg@1280w_1l_2o_100sh.jpg);
+        background-repeat: no-repeat;
+        /* background-position: right top; */
+        background-position: 20px 50px;
+    }
+</style>
+<body>
+    <h1>nice catch</h1>
+</body>
+</html>

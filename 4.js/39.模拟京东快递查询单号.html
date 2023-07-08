@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .search{
+        /* background-color:pink; */
+        height: 100px;
+        width: 175px;
+        margin: 100px;
+    }
+    .con{
+        display: none;
+        border: 1px solid white;
+        font-size: 18px;
+        width: 168px;
+        box-shadow: 0 2px 4px rgba(0,0,0,.2);
+    }
+    .con1{
+        display: none;
+        width: 0;
+        height: 0;
+        border: 10px solid transparent;
+        border-top-color: white;
+        margin: 0 10px;
+    }
+    input{
+        position: absolute;
+        top:138px;
+    }
+</style>
+<body>
+    <div class="search">
+        <div class="con"></div>
+        <div class="con1"></div>
+        <input type="text" placeholder="请输入您的快递单号" class="jd">
+    </div>
+    <script>
+        //快递单号输入内容时，上面的大号字体盒子（con）显示（这里面的字号更大）
+        //表单检测用户输入:给用户添加键盘事件
+        //同时把快递单号里面的值（value）获取过来赋值给con盒子（innerHTML）作为内容
+        //如果快递单号里面内容为空，则隐藏大号字体盒子(con盒子)
+        //当我们失去焦点就隐藏con盒子
+        var input = document.querySelector('input')
+        document.addEventListener('keyup',function(event){
+            // console.log(event.keyCode)
+            if(event.keyCode == 83){
+                input.focus()
+            }
+        })
+        input.addEventListener('keyup',function(event){
+            if(input.value == ''){
+                input.previousElementSibling.style.display = 'none'
+                input.previousElementSibling.previousElementSibling.style.display = 'none'
+            }
+            else{
+                input.previousElementSibling.previousElementSibling.innerHTML = input.value
+                input.previousElementSibling.style.display = 'block'
+                input.previousElementSibling.previousElementSibling.style.display = 'block'
+            }
+        })
+        input.addEventListener('blur',function(){
+            input.previousElementSibling.style.display = 'none'
+            input.previousElementSibling.previousElementSibling.style.display = 'none'
+        })
+        input.addEventListener('focus',function(){
+            if(input.value!=''){
+            input.previousElementSibling.style.display = 'block'
+            input.previousElementSibling.previousElementSibling.style.display = 'block'
+            }
+        })
+    </script>
+</body>
+</html>

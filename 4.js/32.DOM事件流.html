@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .father{
+        position: relative;
+        width: 200px;
+        height: 200px;
+        background-color:pink;
+        margin: 0 auto;
+    }
+    .son{
+        position: absolute;
+        width: 100px;
+        height: 100px;
+        background-color:slateblue;
+        margin: 50px;
+        text-align: center;
+        line-height: 100px;
+    }
+</style>
+<body>
+    <!--事件流描述的是从页面中接收事件的顺序
+    事件发生时会在元素节点之间按照特定的顺序传播，这个传播过程即DOM事件流
+    3个阶段：捕获阶段-》当前目标阶段-》冒泡阶段
+    js代码中只能够执行捕获或者冒泡中的一个阶段
+    onclick和attachevent只能得到冒泡阶段
+    addEventListener可以得到捕获或者冒泡-->
+    
+    <!--addEventListener第三个参数为true 则处于捕获阶段-->
+    <div class="father">
+        <div class="son">son盒子</div>
+    </div>
+    <script>
+        //addEventListener第三个参数为true 则处于捕获阶段
+        //body->father->son
+        // var son = document.querySelector('.son')
+        // son.addEventListener('click',function(){
+        //     alert('son')
+        // },true)
+
+        // var father = document.querySelector('.father')
+        // father.addEventListener('click',function(){
+        //     alert('father')
+        // },true)
+
+        //addEventListener第三个参数为false或者省略 则处于冒泡阶段
+        //son->father->body
+        var son = document.querySelector('.son')
+        son.addEventListener('click',function(e){
+            alert('son')
+            e.stopPropagation()
+        })
+
+        var father = document.querySelector('.father')
+        father.addEventListener('click',function(){
+            alert('father')
+        })
+        //有些事件是没有冒泡的，比如onblur、onfocus、onmouseenter、onmouseleave
+        //事件冒泡有时候会带来麻烦，有时候又会帮助很巧妙的做某些事件
+
+        //(5)阻止事件冒泡（开始由最具体的元素接收，然后逐级
+        //向上传播到DOM最顶层节点）的两种方式
+        //e.stopPropagation():低版本ie678不适用
+        //e.cancelBubble = true:低版本适用
+    </script>
+</body>
+</html>

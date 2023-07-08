@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 严格模式，即在严格的条件下运行js代码，
+        // 消除了Javascript语法中的一些不合理、不严谨之处，减少一些怪异行为（比如没申明变量就赋值）
+        // 消除代码运行的一些不安全之处，保证代码运行的安全
+        // 提高编译器效率，增加运行速度
+        // 禁用了一些未来ECMAScript可能会定义的语法，比如一些保留字class,export,extends不能做变量名
+
+        // 1.为整个脚本开启严格模式'use script';
+        // 'use script';//下面的js代码就会按照严格模式执行代码
+        // 2.为某个函数开启严格模式在函数里写'use script';
+        // function fn(){
+        //     'use script';
+        // }
+        // 3.严格模式下变量必须先声明再使用
+        // 4.严格模式下不能够删除变量 delete
+        // 5.严格模式下全局作用域函数中的this指向undefined，非严格模式是window
+        // function fn(){
+        //     console.log(this);
+        // }
+        // fn();
+        // 6.严格模式下定时器this还是指向window
+        // 7.严格模式下函数里面的参数不能同名
+        // 8.严格模式下不允许在非函数的代码块内声明函数(比如在for循环内，if条件判断内)
+    </script>
+</body>
+</html>

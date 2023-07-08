@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS display</title>
+</head>
+<!--display是每个html元素都有的属性，规定是否/如何显示元素
+    块级元素(占一行，每次都从新一行开始)：div,h1-h6,p,form,header,footer,section
+    行内元素（占所需宽度，不是从新一行开始）：span,a,img
+    inline:块级->行内；block:行内->块级-->
+<style>
+    li{
+        display: inline;
+    }
+    span{
+        display: block;
+    }
+    /*隐藏元素(display:none)(visibility:hidden)
+      前者隐藏后不占空间，后者隐藏后空间依然会空出来*/
+    #yincang{
+        display: none;
+    }
+    #yincang2{
+        visibility: hidden;
+    }
+    /*块级元素在浏览器小于元素宽度时会自动将水平滚动条添加到页面。
+      max-width可以解决这一问题,会自适应大小*/
+    #width{
+        width:2000px;
+        margin: auto;
+        border: 1px solid black;
+    }
+    #max-width{
+        max-width: 2000px;
+        margin: auto;
+        border: 1px solid black;
+    }
+</style>
+<body>
+    <ul>
+        <li>苹果</li>
+        <li>橘子</li>
+        <li>梨</li>
+    </ul>
+    <span>nice catch</span>
+    <span>nice catch1</span>
+    <div>
+        <h2>隐藏元素</h2>
+        <h2>隐藏元素</h2>
+        <h2>隐藏元素</h2>
+        <br/>
+        <h2>隐藏元素</h2>
+        <h2 id="yincang">隐藏元素</h2>
+        <h2>隐藏元素</h2>
+        <br/>
+        <h2>隐藏元素</h2>
+        <h2 id="yincang2">隐藏元素</h2>
+        <h2>隐藏元素</h2>
+    </div>
+    <div id="width">
+        <p>nice catch</p>
+    </div>
+    <div id="max-width">
+        <p>nice catch</p>
+    </div>
+</body>
+</html>

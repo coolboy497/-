@@ -1,0 +1,82 @@
+<!DOCTYPE html><!--告诉浏览器使用哪种HTML版本来显示网页
+这句意思就是采用HTML5版本来显示网页（文档类型声明标签）-->
+
+<html lang="en">
+<!--定义当前文档显示的语言（记录是中文还是英文网站） lang->language,en->English
+zh-CN定义就是中文<html lang="zh-CN">-->
+<head>
+    <meta charset="UTF-8">
+    <!--规定HTML文档使用哪种字符编码-->
+    <title>Title</title>
+</head>
+<!--body元素定义HTML文档的主体 -->
+<body>
+<!--1.标题：<h1> 定义最大的标题，<h6> 定义最小的标题-->
+<h1>This is heading 1</h1>
+
+<!--2.段落，p标签是块级元素，会自动地在段落的前后添加空行 paragraph-->
+<p>This is a paragraph</p>
+
+<!--3.链接，href指定链接的地址 target属性：用于指定链接页面的打开方式
+_self为默认值，_blank为在新窗口中打开方式-->
+<!--(1)外部链接-->
+<a href="http://www.w3school.com.cn">This is a link</a>
+<!--(2)内部链接：网站内部页面之间的相互链接，直接链接内部页面名称即可-->
+<a href="4.表格.html">This is a link</a>
+<!--(3)空链接：用#代替-->
+<a href="#">This is a link</a>
+<!--(4)下载链接：地址链接的是文件 .exe或者zip等压缩包方式-->
+<a href="img.zip">This is a link</a>
+<!--(5)网页元素链接：在网页中的各种网页元素，如文本、图片等都可以添加超链接-->
+<a href="https://www.baidu.com"><img src="https://ts3.cn.mm.bing.net/th?id=OIP-C._jRw-_QGKws9yAcI2T-yOAAAAA&w=250&h=250&c=8&rs=1&qlt=90&o=6&pid=3.1&rm=2" width="104" height="142" /></a>
+<!--(6)锚点链接：点击链接，就定位到本页面的某个链接 href放要定位标签的id值-->
+<a href="#nice">锚点链接到wwf</a>
+
+<!--4.图像 alt属性：替换文本，当图片不能显示时用文字替换
+title属性：鼠标放到图片上，提示的文字-->
+<img src="https://ts3.cn.mm.bing.net/th?id=OIP-C._jRw-_QGKws9yAcI2T-yOAAAAA&w=250&h=250&c=8&rs=1&qlt=90&o=6&pid=3.1&rm=2" width="104" height="142" />
+
+<!--5.创建水平线来分隔内容 -->
+<hr/>
+
+<!--6.换行：<br />标签 break：打断，换行-->
+<p>这是一个<br />段落</p>
+
+<!--7.style属性,text-align:元素中文本的对齐方式；font-family：字体；color：颜色；font-size：字体尺寸-->
+<h1 style="text-align:center;font-family:arial;color:red;font-size:20px;">This is a pig</h1>
+
+<!--8.短引用：<q>标签,会为元素打上引号-->
+<p id="nice">WWF 的目标是:<q>构建人与自然和谐共存的世界。</q></p>
+
+<!--9.长引用：<blockquote>标签,会对元素进行缩进处理-->
+<p>以下内容引用自 WWF 的网站：</p>
+<blockquote cite="http://www.worldwildlife.org/who/index.html">
+五十年来，WWF 一直致力于保护自然界的未来。
+世界领先的环保组织，WWF 工作于 100 个国家，
+并得到美国一百二十万会员及全球近五百万会员的支持。
+</blockquote>
+
+<p>以下内容引用自 WWF 的网站：</p>
+<blockquote cite="http://www.worldwildlife.org/who/index.html">
+五十年来，WWF 一直致力于保护自然界的未来。
+世界领先的环保组织，WWF 工作于 100 个国家，
+并得到美国一百二十万会员及全球近五百万会员的支持。
+</blockquote>
+
+<!--10.缩略词标签：<abbr>标签:对缩写进行标记-->
+<abbr title="world Health Organization">WHO</abbr>
+
+<!--11.定义联系信息的标签<address> -->
+<address>
+    Written by Donald Duck.<br>
+    Visit us at:<br>
+    Example.com<br>
+    Box 564, Disneyland<br>
+    USA
+</address>
+
+<!--12.文本格式化标签：
+    strong/b:加粗  em/i:倾斜  del/s:删除线  ins/u:下划线-->
+
+</body>
+</html>

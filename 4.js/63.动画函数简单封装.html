@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    div{
+    position: absolute;
+    left: 0;
+    width: 200px;
+    height: 200px;
+    background-color: pink;
+    margin: 0 auto;
+}
+    span{
+        position: absolute;
+        left: 0;
+        top: 300px;
+        width: 150px;
+        height: 150px;
+        background-color: purple;
+    }
+</style>
+<body>
+    <button class="button400">点击夏雨荷到400</button>
+    <button class="button600">点击夏雨荷到600</button>
+    <div></div>
+    <span>我是夏雨荷</span>
+    <script>
+        //动画函数简单封装:传递两个参数：目标对象，目标位置
+        //给不同的元素指定了不同的定时器
+        //匀速动画：就是盒子当前的位置+固定的值
+        //缓动动画：就是盒子当前的位置+变化的值
+        function animate(obj,target,callback){
+            //var timer = setInterval(function()
+            //用var声明，每次都会开辟内存空间，并且名字都一样
+            //当我们不断的点击按钮，这个元素的速度会越来越快，因为开启了太多的定时器，用下面清除语句解决
+            //先清除以前的定时器，只保留当前的一个定时器执行
+            clearInterval(obj.timer)
+            obj.timer = setInterval(function(){
+                //对变化的步长向上取整，防止到不了target值
+                // var step = Math.ceil((target-obj.offsetLeft)/10)
+                step = (target-obj.offsetLeft)/10
+                step = step > 0 ? Math.ceil(step):Math.floor(step)
+                if(obj.offsetLeft==target){
+                    clearInterval(obj.timer)
+                    //定时器停止，就可以调用回调函数了
+                    //判断是否有回调函数，有就调用，没就算了
+                    // if(callback){
+                    //     callback()
+                    // }
+                    callback && callback()
+                }
+                else{
+                    obj.style.left = obj.offsetLeft+step+'px'
+                    // obj.style.left = obj.offsetLeft+1+'px'
+                }
+            },1)
+        }
+        var div = document.querySelector('div')
+        var span = document.querySelector('span')
+        var btn400 = document.querySelector('.button400')
+        var btn600 = document.querySelector('.button600')
+        animate(div,400)
+        btn400.addEventListener('click',function(){
+            animate(span,400)
+        })
+        btn600.addEventListener('click',function(){
+            animate(span,600,function(){
+                span.style.backgroundColor = 'yellow'
+            })
+        })
+    </script>
+</body>
+</html>

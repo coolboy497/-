@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!--window对象给我们提供了2个非常好用的方法-定时器
+    1.window.setTimeout(调用函数,[延迟的毫秒数]) ,定时器到期后执行调用函数,调用一次就结束了
+    2.window.setInterval(回调函数，[间隔的毫秒数])，反复调用一个函数，每隔这个时间就调用回调函数
+    3.window.clearTimeout(Timeout ID)停止定时器，参数是定时器的标识符
+    4.window.clearInterval-->
+    <script>
+        //（1）延迟的时间单位是毫秒，但是可以省略，如果省略默认的是0
+        //（2）调用函数可以直接写函数，也可以写函数名
+        //（3）页面中可能有很多的定时器,我们可以给定时器起名字(标识符)
+        // setTimeout(function(){
+        //     console.log('时间到了');
+        // },2000)
+
+        //setTimeout(boom,3000)
+        //也可写成setTimeout(‘boom()’,3000),但不提倡这么些
+        // function boom(){
+        //     console.log('爆炸了');
+        // }
+        // var time1 = setTimeout(boom,3000);
+        // var time2 = setTimeout(boom,5000);
+
+
+        // setInterval(function(){
+        //     console.log('2')
+        // },1000)
+    </script>
+</body>
+</html>

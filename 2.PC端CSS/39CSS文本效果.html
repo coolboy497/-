@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS文本效果</title>
+</head>
+<!--文本效果属性:
+    (1)text-align-last:指定如何对齐文本的最后一行 right center left...
+    (2)text-justify:指定对齐的文本应如何对齐和间隔
+    (3)text-overflow:指定应如何向用户呈现未显示的溢出内容。
+clip(修剪文本) ellipsis(显示省略号来代表被修剪的文本) string(使用给定的字符串来代表被修剪的文本)
+    (4)word-break:指定换行规则 
+normal(浏览器默认换行规则) break-all(允许在单词内换行) keep-all(只能在半角空格或连字符处换行)
+    (5)word-wrap:允许长单词被打断并换到下一行
+normal(只在允许的断字点换行,浏览器默认处理) break-word(在长单词或 URL 地址内部进行换行)
+    (6)writing-mode:指定文本行是水平放置还是垂直放置
+horizontal-tb(让内容从左到右水平流动，从上到下垂直流动) vertical-rl(让内容从上到下垂直流动，从右到左水平流动)
+vertical lr(相反)-->
+<style>
+    .div1{
+        border: 1px solid black;
+        width: 100px;
+        overflow: hidden;/*加上这句文本省略才生效*/
+        text-overflow: ellipsis;
+    }
+    .div1:hover{
+        overflow: visible;
+    }
+    .test{
+        border: 1px solid black;
+        word-wrap: break-word;/*原本的长单词不会自动换行，会显示到框外*/
+        text-align-last:right;
+    }
+    .test1{
+        border: 1px solid black;
+        width: 100px;
+        word-break: break-all;/*与上面的break-word效果相似*/
+        writing-mode: vertical-lr;
+    }
+</style>
+<body>
+    <div class="div1">nicecatchnicecatchnicecatchnicecatchnicecatch</div>
+    <p class="test">This paragraph contains a very long word: 
+        thisisaveryveryveryveryveryverylongword. 
+        The long word will break and wrap to the next line.</p>
+    <p class="test1">This paragraph contains some text. 
+        This line will-break-at-hyphens.</p>
+</body>
+</html>

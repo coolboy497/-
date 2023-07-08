@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=`, initial-scale=1.0">
+    <title>字体</title>
+</head>
+<style>
+    /*复合属性：简写的方式 节约代码 必须严格按照以下顺序，前两个可省略，后面的不可以
+      font：font-style font-weight font-size/line-height font-family
+
+
+      font-family属性设置字体
+      font-style属性设置字体样式：normal正常显示，italic斜体显示
+      font-weight属性设置字体的粗细：normal bold
+      font-variant属性设置字体的变体：normal small-caps(所有小写字母转换为大写字母)
+      但是转换后的字体大小要小于原来的
+      font-size:设置文本的大小 px,em,百分比分数,1em=16px
+      vw(视口宽度，文本大小将遵循浏览器窗口的大小)1vw=视口宽度的1%*/
+    #one {
+        color: blue;
+        /* 依次检查浏览器装有该字体，有就使用这个字体显示，没有就检查下一个 */
+        /* font-family: 'Times New Roman', Times, serif;
+        font-style: italic;
+        font-weight: normal;
+        font-variant: normal;
+        font-size:40px; */
+        font: italic normal 40px 'Times New Roman';
+    }
+</style>
+<body>
+    <p id="one">nice catch1</p>
+</body>
+</html>

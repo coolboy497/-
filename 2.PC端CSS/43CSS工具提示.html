@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS工具提示</title>
+</head>
+<!--z-index属性:性设置一个定位元素沿 z 轴的位置，
+    z 轴定义为垂直延伸到显示区的轴。如果为正数，则离用户更近，为负数则表示离用户更远-->
+<style>
+    div{
+        text-align: center;
+        color: blue;
+        border:1px solid black;
+        width: 100px;
+        position: relative;
+        /* background-color: aquamarine; */
+        margin: 100px;
+    }
+    span{
+        box-sizing: border-box;
+        visibility: hidden;
+        background-color: aqua;
+        color: black;
+        text-align: center;
+        border-radius: 6px;
+        padding: 5px;
+        position: absolute;
+        z-index: 1;
+        bottom: 150%;/*距离容器上下左右的距离*/
+        left: 50%;
+        width: 100px;/*设置span容器的宽度为100px,
+        再将其左侧距离设置为半个容器宽，使其显示在居中*/
+        margin-left: -50px;
+    }
+    /*在工具提示下方加个小箭头*/
+    div span::after{
+        content: "";
+        position: absolute;
+        top:100%;
+        left: 50%;
+        border-width: 5px;
+        border-style: solid;
+        border-color: aqua transparent transparent transparent;
+    }
+    div:hover span{
+        visibility: visible;
+    }
+</style>
+<body>
+    <div>
+        hover on me
+        <span>really title</span>
+    </div>
+</body>
+</html>

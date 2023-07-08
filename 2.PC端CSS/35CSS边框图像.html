@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS边框图像</title>
+</head>
+<style>
+    /*border-image-source：规定用作边框的图像的路径。
+      border-image-slice：规定如何裁切边框图像。
+      border-image-width：规定边框图像的宽度。
+      border-image-outset：规定边框图像区域超出边框盒的量。
+      border-image-repeat：规定边框图像应重复、圆角、还是拉伸（repeat、round、sketch）。*/
+    div{
+        border:10px solid transparent;
+        border-image-source: url(https://www.w3school.com.cn/i/css/border.png);
+        border-image-slice:30;
+        text-align: center;
+        border-image-repeat: round;
+    }
+</style>
+<body>
+    <div>图像边框</div>
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS定位</title>
+</head>
+<style>
+    /*position属性对元素进行定位
+      static：默认值，当position为static后top,left等设置不起作用
+      relative:top,left等设置可以起作用，但其移动前的空间仍然保留着
+      absolute:绝对定位,top,left等设置可以起作用,依次寻找上一级元素，
+      直到不是static的为基准,移动前的空间就没有了，会被其他的顶替。
+      fixed:相对于视口定位的，这意味着即使滚动页面，它也始终位于同一位置
+      top,right,left等可以起作用。
+      sticky:在相对（relative）和固定（fixed）之间切换，先相对，直到在
+      视口中遇到给定的偏移位置为止，就变为固定了*/
+    body{
+        background-color: gainsboro;
+        height: 2000px;
+    }
+    .father{
+        background-color: lightblue;
+        padding: 30px;
+        /* position: relative; */
+    }
+    .child1,.child2,.child3{
+        border: 1px solid black;
+        padding: 20px;
+    }
+    .child1{
+        background-color: aquamarine;
+        /* position:sticky;
+        top:0; */
+        /* position: fixed; */
+        /* position: absolute;
+        right: 0;
+        bottom: 0; */
+        /* left:15px; */
+    }
+    .child2{
+        background-color: blue;
+    }
+    .child3{
+        background-color: chartreuse;
+    }
+</style>
+<body>
+    <div class="father">
+        <div class="child1">A</div>
+        <div class="child2">B</div>
+        <div class="child3">C</div>
+    </div>
+</body>
+</html>

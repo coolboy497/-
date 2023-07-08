@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .father{
+        width: 200px;
+        height: 200px;
+        background-color: pink;
+        margin:0 auto;
+    }
+    .son{
+        width: 100px;
+        height: 100px;
+        background-color: purple;
+    }
+</style>
+<body>
+    <div class="father">
+        <div class="son"></div>
+    </div>
+    <script>
+        //mouseover 和 mouseenter事件区别
+        //mouseover鼠标经过自身盒子会触发，经过子盒子还会触发
+        //mouseenter 只会经过自身盒子触发，mouseenter不会冒泡
+        //跟mouseenter搭配的就是mouseleave鼠标离开，同样不会冒泡
+        var father = document.querySelector('.father')
+        // father.addEventListener('mouseover',function(){
+        //     console.log(11);
+        // })
+        father.addEventListener('mouseenter',function(){
+            console.log(22);
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // ES6之前并没有给我们提供extends继承，我们可以通过
+        // 构造函数(继承属性)+原型对象(继承方法)模拟实现继承，被称为组合继承
+        //继承属性：改变this指向
+        //继承方法：通过父构造函数new一个实例对象搭中间桥梁继承 
+
+        // 借用父构造函数继承属性
+        // 1.父构造函数
+        function Father(uname,age){
+            this.uname = uname;
+            this.age = age;
+        }
+        Father.prototype.money = function () {
+            console.log(1000);
+        }
+
+        // 2.子构造函数
+        // Son是构造函数，而call中的this指向的是Son构造函数的实例对象
+        // 所以下面用this，不能用Son
+        function Son(uname,age,score){
+            // 在子构造函数里面调用父构造函数，并
+            // 将父构造函数的指向改为指向字构造函数
+            Father.call(this,uname,age);
+            this.score = score;//字构造函数自己的属性
+        }
+        // Son.prototype = Father.prototype;//这样直接赋值继承方法会有问题
+        // 如果修改了子原型对象，父原型对象也会跟着一起变化
+        Son.prototype = new Father();
+        const son = new Son('刘德华',18,100);
+        console.log(son);
+        console.log(son.money);
+        console.log(Son.prototype.constructor);//此时Son.prototype.constructor指向的是Father，所以要更改回Son
+        // 如果利用对象的形式修改了原型对象，别忘了利用constructor指回原来的构造函数
+        Son.prototype.constructor = Son;
+        console.log(Son.prototype.constructor);
+    </script>
+</body>
+</html>

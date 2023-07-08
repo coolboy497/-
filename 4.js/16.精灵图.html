@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .box{
+        margin: 100px auto;
+        width: 250px;
+    }
+    *{
+        margin: 0;
+        padding: 0;
+    }
+    .box li{
+        float: left;
+        width: 24px;
+        height: 24px;
+        background-color: pink;
+        margin: 15px;
+        list-style-type: none;
+        background: url(../jsapis_material/第一天/images/sprite.png) no-repeat;
+        background-position: 5px 1px;
+        /* background-image: url(./jinlintu.png); */
+    }
+</style>
+<body>
+    <img src="../jsapis_material/第一天/images/sprite.png" alt="">
+    <div class="box">
+        <ul>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+    </div>
+    <script>
+        var lis = document.querySelectorAll('li');
+        for (var i=0;i < lis.length ;i++){
+            var k = i*44;
+            lis[i].style.backgroundPosition='0 -'+k+'px';
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS渐变背景</title>
+</head>
+<style>
+    /*CSS 定义了两种渐变类型：
+    线性渐变（向下/向上/向左/向右/对角线）默认是从上到下
+    background-image: linear-gradient(direction, color-stop1, color-stop2, ...);
+    如果希望对渐变角度做更多的控制，您可以定义一个角度，来取代预定义的方向（向下、向上、向右、向左、向右下等等）。
+    值 0deg 等于向上（to top）。值 90deg 等于向右（to right）。值 180deg 等于向下（to bottom）。
+    颜色后的百分比就是在整个背景的百分之多少的位置开始着色
+    repeating-linear-gradient() 函数用于重复线性渐变
+    
+    径向渐变（由其中心定义）
+    radial-gradient(shape size at position, start-color, ..., last-color);
+    repeating-radial-gradient() 函数用于重复径向渐变*/
+    #div1{
+        background:linear-gradient(to right,yellow ,red 30%,lightblue 70%);
+        /* background-image:linear-gradient(90deg,yellow,red); */
+        height: 200px;
+    }
+    #div2{
+        background: linear-gradient(to bottom right,blue,green 60%);
+        height: 200px;
+    }
+    #div3{
+        background: repeating-linear-gradient(lightblue 10%,yellow 20%);
+        height: 200px;
+    }
+    #div4{
+        height: 200px;
+        background: radial-gradient(circle,red,yellow,green);
+    }
+</style>
+<body>
+    <div id="div1"> nice catch</div>
+    <div id="div2"></div>
+    <div id="div3"></div>
+    <div id="div4"></div>
+</body>
+</html>

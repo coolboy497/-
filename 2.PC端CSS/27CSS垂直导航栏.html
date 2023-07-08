@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS垂直导航栏</title>
+</head>
+<style>
+    body{
+        margin:0;
+    }
+    ul{
+        list-style-type: none;
+        margin:0;
+        padding:0;
+        width: 25%;
+        background-color: gainsboro;
+        height: 100%; /* 全高 */
+        position: fixed; /* 使它产生粘性，即使在滚动时 */
+        overflow: auto; /* 如果侧栏的内容太多，则启用滚动条 */
+    }
+    ul li a{
+        display: block;
+        text-decoration: none;
+        color:black;
+        padding:15px;
+    }
+    ul li a.Home{
+        background-color:cornflowerblue;
+    }
+    ul li a:hover{
+        background-color: black;
+        color: white;
+    }
+    div{
+        background-color: aqua;
+        margin-left: 25%;
+        padding: 1px 16px;
+    }
+</style>
+<body>
+    <ul>
+        <li><a href="#Home" class="Home">Home</a></li>
+        <li><a href="#News">News</a></li>
+        <li><a href="#Contact">Contact</a></li>
+        <li><a href="#About">About</a></li>
+    </ul>
+    <div>
+        <p>Some text..</p>
+        <p>Some text..</p>
+        <p>Some text..</p>
+        <p>Some text..</p>
+        <p>Some text..</p>
+        <p>Some text..</p>
+        <p>Some text..</p>
+        <p>Some text..</p>
+        <p>Some text..</p>
+        <p>Some text..</p>
+        <p>Some text..</p>
+        <p>Some text..</p>
+        <p>Some text..</p>
+        <p>Some text..</p>
+        <p>Some text..</p>
+        <p>Some text..</p>
+        <p>Some text..</p>
+        <p>Some text..</p>
+        <p>Some text..</p>
+        <p>Some text..</p>
+        <p>Some text..</p>
+        <p>Some text..</p>
+        <p>Some text..</p>
+        <p>Some text..</p>
+        <p>Some text..</p>
+        <p>Some text..</p>
+        <p>Some text..</p>
+        <p>Some text..</p>
+    </div>
+</body>
+</html>
