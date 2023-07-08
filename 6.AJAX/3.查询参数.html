@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- url查询参数：浏览器会提供个服务器的额外信息，服务器
+    返回浏览器想要的数据
+    语法：http://xxx.com/xxx/xxx?参数名1=值1&参数名2=值2
+    使用axios提供的params选项 
+    城市url：http://hmajax.itheima.net/api/city-->
+    <p class="my_city"></p>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script>
+        axios({
+            url:"http://hmajax.itheima.net/api/city",
+            params:{
+                pname:"河北省"
+            }
+        }).then(result=>{
+            console.log(result);
+            document.querySelector('.my_city').innerHTML = result.data.list.join("<br>")
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p style="display:inline-block;">省份名字</p>
+    <p style="display:inline-block;margin-left: 200px;">城市名字</p>
+    <input type="text" class="pname" style="display:block;margin-bottom:10px;padding: 0;position: relative;">
+    <input type="text" class="cname" style="position: absolute;top:61px;left:250px;margin-bottom: 10px;padding: 0;">
+    <button style="display: block;background-color: rgb(70, 155, 228);color: white;margin: 0;">点击</button>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <ul class="ul"></ul>
+    <script>
+        let bt = document.querySelector('button');
+        bt.addEventListener('click',()=>{
+            let pinput = document.querySelector('.pname').value
+            let cinput = document.querySelector('.cname').value
+            console.log(pinput,cinput);
+            axios({
+                url:"http://hmajax.itheima.net/api/area",
+                method:'get',//可省略，默认是get
+                params:{
+                    pname:pinput,
+                    cname:cinput
+                }}).then(result=>{
+                    let list = result.data.list
+                    console.log(list);
+                    let theli = list.map(areaName=>`<li>${areaName}</li>`)
+                    console.log(theli);
+                    document.querySelector('.ul').innerHTML = theli;
+                })  
+        })
+    </script>
+</body>
+</html>

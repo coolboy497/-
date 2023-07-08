@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<!-- ajax是异步的JavaScript和xml,就是使用xmlhttprequest对象与服务器通信 
+第三方库axios:基于xmlhttprequest封装，代码简单
+引入axiosjs:https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js
+目标资源地址：http://hmajax.itheima.net/api/province-->
+<body>
+    <!-- 1.引入axios库 -->
+    <p class="my_p"></p>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script>
+        //2.使用axios函数
+        axios({
+            url:"http://hmajax.itheima.net/api/province"
+        }).then(result=>{
+            console.log(result);
+            console.log(result.data.list);
+            // 把数组元素转字符串指定拼接符（br换行符）
+            console.log(result.data.list.join('<br>'));
+            //把身份列表插入p标签
+            document.querySelector('.my_p').innerHTML = result.data.list.join('<br>')
+        })
+    </script>
+</body>
+</html>
