@@ -8,7 +8,6 @@
 </head>
 <style>
     /* 特殊小技巧：单行文字垂直居中，让line-height等于盒子高度 */
-
     body {
         background-color: white;
     }
@@ -62,7 +61,10 @@
     text-shadow: h-shadow(必需，水平阴影的位置)
     v-shadow（必需，垂直阴影的位置）
     blur(可选，模糊的距离)
-    color（可选，阴影的颜色）*/
+    color（可选，阴影的颜色）
+    h-shadow,v-shadow:以“文字中心”为原点的坐标轴，
+    分别为 x 轴 <offset-x> 和 y 轴 <offset-y> 的值
+    blur:形成阴影效果的半径的数值*/
     p.seven {
         color:lightblue;
         text-shadow: 1px 1px 4px ;

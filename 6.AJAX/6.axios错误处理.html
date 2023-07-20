@@ -5,10 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+<!--重复注册时通过弹框提示用户错误原因
+使用axios错误处理语法，再用弹框反应给用户-->
 <body>
-    <!-- 请求方法:对服务器资源，要执行的操作
-    （1）GET：获取数据 （2）POST：提交数据
-    （3）PUT：修改数据(全部) (4)DELETE:删除数据 （5）PATCH：修改数据(部分) -->
     <button>注册用户</button>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script>
@@ -23,6 +22,10 @@
                 }
             }).then(result=>{
                 console.log(result);
+            }).catch(error=>{
+                console.log(error);
+                console.log(error.response.data.message);
+                alert(error.response.data.message)
             })
         })
     </script>

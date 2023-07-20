@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body{
+        background-color: lightcyan;
+    }
+    section{
+        background-color: white;
+        margin-top: 100px;
+        padding-top: 10px;
+        padding-left: 30px;
+        width: 300px;
+        height: 300px;
+        /* text-align: center; */
+    }
+    h2{
+        font-size: 24px;
+    }
+    label{
+        display: block;
+        font-size: 12px;
+        color:gray;
+    }
+    input{
+        display: block;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        border: 1px solid rgb(223, 220, 220);
+        outline:none;
+    }
+    button{
+        background-color: rgb(135, 175, 241);
+        margin: 10px 0;
+        border: 0;
+        border-radius: 3px;
+    }
+    div{
+        margin-bottom: 20px;
+        margin-left: -5px;
+        padding-left: 10px;
+        /* text-align: center; */
+        line-height: 40px;
+        width: 200px;
+        height: 40px;
+        border-radius: 10px;
+        background-color:rgb(151, 241, 151);
+        display: none;
+    }
+</style>
+<body>
+    <section>
+        <h2>欢迎-登录</h2>
+        <div></div>
+        <label for="">账号名</label>
+        <input type="text" class="username" value="">
+        <label for="">密码</label>
+        <input type="password" class="password" value="">
+        <button>登录</button>
+    </section>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script>
+        // 封装提示框函数，重复调用
+        // 功能
+        // 1.显示提示框
+        // 2.不同提示文字msg和成功绿色失败红色
+        // 3.过2秒后，提示框自动消失
+
+        // 小细节：改变元素属性时一定要加引号
+        let div = document.querySelector('div')
+        function alertFn(msg,isSuccess){
+            //1.显示提示框
+            div.style.display = 'block';
+            //2.实现细节
+            div.innerHTML = msg;
+            if(!isSuccess){
+                div.style.backgroundColor = 'red';
+            }
+            // else{
+            //     div.style.backgroundColor = rgb(151, 241, 151);
+            // }
+            //3.过2秒隐藏
+            setTimeout(() => {
+                div.style.display = 'none';
+                div.style.backgroundColor = 'rgb(151, 241, 151)';
+            }, 2000);
+        }
+
+
+
+
+        let bt = document.querySelector('button')
+        bt.addEventListener('click',()=>{
+            let username = document.querySelector('.username').value
+            let password = document.querySelector('.password').value
+            console.log(username,password);
+            if(username.length<8){
+                alertFn('用户名必须大于等于8位',false)
+                console.log(('用户名必须大于等于8位'));
+                return//阻止代码继续执行
+            }
+            if(password.length<6){
+                alertFn('密码必须大于等于6位',false)
+                console.log(('密码必须大于等于6位'));
+                return
+            }
+            axios({
+                url:'http://hmajax.itheima.net/api/login',
+                method:'POST',
+                data:{
+                    "username":username,
+                    "password":password
+                }
+            }).then(result=>{
+                console.log(result.data.message);
+                alertFn(result.data.message,true)
+            }).catch(error=>{
+                console.log(error.response.data.message);
+                alertFn(error.response.data.message,false)
+            })
+        })
+    </script>
+</body>
+</html>

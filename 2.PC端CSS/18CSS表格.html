@@ -41,13 +41,22 @@
         background-color: aquamarine;
     }
     /*响应式表格，如果因无法显示全部内容，会出现水平滚动条
-     就要用带有overflow-x:auto 的容器元素（如div）包围表格*/
-     table.four{
+     就要用带有overflow-x:auto 的容器元素（如div）包围表格
+     overflow-x设置了当内容溢出块级元素的左右两侧时所显示的内容
+     overflow:overflow-x.overflow-y
+     visible:内容依旧溢出显示
+     hidden:溢出的内容被隐藏
+     scroll:不论内容是否溢出，依旧会提供滚动条
+     auto:根据内容自适应是否添加滚动条*/
+    div{
+        overflow-x:auto;
+    }
+    table.four{
         border-collapse: collapse;
-     }
-     tr.four:nth-child(even){
+    }
+    tr.four:nth-child(even){
         background-color: bisque;
-     }
+    }
 </style>
 <body>
     <table class="one">
@@ -91,7 +100,7 @@
         </tr>
     </table>
     <br/>
-    <div style="overflow-x:auto;">
+    <div>
         <table class="four">
           <tr class="four">
             <th>First Name</th>

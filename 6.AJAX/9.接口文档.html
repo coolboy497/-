@@ -5,24 +5,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+<!-- 接口文档：描述接口的文章
+     接口：使用AJAX和服务器通讯时，使用的URL，请求方法，以及参数 -->
 <body>
-    <!-- 请求方法:对服务器资源，要执行的操作
-    （1）GET：获取数据 （2）POST：提交数据
-    （3）PUT：修改数据(全部) (4)DELETE:删除数据 （5）PATCH：修改数据(部分) -->
-    <button>注册用户</button>
+    <button>用户登录</button>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script>
-        let bt = document.querySelector('button')
+        let bt = document.querySelector("button")
         bt.addEventListener('click',()=>{
             axios({
-                url:"http://hmajax.itheima.net/api/register",
-                method:'post',
+                url:"http://hmajax.itheima.net/api/login",
+                method:"Post",
                 data:{
                     username:'itheima312',
                     password:'314245'
                 }
             }).then(result=>{
-                console.log(result);
+                console.log(result)
+            }).catch(error=>{
+                console.log(error)
             })
         })
     </script>
