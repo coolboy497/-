@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>XMLHttpRequest_查询地区</title>
+</head>
+<body>
+    <p style="display:inline-block;">省份名字</p>
+    <p style="display:inline-block;margin-left: 200px;">城市名字</p>
+    <input type="text" class="pname" style="display:block;margin-bottom:10px;padding: 0;position: relative;">
+    <input type="text" class="cname" style="position: absolute;top:61px;left:250px;margin-bottom: 10px;padding: 0;">
+    <button style="display: block;background-color: rgb(70, 155, 228);color: white;margin: 0;">点击</button>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <ul class="ul"></ul>
+    <script>
+        document.querySelector('button').addEventListener('click',()=>{
+            const pname = document.querySelector('.pname').value
+            const cname = document.querySelector('.cname').value
+            const areaobj = {
+                pname:pname,
+                cname:cname
+            }
+            //1.创建URLSearchParams对象，自动将参数变成了查询时所需的格式
+            //查询参数对象-》查询参数字符串
+            const paramsobj = new URLSearchParams(areaobj)
+            const queryString = paramsobj.toString()
+            console.log(queryString);//pname=%E5%8C%97%E4%BA%AC(参数编码)&cname=%E5%8C%97%E4%BA%AC%E5%B8%82
+
+            
+            const xhr = new XMLHttpRequest()
+            xhr.open('GET',`http://hmajax.itheima.net/api/area?${queryString}`)
+            xhr.addEventListener('loadend',()=>{
+                console.log(xhr.response);
+                const data = JSON.parse(xhr.response)
+                console.log(data);
+                const datalist = data.list.map(item=>{
+                    return`<li>${item}</li>`
+                }).join('')
+                console.log(datalist);
+                document.querySelector('.ul').innerHTML = datalist
+            })
+            xhr.send()
+        })
+        
+    </script>
+</body>
+</html>

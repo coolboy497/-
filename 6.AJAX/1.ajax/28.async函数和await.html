@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>async函数和await</title>
+</head>
+<!--async函数是使用async关键字声明的函数,async函数是AsyncFunction构造函数的实例，并且 
+    其中允许使用await关键字。
+
+    async和await关键字让我们可以用一种更简洁的方式写出
+    基于Promise的异步行为,而无需刻意地进行链式调用Promise 
+    
+    在async函数内，使用await关键字取代then函数，等待获取Promise对象成功状态的结果值-->
+<body>
+    <form>
+        <span>省份：</span>
+        <select>
+          <option class="province"></option>
+        </select>
+        <span>城市：</span>
+        <select>
+          <option class="city"></option>
+        </select>
+        <span>地区：</span>
+        <select>
+          <option class="area"></option>
+        </select>
+    </form>
+    <script src="https://cdn.bootcdn.net/ajax/libs/axios/1.2.0/axios.min.js"></script>
+    <script>
+        //1.定义async修饰函数
+        async function getData(){
+            //2.await等待Promise成功的结果
+           const pObj = await axios({url:'http://hmajax.itheima.net/api/province'})
+           console.log(pObj);
+           const pname = pObj.data.list[0]
+           document.querySelector('.province').innerHTML = pname
+
+           const cObj = await axios({url:'http://hmajax.itheima.net/api/city',params:{pname:pname}})
+           console.log(cObj);
+           const cname = cObj.data.list[0]
+           document.querySelector('.city').innerHTML = cname
+
+           const aObj = await axios({url:'http://hmajax.itheima.net/api/area',params:{pname:pname,cname:cname}})
+           console.log(aObj);
+           const aname = aObj.data.list[0]
+           document.querySelector('.area').innerHTML = aname
+        }
+        getData()
+    </script>
+</body>
+</html>

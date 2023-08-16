@@ -1,4 +1,5 @@
 {
     "ipynb.experimental.pasteImages.enabled": true,
-    "editor.experimental.pasteActions.enabled": true
+    "editor.experimental.pasteActions.enabled": true,
+    "emmet.triggerExpansionOnTab": true
 }

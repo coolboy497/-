@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>封装myaxios支持传递参数</title>
+</head>
+<body>
+    <p class="my-p"></p>
+    <!-- 目标：封装简易axios函数-获取地区列表
+         1.判断有params选项，携带查询参数
+         2.使用URLSearchParams转换,并携带到URL上
+         3.使用myAxios函数,获取地区列表 -->
+    <script>
+        function myAxios(config){
+            return new Promise((resolve,reject)=>{
+                const xhr = new XMLHttpRequest()
+                //1.判断有params选项，携带查询参数
+                if(config.params){
+                    //2.使用URLSearchParams转换,并携带到URL上
+                    const paramsobj = new URLSearchParams(config.params)
+                    const queryString = paramsobj.toString()
+                    //把查询参数字符串，拼接到url后面
+                    config.url+=`?${queryString}`
+                }
+                xhr.open(config.method||'GET',config.url)
+                xhr.addEventListener('loadend',()=>{
+                    if(xhr.status>=200&&xhr.status<300){
+                        resolve(JSON.parse(xhr.response))
+                    }
+                    else{
+                        reject(new Error(xhr.response))
+                    }
+                })
+                xhr.send()
+            })
+        }
+        const pname = '北京'
+        const cname = '北京市'
+        //3.使用myAxios函数,获取地区列表 
+        myAxios({
+            url:'http://hmajax.itheima.net/api/area',
+            params:{
+                pname:pname,
+                cname:cname
+            }
+        }).then(result=>{
+            console.log(result);
+            const citys = result.list.join('<br>')
+            document.querySelector('.my-p').innerHTML = citys
+        }).catch(error=>{
+            console.log(error);
+        })
+    </script>
+</body>
+</html>

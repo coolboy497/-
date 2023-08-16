@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>链式应用</title>
+</head>
+<body>
+    <form>
+        <span>省份：</span>
+        <select>
+          <option class="province"></option>
+        </select>
+        <span>城市：</span>
+        <select>
+          <option class="city"></option>
+        </select>
+        <span>地区：</span>
+        <select>
+          <option class="area"></option>
+        </select>
+    </form>
+    <script src="https://cdn.bootcdn.net/ajax/libs/axios/1.2.0/axios.min.js"></script>
+      <script>
+        //目标：掌握Promise的链式调用
+        //需求：将省市的嵌套结构，改成链式调用的线性结构
+        //1.得到-获取省份的Promise对象
+        let pname = ''
+        axios({url:'http://hmajax.itheima.net/api/province'}).then(result=>{
+            console.log(result);
+            pname =  result.data.list[0]
+            document.querySelector('.province').innerHTML = pname
+            return axios({url:'http://hmajax.itheima.net/api/city',params:{pname:pname}})
+        }).then(result=>{
+            console.log(result);
+            cname = result.data.list[0]
+            document.querySelector('.city').innerHTML = cname
+            return axios({url:'http://hmajax.itheima.net/api/area',params:{pname:pname,cname:cname}})
+        }).then(result=>{
+            console.log(result);
+            const areas = result.data.list[0]
+            document.querySelector('.area').innerHTML = areas
+        })
+     
+      </script>
+</body>
+</html>

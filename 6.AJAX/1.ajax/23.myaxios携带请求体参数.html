@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>封装myaxios支持传递参数</title>
+</head>
+<body>
+    <button class="btn">注册用户</button>
+    <!-- 目标：封装简易axios函数-获取地区列表
+         1.myaxios函数调用后,判断data选项
+         2.转换数据类型，在send方法中发送
+         3.完成用户注册功能-->
+    <script>
+        function myAxios(config){
+            return new Promise((resolve,reject)=>{
+                const xhr = new XMLHttpRequest()
+                if(config.params){
+                    const paramsobj = new URLSearchParams(config.params)
+                    const queryString = paramsobj.toString()
+                    config.url+=`?${queryString}`
+                }
+                xhr.open(config.method||'GET',config.url)
+                xhr.addEventListener('loadend',()=>{
+                    if(xhr.status>=200&&xhr.status<300){
+                        resolve(JSON.parse(xhr.response))
+                    }
+                    else{
+                        reject(new Error(xhr.response))
+                    }
+                })
+                //1.判断data选项
+                if(config.data){
+                    // 2.转换数据类型，在send方法中发送
+                    const jsonStr = JSON.stringify(config.data)
+                    //在请求头中设置发送数据类型
+                    xhr.setRequestHeader('Content-Type','application/json')
+                    xhr.send(jsonStr)
+                }else{
+                    xhr.send()
+                }
+            })
+        }
+        const username = 'ithema213'
+        const password = 'ithema213'
+        //3.使用myAxios函数,获取地区列表 
+        document.querySelector('.btn').addEventListener('click',()=>{
+            myAxios({
+            url:'http://hmajax.itheima.net/api/register',
+            method:'POST',
+            data:{
+                username:username,
+                password:password
+            }
+            }).then(result=>{
+                console.log(result);
+            }).catch(error=>{
+                console.log(error);
+            })
+        })
+    </script>
+</body>
+</html>

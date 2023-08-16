@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>微任务和宏任务</title>
+</head>
+<!-- ES6之后引入了Promise对象，让JS引擎也可以发起异步任务
+    异步任务为：
+    1.宏任务：由浏览器环境执行的异步代码
+    2.微任务：由JS引擎环境执行的异步代码
+
+    宏任务（浏览器执行）
+    1.JS脚本执行（script）
+    2.setTimeout/setInterval
+    3.Ajax请求完成事件
+    4.用户交互事件
+    微任务（JS引擎）
+    1.Promise对象.then() Promise本身是同步的，而then和catch回调函数是异步的-->
+<body>
+    <!--1.执行第一个script脚本事件宏任务，里面同步代码
+        2.遇到宏任务/微任务交给宿主环境，有结果回调函数进入对应队列
+        3.当执行栈空闲时，清空微任务队列，再执行下一个宏任务，从1再来 -->
+        <script>
+            // 目标：回答代码执行顺序
+            console.log(1)
+            setTimeout(() => {
+              console.log(2)
+              const p = new Promise(resolve => resolve(3))
+              p.then(result => console.log(result))
+            }, 0)
+            const p = new Promise(resolve => {
+              setTimeout(() => {
+                console.log(4)
+              }, 0)
+              resolve(5)
+            })
+            p.then(result => console.log(result))
+            const p2 = new Promise(resolve => resolve(6))
+            p2.then(result => console.log(result))
+            console.log(7)
+            //1 7 5 6 2 3 4
+         </script>
+        
+</body>
+</html>
