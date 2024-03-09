@@ -15,18 +15,24 @@
     (3)animation-duration:规定动画完成一个周期应花费的时间。
     (4)animation-delay:规定动画开始的延迟。
     (5)animation-direction:规定动画是向前播放、向后播放还是交替播放(normal/alternate)。
-    (6)animation-iteration-count:规定动画应播放的次数。(infinate:永远)
+    (6)animation-iteration-count:规定动画应播放的次数。(infinite:永远)
     (7)animation-play-state:规定动画是运行还是暂停(running（默认）/paused)。
     (8)animation-timing-function:规定动画的速度曲线。（ease/linear/steps(步数)分几步完成）
     (9)animation-fill-mode:规定元素在不播放动画时的样式(backwards:返回起始状态)forwards:停在结束状态
     （在开始前、结束后，或两者同时）-->
 <style>
     @keyframes example {
-        0% {background-color: red; left:0px; top:0px;}
+        /* 0% {background-color: red; left:0px; top:0px;}
         25%  {background-color:yellow; left:200px; top:0px;}
         50%  {background-color:blue; left:200px; top:200px;}
         75%  {background-color:green; left:0px; top:200px;}
-        100% {background-color:pink; left:0px; top:0px;}
+        100% {background-color:pink; left:0px; top:0px;} */
+        0% {
+            left:0px;top:0px;
+        }
+        100% {
+            left:100px;top:100px;
+        }
     }
     div{
         background-color: antiquewhite;
@@ -37,7 +43,8 @@
         animation-delay: 1s;
         animation-duration: 8s;
         animation-iteration-count: 4;
-        animation-direction: alternate;
+        animation-direction: normal;
+        animation-timing-function:ease;
     }
 </style>
 <body>

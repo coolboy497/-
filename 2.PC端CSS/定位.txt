@@ -52,7 +52,8 @@
 
 8.元素的显示与隐藏
     （1）display属性用于设置一个元素如何显示
-      none：隐藏对象 block：除了转换为块级元素之外，同时还有显示元素的意思
+      none：隐藏对象 
+      block：除了转换为块级元素之外，同时还有显示元素的意思
       display隐藏元素后，不再占有原来的位置
     （2）visibility属性用于指定一个元素应可见还是隐藏
       visibility:visible/hidden
