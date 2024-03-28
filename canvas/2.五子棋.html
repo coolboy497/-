@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    canvas {
+        background-color: rgb(133, 167, 72);
+    }
+    div {
+        width: 800px;
+        padding: 10px;
+        display: flex;
+        justify-content:space-evenly;
+    }
+    .reset,.undo,.start{
+        padding: 10px;
+        font-size: 18px;
+        background-color: skyblue;
+    }
+    .undo {
+        padding: 10px 28px ;
+    }
+    button:hover {
+        cursor: pointer
+    }
+    button:disabled {
+        cursor:not-allowed
+    }
+    .title {
+        text-align: center;
+        font-size: 50px;
+    }
+    .header {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+    }
+    input {
+        width: 100px;
+        height: 50px;
+    }
+    .img img{
+        position: absolute;
+        top: 112px;
+        width: 800px;
+        vertical-align: middle;
+    }
+    .hidden {
+        display: none;
+    }
+</style>
+<body>
+    <div class="header">
+        <input type="color" >
+    </div>
+    <div class="img">
+        <img src="./img/OIP.jfif" alt="">
+    </div>
+    <script>
+        class createPoint {
+            constructor(context,x,y,color_flag) {
+                this.context = context
+                this.done = []
+                this.prex = x
+                this.prey = y
+                this.x = x
+                this.y = y
+                this.color = color_flag 
+                //this.init()
+            }
+            initGezi() {
+                for(let i=1;i<16;i++) {
+                    this.context.beginPath()
+                    this.context.moveTo(50,i*50)
+                    this.context.lineTo(750,i*50)
+                    this.context.closePath()
+                    this.context.stroke()
+                    this.context.beginPath()
+                    this.context.moveTo(i*50,50)
+                    this.context.lineTo(i*50,750)
+                    this.context.closePath()
+                    this.context.stroke()
+                }
+            }
+            initDone() {
+                for(let i=0;i<15;i++){
+                    this.done[i]=new Array()
+                    for(let j=0;j<15;j++){
+                        this.done[i][j]=0
+                    }
+                }
+            }
+            getColor() {
+                if(this.color == true){
+                    this.color = 'white'
+                } else {
+                    this.color = 'black'
+                }
+            }
+            paintPoint() {
+                if(this.done[this.y/50-1][this.x/50-1]!==0){
+                    alert('点击区域已有棋子，请重新选择')
+                    return false
+                }
+                this.getColor()
+                this.draw(this.x,this.y,this.color)
+                this.prex = this.y/50-1
+                this.prey = this.x/50-1
+                this.done[this.y/50-1][this.x/50-1] = this.color == 'white' ? 1 : 2
+                return true
+            }
+            draw(x,y,color){
+                //console.log(x,y)
+                this.context.beginPath()
+                this.context.fillStyle = color
+                this.context.arc(x,y,10,0,2*Math.PI)
+                this.context.stroke()
+                this.context.fill()
+                this.context.closePath()
+            }
+            isSuccess() {
+                let number = this.done[this.y/50-1][this.x/50-1]
+                let xindex = this.y/50-1
+                let yindex = this.x/50-1
+                let count = 0
+                //判断竖线上是否成功
+                let xcur = xindex
+               
+                while(xcur>=0&&this.done[xcur][yindex]==number){
+                    xcur--
+                    count++
+                    if(count==5){
+                        return this.color
+                    }
+                }
+                xcur = xindex+1
+                while(xcur<15&&this.done[xcur][yindex]==number){
+                    xcur++
+                    count++
+                    if(count==5){
+                        return this.color
+                    }
+                }
+                //判断横线上是否成功
+                count = 0
+                let ycur = yindex
+                while(ycur>=0&&this.done[xindex][ycur]==number){
+                    ycur--
+                    count++
+                    if(count==5){
+                        return this.color
+                    }
+                }
+                ycur = yindex+1
+                while(ycur<15&&this.done[xindex][ycur]==number){
+                    ycur++
+                    count++
+                    if(count==5) {
+                        return this.color
+                    }
+                }
+                // //判断斜线上是否成功
+                count = 0
+                xcur = xindex
+                ycur = yindex
+                //左上斜
+                while(xcur>=0&&ycur>=0&&this.done[xcur][ycur]==number){
+                    xcur--
+                    ycur--
+                    count++
+                    if(count==5) {
+                        return this.color
+                    }
+                }
+                //右下斜
+                if(count!=0){
+                    xcur = xindex + 1
+                    ycur = yindex + 1
+                } else {
+                    xcur = xindex
+                    ycur = yindex
+                }
+                while(xcur<15&&ycur<15&&this.done[xcur][ycur]==number){
+                    xcur++
+                    ycur++
+                    count++
+                    if(count==5) {
+                        return this.color
+                    }
+                }
+                //左下斜
+                count = 0
+                xcur = xindex
+                ycur = yindex
+                while(xcur>=0&&ycur<15&&this.done[xcur][ycur]==number){
+                    xcur--
+                    ycur++
+                    count++
+                    if(count==5) {
+                        return this.color
+                    }
+                }
+                //右上斜
+                if(count!=0){
+                    xcur = xindex + 1
+                    ycur = yindex - 1
+                } else {
+                    xcur = xindex
+                    ycur = yindex
+                }
+                while(ycur>=0&&xcur<15&&this.done[xcur][ycur]==number){
+                    xcur++
+                    ycur--
+                    count++
+                    if(count==5) {
+                        return this.color
+                    }
+                }
+                return false
+            }
+            unDo() {
+                console.log(this.prex,this.prey)
+                this.done[this.prex][this.prey]=0
+                console.log(this.done)
+                // 根据this.done重绘棋盘
+                this.context.clearRect(0, 0, 800, 800);
+                this.initGezi()
+                for(let i=0;i<this.done.length;i++) {
+                    for(let j=0;j<this.done[0].length;j++){
+                        if(this.done[i][j]==0){
+                            continue
+                        }
+                        //console.log(2)
+                        let color = this.done[i][j] == 1 ? 'white' : 'black'
+                        this.draw((j+1)*50,(i+1)*50,color)
+                    }
+                }
+            }
+            reSet() {
+                this.context.clearRect(0, 0, 800, 800);
+                this.initGezi()
+                this.initDone()
+            }
+        }
+        let p = document.createElement('p3')
+        let header = document.querySelector('.header')
+        let input = document.querySelector('input')
+        let img = document.querySelector('img')
+        p.classList.add('title')
+        p.innerText = '欢迎进入游戏!'
+        header.append(p)
+        // 1.创建画布
+        let canvas = document.createElement('canvas')
+        canvas.width = 800
+        canvas.height = 800
+        document.body.append(canvas)
+        let div = document.createElement('div')
+        document.body.append(div)
+
+        let btnstart = document.createElement('button')
+        btnstart.classList.add('start')
+        btnstart.innerText = '开始游戏'
+        div.append(btnstart)
+        let btnreset = document.createElement('button')
+        btnreset.classList.add('reset')
+        btnreset.innerText = '重置棋盘'
+        div.append(btnreset)
+        let btnundo = document.createElement('button')
+        btnundo.classList.add('undo')
+        btnundo.innerText = '悔棋'
+        div.append(btnundo)
+        // 2.获取context
+        let context = canvas.getContext('2d')
+        // 3.画棋盘
+        // 3.1 棋盘是由多条横线和纵线组合而成
+    
+        // 4.当点击在棋盘里面时，绘制一个棋子
+        let point
+        let color_flag = true
+        btnstart.addEventListener('click',()=>{
+            point = new createPoint(context)
+            point.initGezi()
+            point.initDone()
+            btnstart.disabled = 'true'
+            p.innerText = '游戏开始!'
+            img.classList.add('hidden')
+        })
+        canvas.addEventListener('click', (e)=>{
+            // 
+            // console.log(e,color_flag)
+            let { offsetX, offsetY} = e
+            let x = offsetX, y = offsetY
+            if(x<40||x>750||y<40||y>750){
+                alert('点击区域无效，重新点击')
+                return
+            }
+            // 点到格子中间，要判断属于哪个角落
+            let positionx =  Math.round(x/50) * 50
+            let positiony =  Math.round(y/50) * 50
+
+            point.x = positionx;
+            point.y = positiony;
+            point.color = color_flag;
+  
+            let downSuccess =  point.paintPoint()
+            if(downSuccess==true) {
+                color_flag = !color_flag
+                let result =  point.isSuccess()
+                // console.log('result',result)
+                const t = color_flag == true ? '白方' : '黑方'
+                p.innerText = `请${t}棋手落子`
+                if(result!=false){
+                    let text = result == 'white' ? '白方' : '黑方'
+                    let str = `恭喜${text}棋手获胜`
+                   // p.innerText = `恭喜${text}棋子获胜`
+                    setTimeout(() => {
+                        alert(str);
+                    }, 50);
+                    setTimeout(() => {
+                        reset ();
+                    }, 80);
+                }
+            } 
+        })
+        btnundo.addEventListener('click',()=>{
+            point.unDo()
+            color_flag = !color_flag
+            const t = color_flag == true ? '白方' : '黑方'
+            p.innerText = `请${t}棋手落子`
+        })
+        btnreset.addEventListener('click',reset)
+        function  reset () {
+            point.reSet()
+            p.innerText = '游戏开始!'
+        }
+        // console.log(input.value)
+        input.addEventListener('input',(e)=>{
+            // console.log(e.target.value)
+            canvas.style.backgroundColor = e.target.value
+        })
+    </script>
+</body>
+</html>
