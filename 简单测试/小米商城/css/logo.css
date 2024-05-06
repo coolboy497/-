@@ -1,0 +1,137 @@
+.logoContent {
+    position: relative;
+}
+.logo {
+    height: 100px;
+}
+.logo .logoLogo h1 {
+    font-size: 0;
+}
+.logo .logoLogo {
+    margin-top: 20px;
+    width: 56px;
+    height: 56px;
+    background:url('../img/logo.png') no-repeat center/100% 100%;
+}
+.logo .logo-nav {
+    margin-top: 35px;
+    margin-left: 160px;
+}
+.logo .logo-nav a {
+    height: 100px;
+    color: #333;
+    font-size: 18px;
+    padding: 0 10px;
+}
+.logo .logo-search {
+    position: relative;
+    width: 295px;
+    height: 50px;
+    line-height: 50px;
+    margin-top: 25px;
+    border:1px solid #e0e0e0;
+}
+.logo .logo-search:hover {
+    border-color: #b0b0b0;
+}
+.logo .logo-search:hover .icon-sousuo {
+    border-color: #b0b0b0;
+}
+.logo .logo-search input{
+    vertical-align: top;
+    padding-left:8px;
+    width: 295px;
+    height: 48px;
+}
+.logo  .icon-sousuo {
+    position: absolute;
+    right: -1px;
+    top: 0;
+    width: 51px;
+    height: 49px;
+    font-size: 20px;
+    text-align: center;
+    line-height: 50px;
+    border-left: 1px solid #e0e0e0;
+    border-right: 1px solid #e0e0e0;
+    cursor: pointer;
+}
+.logo .logo-search .icon-sousuo:hover {
+    background-color: #ff6700;
+    color: #fff;
+}
+.logo .logo-search .searchlist {
+    display: none;
+    position: absolute;
+    z-index: 50;
+    top: 49px;
+    left: -1px;
+    width: 245px;
+    height: 242px;
+    border:1px solid #ff6700;
+    border-top: none;
+    background-color: #fff;
+}
+.logo .logo-search .searchlist li {
+    height: 30px;
+    line-height: 30px;
+    padding:0 12px;
+    font-size: 12px;
+}
+.logo .logo-search .searchlist li:hover {
+    color: #eee;
+}
+.logo .logo-search:has(input:focus) {
+    border-color: #ff6700;
+}
+.logo .logo-search input:focus~.icon-sousuo{
+    border-color: #ff6700;
+}
+.logo .logo-search input:focus+.searchlist {
+    display: block;
+}
+.logo .logo-nav a:hover {
+    color: #ff6700;
+}
+.logo-nav .menu {
+    display: none;
+    position: absolute;
+    border-top: 1px solid #ccc;
+    width: 100%;
+    top: 100px;
+    left: 0;
+    z-index: 10;
+    background-color: #fff;
+    padding-top: 30px;
+    height: 230px;
+}
+/* .logo-nav .menu .menu-item:first-child {
+    margin-left: 310px;
+} */
+.logo-nav .menu .menu-item {
+    text-align: center;
+    margin-right:0 20px;
+}
+.logo-nav .menu .menu-item:hover>.name{
+    color: #333;
+}
+.logo-nav .menu .menu-item .img {
+    margin-bottom: 20px;
+    border-right: 1px solid #ccc;
+}
+.logo-nav .menu .menu-item:last-child .img {
+    border-right: none;
+}
+.logo-nav .menu .menu-item span {
+    display: block;
+    font-size: 12px;
+}
+.logo-nav .menu .menu-item .name {
+    margin-bottom: 10px;
+}
+.logo-nav .menu .menu-item .price {
+    color:#ff6700;
+}
+.logo .logo-nav:hover .menu {
+    display: block;
+}

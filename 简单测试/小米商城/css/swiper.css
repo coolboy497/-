@@ -1,0 +1,163 @@
+.swiper {
+    position: relative;
+    margin-bottom: 25px;
+    /* overflow: hidden; */
+}
+.swiper .left {
+    position: absolute;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 234px;
+    height: 460px;
+    color: #fff;
+    font-size: 14px;
+    background-color: #a09c9b;
+}
+.swiper .left ul {
+    position: relative;
+    width: 234px;
+    padding: 20px 0;
+    /* padding-left: 30px; */
+}
+.swiper .left ul li {
+    height: 42px;
+    padding: 0 20px 0 30px;
+    line-height: 42px;
+}
+.swiper .left ul li:hover {
+    cursor: pointer;
+    background-color: #ff6700;
+}.swiper .left ul li:hover .detail {
+    display: block;
+}
+.swiper .left .detail {
+    display: none;
+    position: absolute;
+    left: 0;
+    top: 0;
+    margin-left: 234px;
+    text-align: center;
+    width: 992px;
+    height: 460px;
+    padding: 18px 15px;
+    background-color: #fff;
+}
+.swiper .left .detail .detail-item img{
+    vertical-align: middle;
+    margin-right: 8px;
+}
+.swiper .left .detail .detail-item {
+    width: 25%;
+    color: #333;
+    padding: 4px 0;
+    margin-bottom: 25px;
+}
+.swiper .left .detail .detail-item a:hover {
+    color: #ff6700;
+}
+.swiper .right {
+    position: relative;
+    width: 1226px;
+    height: 460px;
+    /* background-color: pink; */
+    overflow: hidden;
+}
+.swiper .right .img {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 600%;
+}
+.swiper .right .sp img {
+    width: 1226px;
+    height: 460px;
+}
+.swiper .right .anchor {
+    position: absolute;
+    display: block;
+    width: 40px;
+    height: 68px;
+}
+.swiper .right .front {
+    left: 234px;
+    top: 196px;
+}
+.swiper .right .next {
+    left: 1186px;
+    top: 196px;
+}
+.swiper .right .anchor:hover {
+    background-color: rgb(51, 51, 51,.7);
+}
+.swiper .right .anchor::before {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    border: 2px solid #e0e0e0;
+    transform: rotateZ(45deg);
+}
+.swiper .right .front::before{
+    left: 14px;
+    top: 24px;
+    border-top: none;
+    border-right: none;
+}
+.swiper .right .next::before{
+    right: 14px;
+    top: 24px;
+    border-bottom: none;
+    border-left: none;
+}
+.swiper .right .circle {
+    position: absolute;
+    bottom: 20px;
+    left: 1086px;
+}
+.swiper .right .circle .selected {
+    background-color: #fff;
+}
+.swiper .right .circle li{
+    background-color: #8e8b89;
+    margin-left: 10px;
+    width: 10px;
+    height: 10px;
+    border-radius: 5px;
+    border: 2px solid #b0afae;
+    cursor: pointer;
+}
+.swiper .down {
+    margin-top: 10px;
+}
+.swiper .down .down-left {
+    padding: 2px;
+    width: 234px;
+    height: 170px;
+    background-color: #5f5750;
+}
+.swiper .down .down-left .icon {
+    display: block;
+    margin-bottom: 2px;
+    padding: 15px 10px;
+    width: 33%;
+    color: #fff;
+    opacity: 0.7;
+    height: 82px;
+    font-size: 11px;
+    text-align: center;
+}
+.swiper .down .down-left .icon:hover {
+    opacity: 1;
+}
+.swiper .down .down-left i {
+    display: block;
+    font-size: 24px;
+}
+.swiper .down .img {
+    margin-left: 14px;
+}
+.swiper .down .img img{
+    width: 316px;
+    height: 170px;
+}

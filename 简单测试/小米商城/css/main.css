@@ -1,0 +1,178 @@
+.main {
+    background-color: #f5f5f5;
+    padding-top: 20px;
+    font-size: 14px;
+}
+.main .container .advertise {
+    margin-bottom: 30px;
+}
+.main .container .advertise img{
+    display: block;
+    width: 1226px;
+    height: 120px;
+}
+.main .container .main-item {
+    margin-bottom: 20px;
+}
+.main-item .main-item-title {
+    margin-bottom: 8px;
+}
+.main-item .main-item-title h2{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 22px;
+    font-weight: normal;
+    color: #333;
+}
+.main-item .main-item-title a {
+    margin-top: 10px;
+}
+.main-item .main-item-title a i {
+    margin-left: 5px;
+    background-color: #b0b0b0;
+    color: #fff;
+    padding: 2px;
+    font-size: 14px;
+    border-radius: 10px;
+}
+.main-item .main-item-title a:hover {
+    color: #ff6700;
+}
+.main-item .main-item-title a:hover>i{
+    background-color: #ff6700;
+}
+.main-item .main-item-left:hover {
+    box-shadow: 0 15px 30px rgba(0, 0, 0, .1);
+    transform: translate3d(0,-2px,0);
+}
+.main-item .main-item-left img{
+    cursor: pointer;
+    width: 234px;
+}
+.main-item .main-item-right .item {
+    width: 234px;
+    height: 300px;
+    padding: 20px 8px;
+    text-align: center;
+    background-color: #fff;
+    /* background-color: pink; */
+    margin-left: 14px;
+    margin-bottom: 14px;
+    transition: all .2s linear;
+}
+.main-item .main-item-right .lastitem {
+    width: 234px;
+    height: 300px;
+    padding: 20px 8px;
+    text-align: center;
+    background-color: #fff;
+    /* background-color: pink; */
+    margin-left: 14px;
+    margin-bottom: 14px;
+    /* transition: all .2s linear; */
+}
+.main-item .main-item-right .item:hover {
+    box-shadow: 0 15px 30px rgba(0, 0, 0, .1);
+    transform: translate3d(0,-2px,0);
+}
+.main-item .main-item-right .item .name {
+    color: #333;
+    font-size: 14px;
+    margin-bottom: 2px;
+}
+.main-item .main-item-right .item .des {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    color: #b0b0b0;
+    font-size: 12px;
+    margin-bottom: 10px;
+}
+.main-item .main-item-right .item .price {
+    color: #ff6700;
+}
+.main-item .main-item-right .item .price del {
+    padding-left: 2px;
+    color: #b0b0b0;
+}
+.main-item .main-item-right .item:hover {
+    cursor: pointer;
+}
+.main .container .Aiwear .main-item-right {
+    display: none;
+}
+.main .container .Aiwear .main-item-title a {
+    font-size: 16px;
+    margin-left: 30px;
+}
+.main .container .Aiwear .main-item-title a.selected {
+    color: #ff6700;
+    border-bottom: 3px solid #ff6700;
+}
+.main .container .Aiwear .main-item-right .lastitem {
+    padding: 0;
+    background-color: #f5f5f5;
+}
+.main .container .Aiwear .main-item-right .lastitem .common {
+    padding: 40px 0px 0px 20px;
+    background-color: #fff;
+    text-align: center;
+    height: 143px;
+    margin-bottom: 10px;
+    cursor: pointer;
+}
+.main .container .Aiwear .main-item-right .lastitem .top .des p:first-child {
+    color: #333;
+    font-size: 14px;
+    width: 94px;
+    text-align: left;
+    white-space: normal;
+    margin-bottom: 4px;
+}
+.main .container .Aiwear .main-item-right .lastitem .top .des p:last-child {
+    color: #ff6700;
+    font-size: 14px;
+    text-align: left;
+    width: 94px;
+    white-space: normal;
+}
+
+.main .container .Aiwear .main-item-right .lastitem .top .img img{
+    width: 100px;
+    margin-top: -18px;
+}
+.main .container .Aiwear .main-item-right .lastitem .down {
+    height: 148px;
+}
+.main .container .Aiwear .main-item-right .lastitem .down .des p:first-child {
+    color: #333;
+    font-size: 18px;
+    width: 94px;
+    text-align: left;
+    white-space: normal;
+    margin-bottom: 4px;
+}
+.main .container .Aiwear .main-item-right .lastitem .down .des p:last-child {
+    color: #757575;
+    font-size: 12px;
+    text-align: left;
+    width: 94px;
+    white-space: normal;
+}
+.main .container .Aiwear .main-item-right .lastitem .down .icon {
+    margin-top: -9px;
+}
+.main .container .Aiwear .main-item-right .lastitem .down .iconfont {
+    color: #ff6700;
+    font-size: 48px;
+}
+.main .container .Aiwear .selected {
+    display: block;
+}
+.main .container .Aiwear .main-item-right .lastitem .down:hover {
+    box-shadow: 0 15px 30px rgba(0, 0, 0, .1);
+    transform: translate3d(0,-2px,0);
+}
+.main .container .Aiwear .main-item-right .lastitem .top:hover {
+    box-shadow: 0 15px 30px rgba(0, 0, 0, .1);
+    transform: translate3d(0,-2px,0);
+}
